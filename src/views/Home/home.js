@@ -13,7 +13,8 @@ function Home(props) {
       <span className="millgrove-title">
         <MILLGROVE_LOGO className="millgrove-logo" />
       </span>
-      {/* <MILLGROVE_TREE className={"millgrove-tree"} /> */}
+      <MILLGROVE_TREE className={"millgrove-tree"} />
+      <MILLGROVE_TREE className={"millgrove-tree-2"} />
       <div className="millgrove-home-loading">
         <span>LOADING</span>
       </div>

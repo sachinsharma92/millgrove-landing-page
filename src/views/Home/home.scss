@@ -2,6 +2,8 @@
 $millgrove-font-size: 86px;
 $delays: 1 0s, 2 0.1s, 3 0.21s, 4 0.32s, 5 0.43s, 6 0.54s, 7 0.65s, 8 0.76s,
   9 0.9s;
+
+// Animations
 @mixin ladder-up($name, $translate) {
   @keyframes #{$name} {
     0% {
@@ -12,6 +14,25 @@ $delays: 1 0s, 2 0.1s, 3 0.21s, 4 0.32s, 5 0.43s, 6 0.54s, 7 0.65s, 8 0.76s,
     }
   }
 }
+
+@mixin slide-in(
+  $name,
+  $translateX,
+  $translateY,
+  $translateToX,
+  $translateToY,
+  $rotateZ
+) {
+  @keyframes #{$name} {
+    0% {
+      transform: rotateZ($rotateZ) translate($translateX, $translateY);
+    }
+    100% {
+      transform: rotateZ($rotateZ) translate($translateToX, $translateToY);
+    }
+  }
+}
+
 .millgrove-home {
   box-sizing: border-box;
   position: relative;
@@ -19,7 +40,8 @@ $delays: 1 0s, 2 0.1s, 3 0.21s, 4 0.32s, 5 0.43s, 6 0.54s, 7 0.65s, 8 0.76s,
   height: 100vh;
   background-color: rgba(68, 88, 64, 1);
   color: rgba(244, 241, 236, 1);
-  padding-top: calc((100vh - 2 * $millgrove-font-size) / 2);
+  padding-top: calc((100vh - 1.2 * $millgrove-font-size) / 2);
+  overflow: hidden;
   .millgrove-title {
     display: inline-block;
     height: 100px;
@@ -40,6 +62,24 @@ $delays: 1 0s, 2 0.1s, 3 0.21s, 4 0.32s, 5 0.43s, 6 0.54s, 7 0.65s, 8 0.76s,
       }
     }
   }
+
+  .millgrove-tree {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-700px, -700px);
+    @include slide-in(slide-tree-one, -700px, -700px, -350px, -250px, 0deg);
+    animation: 5s slide-tree-one ease-out forwards;
+  }
+  .millgrove-tree-2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: rotateZ(180deg) translate(700px, 700px);
+    @include slide-in(slide-tree-two, -700px, -700px, -350px, -250px, 180deg);
+    animation: 5s slide-tree-two ease-out forwards;
+  }
+
   .millgrove-home-loading {
     display: flex;
     position: absolute;
