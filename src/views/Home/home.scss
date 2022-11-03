@@ -1,7 +1,7 @@
+@use "sass:math";
+
 // Variables
 $millgrove-font-size: 86px;
-$delays: 1 0s, 2 0.1s, 3 0.21s, 4 0.32s, 5 0.43s, 6 0.54s, 7 0.65s, 8 0.76s,
-  9 0.9s;
 
 // Animations
 @mixin ladder-up($name, $translate) {
@@ -33,6 +33,15 @@ $delays: 1 0s, 2 0.1s, 3 0.21s, 4 0.32s, 5 0.43s, 6 0.54s, 7 0.65s, 8 0.76s,
   }
 }
 
+@keyframes elongate {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 .millgrove-home {
   box-sizing: border-box;
   position: relative;
@@ -51,12 +60,12 @@ $delays: 1 0s, 2 0.1s, 3 0.21s, 4 0.32s, 5 0.43s, 6 0.54s, 7 0.65s, 8 0.76s,
       > path {
         transform: translateY(110px);
         @include ladder-up(logo-anim, 110px);
-        animation: 1s logo-anim ease-in-out forwards;
+        animation: 1s logo-anim ease-out forwards;
       }
-      @each $num, $delay in $delays {
+      @for $num from 1 through 9 {
         > path {
           &:nth-of-type(#{$num}) {
-            animation-delay: $delay;
+            animation-delay: math.log($num, 10) + s;
           }
         }
       }
@@ -108,23 +117,5 @@ $delays: 1 0s, 2 0.1s, 3 0.21s, 4 0.32s, 5 0.43s, 6 0.54s, 7 0.65s, 8 0.76s,
       height: 100%;
       animation: 5s elongate ease-out forwards;
     }
-  }
-}
-
-// @keyframes ladder-up {
-//   0% {
-//     transform: translateY(110px);
-//   }
-//   100% {
-//     transform: translateY(0px);
-//   }
-// }
-
-@keyframes elongate {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
   }
 }
