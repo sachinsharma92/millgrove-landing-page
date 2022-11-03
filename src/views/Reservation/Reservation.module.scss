@@ -1,4 +1,5 @@
 @import '../../sass/utils/_variables.scss';
+@import '../../sass/utils/_mixins.scss';
 
 
 .wrapper{
@@ -6,7 +7,7 @@
     padding-top: 4rem;
     padding-bottom: 7.5rem;
     margin: auto;
-    div{
+    > div{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -17,9 +18,10 @@
 
 .reservationCard{
     background-color: white;
-    width: 44rem;
+    width: 62.5vw;
     position: relative;
-    padding:1rem;
+    padding: 1rem;
+    overflow: hidden;
 }
 .halfBorder{
     height: 100%;
@@ -28,14 +30,33 @@
 
 .treePrint{
     position: absolute;
-    top: -40px;
+    top: -85px;
     right: 0;
-    width: 20rem;
-    height:20rem
+    width: 30rem;
+    height:34rem
 }
 
 .verticalDash{
     height: 6rem;
     width: 1px;
     background-color: $grey-30;
+}
+
+.formWrapper{
+    position: absolute;
+    top: 4.5rem;
+    left: 5rem;
+}
+.formHeadingWrapper{
+    width: 24rem; 
+}
+.formHeading{
+    @include fontStyles($grey-100,"Editorial New",200,5rem);
+    line-height: 7rem;
+    text-align: left;
+    text-transform: uppercase;
+    span{
+       @include fontStyles($brown-50,"Notera",400,4.5rem);
+       text-transform: lowercase;
+    }
 }
