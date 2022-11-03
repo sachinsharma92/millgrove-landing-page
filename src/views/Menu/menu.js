@@ -32,11 +32,9 @@ function Menu(props) {
         <div>STORY</div>
       </div>
       <div className="millgrove-menu-images-div">
-        <div className="millgrove-menu-line"></div>
         <div className="millgrove-menu-image">
           <img src={tempImage} alt="temp-img" />
         </div>
-        <div className="millgrove-menu-line"></div>
       </div>
       <div className="millgrove-menu-footer">
         <span>Privacy policy</span>
