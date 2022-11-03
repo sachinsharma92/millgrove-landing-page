@@ -10,6 +10,7 @@ import Reservation from "views/Reservation";
 import Firstfold from "views/FirstFold/firstfold";
 import Secondfold from "views/SecondFold/secondfold";
 import CookiesPopup from "components/CookiesPopup/cookiesPopup";
+import Footer from "views/Footer";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -31,6 +32,7 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <Reservation/>
+      <Footer/>
     </div>
   );
 }

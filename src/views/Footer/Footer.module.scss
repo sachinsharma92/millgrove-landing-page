@@ -1,0 +1,50 @@
+@import '../../sass/utils/_variables.scss';
+@import '../../sass/utils/_mixins.scss';
+
+.footerWrapper{
+    background-color: $green-100;
+    padding: 5rem 1.75rem 1.75rem 1.75rem;
+    position: relative;
+    h4{
+        @include fontStyles($grey-20,"Editorial New",200,7rem);
+        position: relative;
+        width: max-content;
+        margin-left: 14rem;
+        margin-bottom: 10rem;
+        span{
+            text-transform: uppercase;
+        }
+    }
+    sup{
+        @include fontStyles($grey-20,"Notera",400,4);
+        position: absolute;
+        top: -2rem;
+        left: -8rem;
+    }
+}
+
+.discover{
+    position: absolute;
+    top: 20%;
+    left: 50vw;
+}
+
+.crookedLine{
+    margin-bottom: 4rem;
+}
+.brandName{
+margin-bottom: 5.25rem;
+}
+
+.footerLinksWrapper{
+    @include flex(space-between,center);
+    @include fontStyles($grey-10,"Manrope",400,1.125rem)
+}
+.spacedLinks{
+    @include flex(center,center);
+    gap: 0.625rem;
+}
+a{
+    text-decoration: none;
+    color: $grey-10;
+}
