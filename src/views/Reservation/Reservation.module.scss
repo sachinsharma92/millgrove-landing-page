@@ -7,6 +7,7 @@
     padding-top: 4rem;
     padding-bottom: 7.5rem;
     margin: auto;
+    text-align: left;
     > div{
         display: flex;
         flex-direction: column;
@@ -19,6 +20,7 @@
 .reservationCard{
     background-color: white;
     width: 62.5vw;
+    min-height: min-content;
     position: relative;
     padding: 1rem;
     overflow: hidden;
@@ -43,20 +45,35 @@
 }
 
 .formWrapper{
+    width: 45%;
     position: absolute;
     top: 4.5rem;
     left: 5rem;
 }
 .formHeadingWrapper{
-    width: 24rem; 
+    width: 25rem;
+    margin-bottom: 1rem; 
 }
 .formHeading{
     @include fontStyles($grey-100,"Editorial New",200,5rem);
     line-height: 7rem;
     text-align: left;
     text-transform: uppercase;
+    letter-spacing: 2px;
     span{
        @include fontStyles($brown-50,"Notera",400,4.5rem);
        text-transform: lowercase;
     }
+}
+.formInputWrapper{
+    margin-bottom: 2.5rem;
+}
+.formInput{
+    border: none;
+    border-bottom: 1px solid $brown-40;
+    width: 93%;
+    outline: 1px solid transparent;
+    padding: 0.5rem 0;
+    letter-spacing: 0.5px;
+    @include fontStyles($brown-80,"Manrope",400,1.125rem)
 }
