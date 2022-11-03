@@ -1,0 +1,131 @@
+.mg-first-fold {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: visible;
+  .mg-first-fold-header {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1728px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.9% 2.6%;
+    .mg-first-fold-menu {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      border: 1px solid #dacfba;
+      border-radius: 150px;
+      padding: 10px 21px;
+      font-family: "Manrope";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #dacfba;
+      > svg {
+        margin-right: 10px;
+      }
+    }
+    .mg-first-fold-login {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      border: 1px solid #dacfba;
+      border-radius: 150px;
+      padding: 10px 50px;
+      font-family: "Manrope";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #dacfba;
+    }
+  }
+  .mg-first-fold-text {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    padding-top: calc((100vh - 1.2 * 350px) / 2);
+    .mg-first-fold-heading {
+      font-family: "Editorial New";
+      font-style: normal;
+      font-weight: 200;
+      font-size: 6.875rem;
+      text-align: center;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: #f9f6ed;
+    }
+    .mg-first-fold-subheading {
+      margin: 0 auto;
+      font-family: "Manrope";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1em;
+      text-align: center;
+      color: #f9f6ed;
+      width: 56ch;
+      position: relative;
+      .mg-play-reel-btn {
+        position: absolute;
+        right: -300px;
+        top: 0;
+        cursor: pointer;
+      }
+    }
+  }
+  .mg-discover-more {
+    box-sizing: border-box;
+    width: 600px;
+    height: 260px;
+    background: #404040;
+    z-index: 1;
+    margin: 0 auto;
+    position: absolute;
+    bottom: -120px;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #f1efe5;
+    > svg {
+      margin-bottom: 20px;
+    }
+  }
+
+  .mg-bg-video {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    > video {
+      height: 100%;
+    }
+  }
+}
