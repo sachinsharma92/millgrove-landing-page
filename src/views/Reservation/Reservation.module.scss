@@ -22,12 +22,15 @@
     width: 62.5vw;
     min-height: min-content;
     position: relative;
-    padding: 1rem;
+    padding: 4.5rem;
     overflow: hidden;
 }
 .halfBorder{
-    height: 100%;
-    width: 100%;
+    height: 120%;
+    width:95%;
+    position: absolute;
+    top: -2rem;
+    left:1.25rem;
 }
 
 .treePrint{
@@ -46,9 +49,10 @@
 
 .formWrapper{
     width: 45%;
-    position: absolute;
-    top: 4.5rem;
-    left: 5rem;
+    // position: absolute;
+    // top: 4.5rem;
+    // left: 5rem;
+    z-index: 2
 }
 .formHeadingWrapper{
     width: 25rem;
@@ -76,4 +80,17 @@
     padding: 0.5rem 0;
     letter-spacing: 0.5px;
     @include fontStyles($brown-80,"Manrope",400,1.125rem)
+}
+
+.agreementCheck{
+    @include flex(center,flex-start);
+    gap: 2rem;
+    .round{
+        label{
+            top: 0.25rem;
+        }
+    }
+    p{
+        @include fontStyles($brown-80,'Manrope',400,1.125rem)
+    }
 }

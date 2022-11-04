@@ -3,9 +3,7 @@ import Checkbox from 'components/Checkbox/Checkbox'
 import styles from './Reservation.module.scss'
 
 const Input = ({ placeholder, type = 'text' }) => {
-    return <div>
-        <input type={type} className={styles.formInput} placeholder={placeholder} />
-    </div>
+    return <input type={type} className={styles.formInput} placeholder={placeholder} />
 }
 const ReservationForm = () => {
     return (
@@ -22,6 +20,10 @@ const ReservationForm = () => {
                 </div>
                 <div className={styles.formInputWrapper}>
                     <Input placeholder={'Email'} type='email' />
+                </div>
+                <div className={styles.agreementCheck}>
+                    <Checkbox />
+                    <p>I have read the privacy policy and happily agree to the same.</p>
                 </div>
             </form>
         </div>
