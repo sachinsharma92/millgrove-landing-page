@@ -1,6 +1,11 @@
-import React from 'react'
-import styles from './ThreeDStructure.module.scss'
-const ThreeDStructure = () => {
+import React from "react"
+import styles from "./ThreeDView.module.scss"
+import threeDView from "../../assets/images/threeD-view.png"
+import Button from "components/Button"
+import { LeftArrow, RightArrow } from "assets/icons/icons"
+
+
+const ThreeDView = () => {
   return (
     <div className={styles.wrapper}>
         <div className={styles.textWrapper}>
@@ -17,12 +22,12 @@ const ThreeDStructure = () => {
                 </p>
             </div>
         </div>
-        <div className={styles.threeDStructure}>
-
+        <div className={styles.threeDView}>
+            <img src={threeDView} alt="Three-D view of millgrove properties site" width="100%"/>
+            <Button customStyles={{color:"#F9F6ED",border:"1.5px solid #F9F6ED"}} type={"secondary"} text="INTERACT WITH MAP" leftIcon={<LeftArrow color="#F9F6ED"/>} rightIcon={<RightArrow color="#F9F6ED"/>}/>
         </div>
-
     </div>
   )
 }
 
-export default ThreeDStructure
+export default ThreeDView

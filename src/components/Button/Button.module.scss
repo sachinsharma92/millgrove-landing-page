@@ -1,0 +1,23 @@
+@import "../../sass/utils/_variables.scss";
+@import "../../sass/utils/_mixins.scss";
+
+.btn{
+    padding: 0.675rem 0.9rem;
+    text-align: center;
+    @include flex(center,center);
+    gap: 0.5rem;
+    border-radius:3rem;
+}
+.rounded{
+    border-radius: 50%;
+}
+.primary{
+    @include fontStyles($brown-80,"Manrope",400,1rem);
+    background-color:$cream-50 ;
+    border: 2px solid $cream-50;
+}
+.secondary{
+    @include fontStyles($cream-100,"Manrope",400,1rem);
+    background-color:transparent ;
+    border: 2px solid $cream-100;
+}

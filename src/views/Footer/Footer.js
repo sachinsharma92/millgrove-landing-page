@@ -11,7 +11,7 @@ const Footer = () => {
            <Discover className={styles.discover}/>
            {/* <div className={styles.houseWrapper}>
            </div> */}
-            <img src={rectangleHouse} alt='House' width='628' height='430'/>
+            <img className={styles.houseImg} src={rectangleHouse} alt='House' width='628' height='430'/>
            <CROOKED_LINE className={styles.crookedLine}/>
            <BRANDNAME_HALF_SOLID_TEXT className={styles.brandName}/>
            <div className={styles.footerLinksWrapper}>

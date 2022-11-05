@@ -11,7 +11,7 @@ import Firstfold from "views/FirstFold/firstfold";
 import Secondfold from "views/SecondFold/secondfold";
 import CookiesPopup from "components/CookiesPopup/cookiesPopup";
 import Footer from "views/Footer";
-import ThreeDStructure from "views/ThreeDStructure";
+import ThreeDView from "views/ThreeDView";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -32,7 +32,7 @@ function App(props) {
       <Firstfold openMenu={() => setMenu(true)} />
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
-      <ThreeDStructure/>
+      <ThreeDView/>
       <Reservation/>
       <Footer/>
     </div>
