@@ -6,7 +6,7 @@
     padding: 5rem 1.75rem 1.75rem 1.75rem;
     position: relative;
     h4{
-        @include fontStyles($grey-20,"Editorial New",200,7rem);
+        @include fontStyles($grey-20,"Editorial New",200,7vw);
         position: relative;
         width: max-content;
         margin-left: 14rem;
@@ -16,10 +16,10 @@
         }
     }
     sup{
-        @include fontStyles($grey-20,"Notera",400,4);
+        @include fontStyles($grey-20,"Notera",400,5.5vw);
         position: absolute;
-        top: -2rem;
-        left: -8rem;
+        top: -2vw;
+        left: -7.8vw;
     }
 }
 
@@ -27,6 +27,22 @@
     position: absolute;
     top: 20%;
     left: 50vw;
+    height: 6.5vw;
+    width: 6.5vw;
+}
+.houseWrapper{
+    position:absolute;
+    right: 10%;
+    top: -20%;
+    
+}
+img{
+    position:absolute;
+    right: 8vw;
+    top: -3vw;
+    width: 30%;
+    max-width: 100%;
+    height: auto;
 }
 
 .crookedLine{
