@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Button.module.scss'
 
-const Button = ({leftIcon,rightIcon,text,customStyles,type,isRounded}) => {
+const Button = ({classname,leftIcon,rightIcon,text,customStyles,type,isRounded}) => {
 
     const getClassname=(btnType)=>{
         switch(btnType){
@@ -18,7 +18,7 @@ const Button = ({leftIcon,rightIcon,text,customStyles,type,isRounded}) => {
     }
 
   return (
-    <button className={`${getClassname(type)} ${styles.btn} ${isRounded && styles.rounded}`} style={customStyles && {...customStyles}}>
+    <button className={`${classname} ${getClassname(type)} ${styles.btn} ${isRounded && styles.rounded}`} style={customStyles && {...customStyles}}>
         {leftIcon && <span className={styles.btnIcon}>{leftIcon}</span>}
         {text && <span className={styles.btnText}>{text}</span>}
         {rightIcon && <span className={styles.btnIcon}>{rightIcon}</span>}

@@ -5,6 +5,7 @@ import Button from "components/Button"
 import { LeftArrow, RightArrow } from "assets/icons/icons"
 
 
+const customStyles={color:"#F9F6ED",border:"1.5px solid #F9F6ED"}
 const ThreeDView = () => {
   return (
     <div className={styles.wrapper}>
@@ -24,7 +25,7 @@ const ThreeDView = () => {
         </div>
         <div className={styles.threeDView}>
             <img src={threeDView} alt="Three-D view of millgrove properties site" width="100%"/>
-            <Button customStyles={{color:"#F9F6ED",border:"1.5px solid #F9F6ED"}} type={"secondary"} text="INTERACT WITH MAP" leftIcon={<LeftArrow color="#F9F6ED"/>} rightIcon={<RightArrow color="#F9F6ED"/>}/>
+            <Button classname={styles.interactBtn} customStyles={customStyles} type={"secondary"} text="INTERACT WITH MAP" leftIcon={<LeftArrow color="#F9F6ED"/>} rightIcon={<RightArrow color="#F9F6ED"/>}/>
         </div>
     </div>
   )

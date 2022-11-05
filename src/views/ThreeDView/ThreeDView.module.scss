@@ -43,3 +43,14 @@
     @include fontStyles($brown-50,"Notera",400,4vw)
     }
 }
+
+.threeDView{
+    position: relative;
+}
+.interactBtn{
+    position:absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
