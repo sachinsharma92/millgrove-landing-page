@@ -1,0 +1,45 @@
+@import '../../sass/utils/_variables.scss';
+@import '../../sass/utils/_mixins.scss';
+
+.wrapper{
+    background-color: $green-100 ;
+    padding-top: 8.5rem;
+}
+.textWrapper{
+    margin: auto;
+    width: 80%;
+}
+.heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.description{
+    @include fontStyles($grey-60,"Manrope",400,1rem);
+    position: relative;
+    bottom: 4rem;
+    width: 37%;
+    text-align: left;
+}
+.first{
+    align-self: flex-start;
+    text-transform: uppercase;
+    @include fontStyles($grey-40,"Editorial New",200,7rem)
+}
+.second{
+    align-self: center;
+    @include fontStyles($brown-50,"Notera",400,4rem)
+}
+.third{
+    @extend .first;
+    align-self: flex-end;
+    width: max-content;
+}
+@media screen and (min-width:1100px) and (max-width:1700px) {
+   .first,.third{
+    @include fontStyles($grey-40,"Editorial New",200,6vw)
+    }
+    .second{
+    @include fontStyles($brown-50,"Notera",400,4vw)
+    }
+}

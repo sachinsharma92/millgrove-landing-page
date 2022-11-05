@@ -24,6 +24,15 @@
     position: relative;
     padding: 4.5rem;
     overflow: hidden;
+    >.verticalDash{
+        height: 12rem;
+        width: 4px;
+        color: red;
+        // color: $brown-80-10;
+        position: absolute;
+        right: 40%;
+        bottom:20%;
+    }
 }
 .halfBorder{
     height: 120%;
@@ -35,7 +44,7 @@
 
 .treePrint{
     position: absolute;
-    top: -85px;
+    top: -5.375rem;
     right: 0;
     width: 30rem;
     height:34rem
@@ -93,4 +102,10 @@
     p{
         @include fontStyles($brown-80,'Manrope',400,1.125rem)
     }
+}
+
+.reserveVisit{
+    position:absolute;
+    bottom: 20%;
+    right: 15%;
 }
