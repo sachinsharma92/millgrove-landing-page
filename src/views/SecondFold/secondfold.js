@@ -6,7 +6,7 @@ import "./secondfold.scss";
 // Assets
 import SECOND_FOLD_IMAGE from "assets/images/second-fold-img.png";
 import {
-  MILLGROVE_WHITE_LOGO,
+  MILLGROVE_LOGO,
   SIMPLE_TREE,
   SIMPLE_TREE_RIGHT,
   WELCOME_TO_PLANT,
@@ -38,7 +38,7 @@ function Secondfold(props) {
       <div className="mg-welcome-to">
         <WELCOME_TO_PLANT className={"welcome-to-plant"} />
         <div className="mg-welcome-to-heading">Welcome to</div>
-        <MILLGROVE_WHITE_LOGO className={"mg-welcome-to-logo"} />
+        <MILLGROVE_LOGO className={"mg-welcome-to-logo"} />
         <div className="mg-welcome-to-subheading">
           Millgrove is a limited collection of private residences nestled in the
           heart of New Gurugram. Just 50 1000sq yard plots have been
