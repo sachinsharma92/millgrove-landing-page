@@ -24,7 +24,7 @@
 .first{
     align-self: flex-start;
     text-transform: uppercase;
-    @include fontStyles($grey-40,"Editorial New",200,7rem)
+    @include fontStyles($cream-40,"Editorial New",200,7rem)
 }
 .second{
     align-self: center;
@@ -37,7 +37,7 @@
 }
 @media screen and (min-width:1100px) and (max-width:1700px) {
    .first,.third{
-    @include fontStyles($grey-40,"Editorial New",200,6vw)
+    @include fontStyles($cream-40,"Editorial New",200,6vw)
     }
     .second{
     @include fontStyles($brown-50,"Notera",400,4vw)

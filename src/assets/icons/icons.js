@@ -12,4 +12,5 @@ const RightArrow = ({ color = "#F9F6ED", height = "17", width = "9" }) => (
     </svg>
 )
 
+
 export { LeftArrow, RightArrow }

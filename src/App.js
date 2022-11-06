@@ -12,6 +12,7 @@ import Secondfold from "views/SecondFold/secondfold";
 import CookiesPopup from "components/CookiesPopup/cookiesPopup";
 import Footer from "views/Footer";
 import ThreeDView from "views/ThreeDView";
+import HomeCarousel from "views/HomeCarousel";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -33,6 +34,7 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView/>
+      <HomeCarousel/>
       <Reservation/>
       <Footer/>
     </div>
