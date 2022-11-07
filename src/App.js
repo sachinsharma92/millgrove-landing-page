@@ -33,10 +33,10 @@ function App(props) {
       <Firstfold openMenu={() => setMenu(true)} />
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
-      <ThreeDView/>
-      <HomeCarousel/>
-      <Reservation/>
-      <Footer/>
+      <ThreeDView />
+      <HomeCarousel />
+      <Reservation />
+      <Footer />
     </div>
   );
 }
