@@ -1,0 +1,8 @@
+@import "../../sass/utils/_mixins.scss";
+@import "../../sass/utils/_variables.scss";
+
+.header{
+    @include flex(space-between,center);
+    padding: 2.25rem;
+    width: 100%;
+}

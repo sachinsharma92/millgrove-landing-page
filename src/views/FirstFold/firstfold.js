@@ -8,7 +8,7 @@ import TEMP_VIDEO from "assets/videos/temp-video.mp4";
 import {
   DOWN_ARROW,
   MENU_FOLDS,
-  MILLGROVE_WHITE_LOGO,
+  MILLGROVE_LOGO,
   REEL_BUTTON,
 } from "utils/assets";
 
@@ -20,7 +20,7 @@ function Firstfold(props) {
           <MENU_FOLDS />
           MENU
         </div>
-        <MILLGROVE_WHITE_LOGO />
+        <MILLGROVE_LOGO />
         <div className="mg-first-fold-login">LOGIN</div>
       </div>
       <div className="mg-first-fold-text">

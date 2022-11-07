@@ -6,9 +6,13 @@ import "styles/App.scss";
 //Components
 import Home from "./views/Home/home";
 import Menu from "views/Menu/menu";
+import Reservation from "views/Reservation";
 import Firstfold from "views/FirstFold/firstfold";
 import Secondfold from "views/SecondFold/secondfold";
 import CookiesPopup from "components/CookiesPopup/cookiesPopup";
+import Footer from "views/Footer";
+import ThreeDView from "views/ThreeDView";
+import HomeCarousel from "views/HomeCarousel";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -29,6 +33,10 @@ function App(props) {
       <Firstfold openMenu={() => setMenu(true)} />
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
+      <ThreeDView/>
+      <HomeCarousel/>
+      <Reservation/>
+      <Footer/>
     </div>
   );
 }

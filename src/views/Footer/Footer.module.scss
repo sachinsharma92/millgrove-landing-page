@@ -1,0 +1,60 @@
+@import '../../sass/utils/_variables.scss';
+@import '../../sass/utils/_mixins.scss';
+
+.footerWrapper{
+    background-color: $green-100;
+    padding: 5rem 1.75rem 1.75rem 1.75rem;
+    position: relative;
+    h4{
+        @include fontStyles($grey-20,"Editorial New",200,7vw);
+        position: relative;
+        width: max-content;
+        margin-left: 14rem;
+        margin-bottom: 10rem;
+        span{
+            text-transform: uppercase;
+        }
+    }
+    sup{
+        @include fontStyles($grey-20,"Notera",400,5.5vw);
+        position: absolute;
+        top: -2vw;
+        left: -7.8vw;
+    }
+}
+
+.discover{
+    position: absolute;
+    top: 20%;
+    left: 50vw;
+    height: 6.5vw;
+    width: 6.5vw;
+}
+.houseImg{
+    position:absolute;
+    right: 8vw;
+    top: -3vw;
+    width: 30%;
+    max-width: 100%;
+    height: auto;
+}
+
+.crookedLine{
+    margin-bottom: 4rem;
+}
+.brandName{
+margin-bottom: 5.25rem;
+}
+
+.footerLinksWrapper{
+    @include flex(space-between,center);
+    @include fontStyles($grey-10,"Manrope",400,1.125rem)
+}
+.spacedLinks{
+    @include flex(center,center);
+    gap: 0.625rem;
+}
+a{
+    text-decoration: none;
+    color: $grey-10;
+}
