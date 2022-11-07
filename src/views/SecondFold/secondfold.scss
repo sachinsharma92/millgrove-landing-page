@@ -24,10 +24,19 @@
       font-family: "Editorial New";
       font-style: normal;
       font-weight: 200;
-      font-size: 130px;
+      font-size: 110px;
       text-align: center;
       letter-spacing: 0.01em;
-      color: #f4f1ec;
+      text-transform: uppercase;
+      color: #f9f6ed;
+      > span {
+        font-family: "Notera";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 63.1px;
+        text-transform: lowercase;
+        color: #f2e0c3;
+      }
     }
     .mg-second-fold-subheading {
       font-family: "Manrope";
@@ -37,7 +46,7 @@
       text-align: center;
       color: #9c9c9c;
       margin: 0 auto;
-      width: 63ch;
+      width: 67ch;
     }
     .mg-second-fold-footer {
       font-family: "Manrope";
@@ -58,10 +67,17 @@
       }
     }
   }
+
   .second-fold-img {
     position: relative;
     z-index: 1;
-    margin: 100px auto;
+    min-width: 20vw;
+    height: 90vh;
+    margin: 100px auto 160px auto;
+    border-radius: 2px;
+    background-size: 120%;
+    background-position: 50% 0px;
+    background-image: url(../../assets/images/second-fold-img.png);
   }
   .mg-welcome-to {
     margin: 0 auto;
@@ -70,7 +86,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
     .welcome-to-plant {
       z-index: 1;
       position: absolute;
@@ -87,8 +102,8 @@
       color: #f1efe5;
     }
     .mg-welcome-to-logo {
-      width: 909px;
-      height: 121px;
+      width: 909px !important;
+      height: 121px !important;
       margin-top: 23px;
       margin-bottom: 74px;
       position: relative;
