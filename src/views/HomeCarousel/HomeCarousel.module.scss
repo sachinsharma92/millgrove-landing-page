@@ -2,5 +2,88 @@
 @import "../../sass/utils/_mixins.scss";
 
 .wrapper{
-background-color:$cream-40;
+    overflow: hidden;
+    background-color:$cream-40;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    header{
+        flex: 1;
+        margin-bottom: 4rem;
+    }
+    position: relative;
+}
+
+.carouselWrapper{
+    position: relative;
+    flex: 10;
+    display: flex;
+    flex-direction: column;
+    // padding-top: 4rem;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100%;
+    ::-webkit-scrollbar {
+        display: none;
+    };
+    gap: 5rem;
+}
+.slide{
+    position: relative;
+    min-height: 100%;
+    min-width: 80%;
+    flex-basis: 100%;
+    @include flex(center,flex-start);
+    overflow: hidden;
+    scroll-snap-align: start;
+    // gap: 5rem;
+}
+.slideBgImg{
+    position: absolute;
+    bottom:-10%;
+    max-width: 100%;
+    z-index: $z-0;
+}
+
+.houseAndDescWrapper{
+    @include flex(center,flex-start);
+    gap: 10rem;
+    z-index: $z-9;
+    max-width: 75%;
+    img{
+        height: 60vh;
+    }
+}
+.description{
+    max-width: 35%;
+    margin-top: 4%;
+    p{
+        @include fontStyles($green-100,"Manrope",500,1rem);
+        text-align: left;
+    }
+}
+
+.scrollIndicatorContainer{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    z-index: $z-9
+}
+
+.scrollIndicatorWrapper{
+    @include flex(center,center);
+    flex-direction: column;
+    gap: 0.5rem
+}
+.dot{
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    border: 1px solid $green-100;
+    background-color: transparent;
+}
+.dot.active{
+    background-color: $green-100;
 }

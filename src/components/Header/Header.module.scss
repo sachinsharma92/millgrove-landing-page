@@ -3,6 +3,6 @@
 
 .header{
     @include flex(space-between,center);
-    padding: 2.25rem;
+    padding: 1.5rem 2.25rem;
     width: 100%;
 }
