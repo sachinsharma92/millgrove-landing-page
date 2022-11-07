@@ -7,11 +7,9 @@ import rectangleHouse from '../../assets/images/rectangle-house.png'
 const Footer = () => {
     return (
         <div className={styles.footerWrapper}>
-           <h4><sup>The</sup><span>Homes</span></h4>
+           {/* <h4><sup>The</sup><span>Homes</span></h4>
            <Discover className={styles.discover}/>
-           {/* <div className={styles.houseWrapper}>
-           </div> */}
-            <img className={styles.houseImg} src={rectangleHouse} alt='House' width='628' height='430'/>
+            <img className={styles.houseImg} src={rectangleHouse} alt='House' width='628' height='430'/> */}
            <CROOKED_LINE className={styles.crookedLine}/>
            <BRANDNAME_HALF_SOLID_TEXT className={styles.brandName}/>
            <div className={styles.footerLinksWrapper}>
