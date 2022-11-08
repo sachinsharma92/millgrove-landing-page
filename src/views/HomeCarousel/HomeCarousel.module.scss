@@ -14,8 +14,16 @@
     }
     position: relative;
 }
-
+@mixin hideScrollbar {
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 .carouselWrapper{
+    @include hideScrollbar();
     position: relative;
     flex: 10;
     display: flex;
@@ -44,6 +52,10 @@
     max-width: 100%;
     z-index: $z-0;
 }
+.fadeIn{
+    opacity: 0;
+    transition: opacity 400ms ease-in;
+}
 
 .houseAndDescWrapper{
     @include flex(center,flex-start);
@@ -55,12 +67,17 @@
     }
 }
 .description{
+    opacity: 0;
+    transition: opacity 400ms ease-in;
     max-width: 35%;
     margin-top: 4%;
     p{
         @include fontStyles($green-100,"Manrope",500,1rem);
         text-align: left;
     }
+}
+.appear{
+    opacity: 1;
 }
 
 .scrollIndicatorContainer{

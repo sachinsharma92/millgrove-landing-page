@@ -3,14 +3,24 @@
   margin: 0;
   padding: 0;
 }
+@mixin hideScrollbar {
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 html,body{
   height: 100%;
+  @include hideScrollbar();
 }
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
 body {
+  @include hideScrollbar();
   margin: 0;
   background-color: #404040;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
