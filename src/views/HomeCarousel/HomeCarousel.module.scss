@@ -37,11 +37,10 @@
     @include flex(center,flex-start);
     overflow: hidden;
     scroll-snap-align: start;
-    // gap: 5rem;
 }
 .slideBgImg{
     position: absolute;
-    bottom:-10%;
+    bottom:0%;
     max-width: 100%;
     z-index: $z-0;
 }

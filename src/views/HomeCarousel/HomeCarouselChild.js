@@ -24,7 +24,7 @@ const HomeCarouselChild = ({ houseImage, description, bgImage=bgImg,supTextLocat
                     </p>
                 </div>
             </div>
-            <img className={styles.slideBgImg} src={bgImage} alt="background" height="275" width="100%" />
+            {/* <img className={styles.slideBgImg} src={bgImage} alt="background" height="275" width="100%" /> */}
         </div>
     )
 }
