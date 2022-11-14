@@ -7,7 +7,7 @@ import { LeftArrow, RightArrow } from "assets/icons/icons";
 const customStyles = { color: "#F9F6ED", border: "1.5px solid #F9F6ED" };
 const ThreeDView = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-scroll-section>
       <div className={styles.textWrapper}>
         <div className={styles.heading}>
           <h2 className={styles.first}>Make Memories</h2>

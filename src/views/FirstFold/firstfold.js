@@ -14,8 +14,8 @@ import {
 
 function Firstfold(props) {
   return (
-    <div className="mg-first-fold">
-      <div className="mg-first-fold-header">
+    <div className="mg-first-fold" data-scroll-section>
+      <div className="mg-first-fold-header" data-scroll>
         <div className="mg-first-fold-menu" onClick={props.openMenu}>
           <MENU_FOLDS />
           MENU
@@ -24,11 +24,19 @@ function Firstfold(props) {
         <div className="mg-first-fold-login">LOGIN</div>
       </div>
       <div className="mg-first-fold-text">
-        <div className="mg-first-fold-heading">
+        <div
+          className="mg-first-fold-heading"
+          data-scroll
+          data-scroll-speed="1"
+        >
           MEANINGFUL <br />
           LIVING
         </div>
-        <div className="mg-first-fold-subheading">
+        <div
+          className="mg-first-fold-subheading"
+          data-scroll
+          data-scroll-speed="2"
+        >
           Millgrove is a limited collection of private residences nestled in the
           heart of New Gurugram. Just 50 1000sq yard plots have been
           thoughtfully arranged within a 23-acre secure gated community.
