@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Styles
 import "styles/App.scss";
@@ -14,18 +14,24 @@ import Footer from "views/Footer";
 import ThreeDView from "views/ThreeDView";
 import HomeCarousel from "views/HomeCarousel";
 
+import LocomotiveScroll from "locomotive-scroll";
+
 function App(props) {
   const [menu, setMenu] = useState(false);
   const [loader, setLoader] = useState(true);
   const [cookiesPopup, setCookiesPopup] = useState(true);
 
-  useState(() => {
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+    });
     setTimeout(() => {
       setLoader(false);
     }, 5000);
   }, []);
   return (
-    <div className="millgrove">
+    <div className="millgrove" data-scroll-container>
       {cookiesPopup && (
         <CookiesPopup closeCookiesPopup={() => setCookiesPopup(false)} />
       )}

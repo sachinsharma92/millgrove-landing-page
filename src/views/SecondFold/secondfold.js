@@ -54,7 +54,7 @@ function Secondfold(props) {
   }, []);
 
   return (
-    <div className="mg-second-fold">
+    <div className="mg-second-fold" data-scroll-section>
       <SIMPLE_TREE className={"second-fold-tree"} />
       <SIMPLE_TREE_RIGHT className={"second-fold-tree-2"} />
       <div className="mg-second-fold-text">
