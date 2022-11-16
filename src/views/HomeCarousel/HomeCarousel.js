@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "components/Header";
 import HomeCarouselChild from "./HomeCarouselChild";
 import swimmingPool from "../../assets/images/swimming-pool.png";
@@ -39,44 +39,86 @@ const slides = [
 
 const HomeCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [counter, setCounter] = useState(0)
   const carouselViewRef = useRef();
-  // const isVisible=useIntersection(carouselViewRef,`-${Math.round(window.innerHeight/2)}px`)
 
-  // if(isVisible){
-  //   console.log('ha aajao',window.innerHeight/2)
-  // }
   return (
-    <div>
-      <div ref={carouselViewRef} className={styles.wrapper}>
-        <Header />
-        <div className={styles.scrollIndicatorContainer}>
-          <ScrollIndicator activeSlide={activeSlide} nosOfSlides={4} />
-        </div>
-        <img
-          className={styles.slideBgImg}
-          src={bgImg}
-          alt="background"
-          height="275"
-          width="100%"
-        />
-        <div className={styles.carouselWrapper}>
-          {
-            slides.map((slide, idx) => <HomeCarouselChild setActiveSlide={setActiveSlide}
-              keyNos={idx}
-              houseImage={slide.houseImage}
-              description={{
-                heading: slide.heading,
-                description: slide.description,
-              }}
-              supTextLocation={idx !== 0 && "-20%"}
-            />)
-          }
+    <section style={{ height: `${slides.length * 100}vh` }} className={styles.cSection} data-scroll-section id="scroll-direction">
+      <div
+        className={styles.cSectionInfo}
+        data-scroll
+        data-scroll-sticky
+        data-scroll-target="#scroll-direction"
+      >
+        <div data-scroll>Millgrove</div>
+        <div>{counter}</div>
+        <div className={styles.wrapper} data-scroll>
+          <Header />
+          <div className={styles.scrollIndicatorContainer}>
+            <ScrollIndicator activeSlide={activeSlide} nosOfSlides={4} />
+          </div>
+          <img
+            className={styles.slideBgImg}
+            src={bgImg}
+            alt="background"
+            height="275"
+            width="100%"
+          />
+          <div className={styles.carouselWrapper}>
+            {
+              slides.map((slide, idx) => <HomeCarouselChild setActiveSlide={setActiveSlide}
+                keyNos={idx}
+                houseImage={slide.houseImage}
+                description={{
+                  heading: slide.heading,
+                  description: slide.description,
+                }}
+                supTextLocation={idx !== 0 && "-20%"}
+              />)
+            }
 
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+  )
 
-  );
+  // return (
+  //   <section className={styles.mainSection} data-scroll-section id="scroll-direction">
+  //     <div>
+  //       <div ref={carouselViewRef} className={styles.wrapper}
+  //         data-scroll
+  //         data-scroll-sticky
+  //         data-scroll-target="#scroll-direction">
+  //         <Header />
+  //         <div className={styles.scrollIndicatorContainer}>
+  //           <ScrollIndicator activeSlide={activeSlide} nosOfSlides={4} />
+  //         </div>
+  //         <img
+  //           className={styles.slideBgImg}
+  //           src={bgImg}
+  //           alt="background"
+  //           height="275"
+  //           width="100%"
+  //         />
+  //         <div className={styles.carouselWrapper}>
+  //           {
+  //             slides.map((slide, idx) => <HomeCarouselChild setActiveSlide={setActiveSlide}
+  //               keyNos={idx}
+  //               houseImage={slide.houseImage}
+  //               description={{
+  //                 heading: slide.heading,
+  //                 description: slide.description,
+  //               }}
+  //               supTextLocation={idx !== 0 && "-20%"}
+  //             />)
+  //           }
+
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </section>
+  // );
 };
 
 export default HomeCarousel;

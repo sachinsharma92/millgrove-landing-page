@@ -26,6 +26,9 @@ function App(props) {
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
     });
+    scroll.on('scroll', (value) => {
+      console.log('scroll me', value)
+    })
     setTimeout(() => {
       setLoader(false);
     }, 5000);
