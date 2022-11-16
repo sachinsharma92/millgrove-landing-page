@@ -18,8 +18,8 @@ import LocomotiveScroll from "locomotive-scroll";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
-  const [loader, setLoader] = useState(true);
-  const [cookiesPopup, setCookiesPopup] = useState(true);
+  const [loader, setLoader] = useState(false);
+  const [cookiesPopup, setCookiesPopup] = useState(false);
 
   useEffect(() => {
     const scroll = new LocomotiveScroll({

@@ -4,17 +4,20 @@ import React from "react";
 import "./home.scss";
 
 // Assets
-import { MILLGROVE_LOGO_BIG } from "utils/assets";
-import { MILLGROVE_TREE } from "utils/assets";
+import { MILLGROVE_LOGO_BIG, MILLGROVE_TREE } from "utils/assets";
 
 function Home(props) {
   return (
     <div className="millgrove-home">
+      <div className="millgrove-tree">
+        <MILLGROVE_TREE />
+      </div>
       <span className="millgrove-title">
-        <MILLGROVE_LOGO_BIG  style={{height:"89",width:"665",color:"#F4F1EC"}} className="millgrove-logo" />
+        <MILLGROVE_LOGO_BIG
+          style={{ height: "89", width: "665", color: "#F4F1EC" }}
+          className="millgrove-logo"
+        />
       </span>
-      <MILLGROVE_TREE className={"millgrove-tree"} />
-      <MILLGROVE_TREE className={"millgrove-tree-2"} />
       <div className="millgrove-home-loading">
         <span>LOADING</span>
       </div>
