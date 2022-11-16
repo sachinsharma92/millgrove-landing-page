@@ -2,8 +2,8 @@
 @import "../../sass/utils/_mixins.scss";
 
 .wrapper {
-  background-color: $green-100;
-  padding-top: 8.5rem;
+  background-color: #434f50;
+  padding-top: 35.5rem;
 }
 .textWrapper {
   margin: auto;
@@ -17,21 +17,25 @@
 .description {
   @include fontStyles($grey-60, "Manrope", 400, 1rem);
   position: relative;
-  bottom: 4rem;
+  bottom: 7rem;
   width: 45ch;
   text-align: left;
 }
 .first {
-  align-self: flex-start;
-  text-transform: uppercase;
-  @include fontStyles($cream-40, "Editorial New", 200, 7rem);
-}
-.second {
   align-self: center;
-  @include fontStyles($brown-50, "Notera", 400, 4rem);
+  text-transform: uppercase;
+  display: flex;
+  @include fontStyles($cream-40, "Editorial New", 200, 5.675rem);
+  .second {
+    margin-left: 20px;
+    align-self: center;
+    @include fontStyles($brown-50, "Notera", 400, 2.5rem);
+  }
 }
+
 .third {
   @extend .first;
+  margin-top: 30px;
   align-self: flex-end;
   width: max-content;
 }

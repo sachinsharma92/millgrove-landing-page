@@ -1,111 +1,111 @@
-@import '../../sass/utils/_variables.scss';
-@import '../../sass/utils/_mixins.scss';
+@import "../../sass/utils/_variables.scss";
+@import "../../sass/utils/_mixins.scss";
 
-
-.wrapper{
-    background-color: $grey-100;
-    padding-top: 4rem;
-    padding-bottom: 7.5rem;
-    margin: auto;
-    text-align: left;
-    > div{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-    }
+.wrapper {
+  background-color: #f9f6ed;
+  padding-top: 4rem;
+  padding-bottom: 7.5rem;
+  margin: auto;
+  text-align: left;
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
 }
 
-.reservationCard{
-    background-color: white;
-    width: 62.5vw;
-    min-height: min-content;
-    position: relative;
-    padding: 4.5rem;
-    overflow: hidden;
-    >.verticalDash{
-        height: 12rem;
-        width: 4px;
-        color: red;
-        // color: $brown-80-10;
-        position: absolute;
-        right: 40%;
-        bottom:20%;
-    }
-}
-.halfBorder{
-    height: 120%;
-    width:95%;
-    position: absolute;
-    top: -2rem;
-    left:1.25rem;
-}
-
-.treePrint{
-    position: absolute;
-    top: -5.375rem;
-    right: 0;
-    width: 30rem;
-    height:34rem
-}
-
-.verticalDash{
-    height: 6rem;
+.reservationCard {
+  background-color: white;
+  width: 62.5vw;
+  min-height: min-content;
+  position: relative;
+  padding: 4.5rem;
+  overflow: hidden;
+  margin: 20px 0;
+  > .verticalDash {
+    height: 12rem;
     width: 1px;
-    background-color: $grey-30;
+    color: red;
+    // color: $brown-80-10;
+    position: absolute;
+    right: 40%;
+    bottom: 10%;
+  }
+}
+.halfBorder {
+  //   height: 120%;
+  //   width: 95%;
+  position: absolute;
+  top: 16px;
+  left: 21px;
 }
 
-.formWrapper{
-    width: 45%;
-    // position: absolute;
-    // top: 4.5rem;
-    // left: 5rem;
-    z-index: 2
-}
-.formHeadingWrapper{
-    width: 25rem;
-    margin-bottom: 1rem; 
-}
-.formHeading{
-    @include fontStyles($grey-100,"Editorial New",200,5rem);
-    line-height: 7rem;
-    text-align: left;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    span{
-       @include fontStyles($brown-50,"Notera",400,4.5rem);
-       text-transform: lowercase;
-    }
-}
-.formInputWrapper{
-    margin-bottom: 2.5rem;
-}
-.formInput{
-    border: none;
-    border-bottom: 1px solid $brown-40;
-    width: 93%;
-    outline: 1px solid transparent;
-    padding: 0.5rem 0;
-    letter-spacing: 0.5px;
-    @include fontStyles($brown-80,"Manrope",400,1.125rem)
+.treePrint {
+  position: absolute;
+  top: -5.375rem;
+  right: 0;
+  width: 30rem;
+  height: 34rem;
 }
 
-.agreementCheck{
-    @include flex(center,flex-start);
-    gap: 2rem;
-    .round{
-        label{
-            top: 0.25rem;
-        }
-    }
-    p{
-        @include fontStyles($brown-80,'Manrope',400,1.125rem)
-    }
+.verticalDash {
+  height: 6rem;
+  width: 1px;
+  background-color: rgba(93, 63, 50, 0.3);
 }
 
-.reserveVisit{
-    position:absolute;
-    bottom: 20%;
-    right: 15%;
+.formWrapper {
+  width: 50%;
+  // position: absolute;
+  // top: 4.5rem;
+  // left: 5rem;
+  z-index: 2;
+}
+.formHeadingWrapper {
+  width: 25rem;
+  margin-bottom: 1rem;
+}
+.formHeading {
+  @include fontStyles($grey-100, "Editorial New", 200, 5rem);
+  line-height: 7rem;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  span {
+    @include fontStyles($brown-50, "Notera", 400, 4.5rem);
+    text-transform: lowercase;
+  }
+}
+.formInputWrapper {
+  margin-bottom: 2.5rem;
+}
+.formInput {
+  border: none;
+  border-bottom: 1px solid $brown-40;
+  width: 93%;
+  outline: 1px solid transparent;
+  padding: 0.5rem 0;
+  letter-spacing: 0.5px;
+  @include fontStyles($brown-80, "Manrope", 400, 1.125rem);
+}
+
+.agreementCheck {
+  @include flex(flex-start, flex-start);
+  gap: 2rem;
+  .round {
+    label {
+      top: 0.25rem;
+    }
+  }
+  p {
+    @include fontStyles($brown-80, "Manrope", 400, 1.125rem);
+  }
+}
+
+.reserveVisit {
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
 }
