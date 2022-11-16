@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Styles
 import "styles/App.scss";
@@ -20,14 +20,29 @@ function App(props) {
   const [menu, setMenu] = useState(false);
   const [loader, setLoader] = useState(false);
   const [cookiesPopup, setCookiesPopup] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const carouselViewRef = useRef();
 
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
     });
-    scroll.on('scroll', (value) => {
-      console.log('scroll me', value)
+    scroll.on('scroll', (instance) => {
+      // console.log(instance)
+      if (2 === 3) {
+        console.log('heyy')
+      }
+    })
+    scroll.on('call', (value, way, obj) => {
+      if (value === "fade") {
+        if (obj.inView) {
+          obj.el.classList.add('newClass')
+        } else {
+          obj.el.classList.remove('newClass')
+        }
+      }
+
     })
     setTimeout(() => {
       setLoader(false);
@@ -43,7 +58,7 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
-      <HomeCarousel />
+      <HomeCarousel carouselViewRef={carouselViewRef} activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
       <Reservation />
       <Footer />
     </div>

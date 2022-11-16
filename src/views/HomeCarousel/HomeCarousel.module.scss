@@ -52,7 +52,7 @@
     max-width: 100%;
     z-index: $z-0;
 }
-.fadeIn{
+.hide{
     opacity: 0;
     transition: opacity 400ms ease-in;
 }
@@ -67,7 +67,6 @@
     }
 }
 .description{
-    opacity: 0;
     transition: opacity 400ms ease-in;
     max-width: 35%;
     margin-top: 4%;
@@ -104,13 +103,8 @@
     background-color: $green-100;
 }
 
-
-.cSection{
-    background-color: pink;
-}
-
 .oContainer {
-    padding: 0 2.5rem;
+    // padding: 0 2.5rem;
     height: 100%;
   }
   .cSectionInfo {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Header from "components/Header";
 import HomeCarouselChild from "./HomeCarouselChild";
 import swimmingPool from "../../assets/images/swimming-pool.png";
@@ -37,21 +37,16 @@ const slides = [
   }
 ]
 
-const HomeCarousel = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [counter, setCounter] = useState(0)
-  const carouselViewRef = useRef();
+const HomeCarousel = ({ activeSlide, setActiveSlide, carouselViewRef }) => {
 
   return (
-    <section style={{ height: `${slides.length * 100}vh` }} className={styles.cSection} data-scroll-section id="scroll-direction">
+    <section ref={carouselViewRef} style={{ height: `${slides.length * 100}vh` }} className={styles.cSection} data-scroll-section data-scroll id="scroll-direction">
       <div
         className={styles.cSectionInfo}
         data-scroll
         data-scroll-sticky
         data-scroll-target="#scroll-direction"
       >
-        <div data-scroll>Millgrove</div>
-        <div>{counter}</div>
         <div className={styles.wrapper} data-scroll>
           <Header />
           <div className={styles.scrollIndicatorContainer}>
@@ -64,9 +59,9 @@ const HomeCarousel = () => {
             height="275"
             width="100%"
           />
-          <div className={styles.carouselWrapper}>
+          <div data-scroll data-scroll-call="fade" className={styles.carouselWrapper}>
             {
-              slides.map((slide, idx) => <HomeCarouselChild setActiveSlide={setActiveSlide}
+              slides.map((slide, idx) => <HomeCarouselChild activeSlide={activeSlide} setActiveSlide={setActiveSlide}
                 keyNos={idx}
                 houseImage={slide.houseImage}
                 description={{
