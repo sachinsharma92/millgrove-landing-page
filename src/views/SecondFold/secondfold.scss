@@ -1,21 +1,11 @@
 .mg-second-fold {
   box-sizing: border-box;
-  min-height: 100vh;
-  background-color: #404040;
+  height: 120vh;
+  background-color: #f9f6ed;
   padding: 150px 50px;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   position: relative;
-  .second-fold-tree {
-    position: absolute;
-    left: -490px;
-    top: -50px;
-  }
-  .second-fold-tree-2 {
-    position: absolute;
-    right: -500px;
-    top: 250px;
-    z-index: 0;
-  }
+  z-index: 2;
   .mg-second-fold-text {
     width: 100%;
     margin: 0 auto;
@@ -27,14 +17,14 @@
       text-align: center;
       letter-spacing: 0.01em;
       text-transform: uppercase;
-      color: #f9f6ed;
+      color: #262e2f;
       > span {
         font-family: "Notera";
         font-style: normal;
         font-weight: 400;
         font-size: 63.1px;
         text-transform: lowercase;
-        color: #f2e0c3;
+        color: #a65a42;
       }
     }
     .mg-second-fold-subheading {
@@ -45,32 +35,26 @@
       text-align: center;
       color: #9c9c9c;
       margin: 0 auto;
-      width: 67ch;
+      width: 55ch;
     }
     .mg-second-fold-footer {
-      font-family: "Manrope";
+      font-family: "Notera";
       font-style: normal;
       font-weight: 400;
-      font-size: 18px;
-      text-align: center;
-      letter-spacing: 0.01em;
-      color: #f1efe5;
+      font-size: 63.1px;
+      letter-spacing: -0.01em;
+      color: #a65a42;
       margin-top: 70px;
-      > div {
-        font-family: "Notera";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 63.1px;
-        letter-spacing: -0.01em;
-        color: #f1efe5;
-      }
     }
   }
 
   .second-fold-img {
-    position: relative;
+    position: absolute;
     z-index: 1;
     min-width: 20vw;
+    width: 90vw;
+    left: 0;
+    right: 0;
     height: 90vh;
     margin: 100px auto 160px auto;
     border-radius: 2px;

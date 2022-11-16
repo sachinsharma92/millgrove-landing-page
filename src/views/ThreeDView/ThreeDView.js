@@ -10,8 +10,9 @@ const ThreeDView = () => {
     <div className={styles.wrapper} data-scroll-section>
       <div className={styles.textWrapper}>
         <div className={styles.heading}>
-          <h2 className={styles.first}>Make Memories</h2>
-          <h2 className={styles.second}>On</h2>
+          <h2 className={styles.first}>
+            Make Memories<h2 className={styles.second}>On</h2>
+          </h2>
           <h2 className={styles.third}>Your own land</h2>
         </div>
         <div className={styles.description}>
