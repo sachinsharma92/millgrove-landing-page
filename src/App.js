@@ -22,16 +22,34 @@ function App(props) {
   const [cookiesPopup, setCookiesPopup] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const carouselViewRef = useRef();
+  const debounceTimerId = useRef(null);
 
+  function debounce(callback, delay) {
+    return () => {
+      clearTimeout(debounceTimerId.current);
+      debounceTimerId.current = setTimeout(() => {
+        callback.call()
+      }, delay);
+    }
+  }
+  function animate() {
+    console.log('animate')
+    setActiveSlide(prev => {
+      if (prev === 3) return 0
+      return prev + 1
+    })
+  }
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
     });
+    const debouncedAnimation = debounce(animate, 50)
     scroll.on('scroll', (instance) => {
-      // console.log(instance)
-      if (2 === 3) {
-        console.log('heyy')
+      console.log(instance)
+      if (true) {
+        debouncedAnimation()
+        console.log('heyy', carouselViewRef.current, instance.values, carouselViewRef.current === instance.values.includes(carouselViewRef.current))
       }
     })
     scroll.on('call', (value, way, obj) => {

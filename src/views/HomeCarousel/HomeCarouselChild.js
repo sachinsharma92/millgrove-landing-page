@@ -4,7 +4,7 @@ import bgImg from "../../assets/images/rectangle-400.png";
 import styles from "./HomeCarousel.module.scss"
 import { useIntersection } from 'hooks/useIntersection';
 
-const HomeCarouselChild = ({ houseImage, description, bgImage = bgImg, supTextLocation, setActiveSlide, keyNos }) => {
+const HomeCarouselChild = ({ houseImage, description, bgImage = bgImg, supTextLocation, activeSlide, setActiveSlide, keyNos }) => {
 
     const slideRef = useRef(null)
     const imgRef = useRef(null)
@@ -13,17 +13,27 @@ const HomeCarouselChild = ({ houseImage, description, bgImage = bgImg, supTextLo
     const isImgInViewport = useIntersection(imgRef, '-200px');
     const isDescriptionInViewport = useIntersection(descriptionRef, '-200px');
 
-    useEffect(() => {
-        if (isSlideInViewport) {
-            setActiveSlide(keyNos)
-        }
-    }, [keyNos])
+    // useEffect(() => {
+    //     if (isSlideInViewport) {
+    //         setActiveSlide(keyNos)
+    //     }
+    // }, [keyNos])
+
+    // useEffect(() => {
+    //     const x = descriptionRef.current
+    //     if (descriptionRef.current && keyNos === activeSlide) {
+    //         setTimeout(() => {
+    //             descriptionRef.current.style.opacity = 1
+    //         }, 350)
+    //     }
+    //     return () => { x.style.opacity = 0 }
+    // }, [keyNos, activeSlide])
 
     return (
         <div ref={slideRef} className={styles.slide}>
             <div className={styles.houseAndDescWrapper}>
-                <img style={{ opacity: isImgInViewport ? 1 : 0 }} className={`${styles.fadeIn} ${isImgInViewport && styles.appear}`} ref={imgRef} src={houseImage} alt={`${houseImage}`} height="40%" width="100%" />
-                <div ref={descriptionRef} style={{ opacity: isImgInViewport ? 1 : 0 }} className={`${styles.description} ${isImgInViewport && styles.appear}`}>
+                <img className={`${styles.hide} ${keyNos === activeSlide && styles.appear}`} ref={imgRef} src={houseImage} alt={`${houseImage}`} height="40%" width="100%" />
+                <div ref={descriptionRef} className={`${styles.hide} ${keyNos === activeSlide && styles.appear}`}>
                     <SuperScriptText mainText={{ text: description.heading, size: "5vw", color: "#2E3430" }} supText={{ text: 'The', size: "3.5vw", color: "#2E3430", left: supTextLocation?.left }} />
                     <p>
                         {description?.description}

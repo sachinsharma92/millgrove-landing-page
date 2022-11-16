@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Header from "components/Header";
 import HomeCarouselChild from "./HomeCarouselChild";
 import swimmingPool from "../../assets/images/swimming-pool.png";
@@ -38,6 +38,7 @@ const slides = [
 ]
 
 const HomeCarousel = ({ activeSlide, setActiveSlide, carouselViewRef }) => {
+
 
   return (
     <section ref={carouselViewRef} style={{ height: `${slides.length * 100}vh` }} className={styles.cSection} data-scroll-section data-scroll id="scroll-direction">
