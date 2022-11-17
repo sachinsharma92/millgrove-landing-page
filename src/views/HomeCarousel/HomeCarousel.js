@@ -46,7 +46,7 @@ const HomeCarousel = ({ activeSlide, setActiveSlide, carouselViewRef }) => {
 
 
   return (
-    <section ref={carouselViewRef} style={{ height: `${slides.length * 50}vh` }} className={styles.cSection} data-scroll-section data-scroll id="scroll-direction">
+    <section ref={carouselViewRef} style={{ height: `${slides.length * 80}vh` }} className={styles.cSection} data-scroll-section data-scroll id="scroll-direction">
       <div
         className={styles.cSectionInfo}
         data-scroll

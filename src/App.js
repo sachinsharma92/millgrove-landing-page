@@ -14,6 +14,8 @@ import Footer from "views/Footer";
 import ThreeDView from "views/ThreeDView";
 import HomeCarousel from "views/HomeCarousel";
 import LocomotiveScroll from "locomotive-scroll";
+import { useIntersection } from "hooks/useIntersection";
+import debounce from "utils/debounce";
 
 
 function App(props) {
@@ -23,17 +25,14 @@ function App(props) {
   const [activeSlide, setActiveSlide] = useState(0);
   const carouselViewRef = useRef();
   const debounceTimerId = useRef(null);
-  const scrollbar_thumb = useRef()
+  const isCarouselInView = useRef(false)
+  const scrollRef = useRef()
+  isCarouselInView.current = useIntersection(carouselViewRef, `0px 0px -${window.innerHeight / 1.1}px 0px`)
 
-  function debounce(callback, delay) {
-    return (args) => {
-      clearTimeout(debounceTimerId.current);
-      debounceTimerId.current = setTimeout(() => {
-        callback.call(this, args)
-      }, delay);
-    }
-  }
-  function animate(scrollDirection) {
+
+  const animate = ({ scrollDirection, isCarouselInView }) => {
+    if (!isCarouselInView) return
+
     if (scrollDirection === "down") {
       setActiveSlide(prev => {
         if (prev === 3) return 3
@@ -51,40 +50,28 @@ function App(props) {
       })
     }
   }
+
+
   useEffect(() => {
-    const scroll = new LocomotiveScroll({
+    scrollRef.current = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
       getDirection: true
     });
-    const debouncedAnimation = debounce(animate, 50)
-    scroll.on('scroll', (instance) => {
-      // console.log(instance)
-      if (true) {
-        debouncedAnimation(instance.direction)
-      }
-    })
-    scroll.on('call', (value, way, obj) => {
-      if (value === "fade") {
-        if (obj.inView) {
-          obj.el.classList.add('newClass')
-        } else {
-          obj.el.classList.remove('newClass')
-        }
-      }
 
-    })
     setTimeout(() => {
       setLoader(false);
     }, 5000);
   }, []);
 
   useEffect(() => {
-    if (!scrollbar_thumb.current) {
-      scrollbar_thumb.current = document.getElementsByClassName("c-scrollbar_thumb")[0]
-    }
-  })
-
+    const debouncedAnimation = debounce({ callback: animate, delay: 50, timerRef: debounceTimerId })
+    scrollRef.current.on('scroll', (instance) => {
+      if (isCarouselInView.current) {
+        debouncedAnimation({ scrollDirection: instance.direction, isCarouselInView: isCarouselInView.current })
+      }
+    })
+  }, [isCarouselInView.current])
 
   return (
     <div className="millgrove" data-scroll-container>
