@@ -15,32 +15,6 @@ import ThreeDView from "views/ThreeDView";
 import HomeCarousel from "views/HomeCarousel";
 import LocomotiveScroll from "locomotive-scroll";
 
-const useScrollDirectionDetection2 = (element) => {
-  const [pos, setPos] = useState("0")
-  const currentScrollRef = useRef(0)
-  const oldScrollRef = useRef(0)
-
-  useEffect(() => {
-    function detectScrollDirection() {
-      if ((element
-        ?.getBoundingClientRect()).top > oldScrollRef.current) {
-        setPos("up")
-      } else {
-        setPos("down")
-      }
-      oldScrollRef.current = currentScrollRef.current
-      currentScrollRef.current = (element
-        ?.getBoundingClientRect()).top;
-    }
-    if (!element) return;
-    element?.addEventListener("scroll", detectScrollDirection);
-    return () => {
-      element?.removeEventListener("scroll", detectScrollDirection)
-    }
-  }, [element])
-  return pos
-}
-
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -50,7 +24,6 @@ function App(props) {
   const carouselViewRef = useRef();
   const debounceTimerId = useRef(null);
   const scrollbar_thumb = useRef()
-  const scrollDirection = useScrollDirectionDetection2(scrollbar_thumb?.current)
 
   function debounce(callback, delay) {
     return (args) => {
