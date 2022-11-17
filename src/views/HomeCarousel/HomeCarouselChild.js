@@ -30,7 +30,7 @@ const HomeCarouselChild = ({ houseImage, description, bgImage = bgImg, supTextLo
     // }, [keyNos, activeSlide])
 
     return (
-        <div ref={slideRef} className={`${styles.slide} ${styles.hide} ${keyNos === activeSlide && styles.appear}`}>
+        <div ref={slideRef} className={`${styles.slide} `}>
             <div className={styles.houseAndDescWrapper}>
                 <img className={`${styles.hide} ${keyNos === activeSlide && styles.appear}`} ref={imgRef} src={houseImage} alt={`${houseImage}`} height="40%" width="100%" />
                 <div ref={descriptionRef} className={`${styles.hide} ${keyNos === activeSlide && styles.appear}`}>
@@ -40,7 +40,7 @@ const HomeCarouselChild = ({ houseImage, description, bgImage = bgImg, supTextLo
                     </p>
                 </div>
             </div>
-            <div className={` ${styles.box} ${styles[bgColor]}`}></div>
+            <div className={` ${styles.hide} ${keyNos === activeSlide && styles.appear} ${styles.box} ${styles[bgColor]}`}></div>
         </div>
     )
 }

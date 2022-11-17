@@ -13,8 +13,34 @@ import CookiesPopup from "components/CookiesPopup/cookiesPopup";
 import Footer from "views/Footer";
 import ThreeDView from "views/ThreeDView";
 import HomeCarousel from "views/HomeCarousel";
-
 import LocomotiveScroll from "locomotive-scroll";
+
+const useScrollDirectionDetection2 = (element) => {
+  const [pos, setPos] = useState("0")
+  const currentScrollRef = useRef(0)
+  const oldScrollRef = useRef(0)
+
+  useEffect(() => {
+    function detectScrollDirection() {
+      if ((element
+        ?.getBoundingClientRect()).top > oldScrollRef.current) {
+        setPos("up")
+      } else {
+        setPos("down")
+      }
+      oldScrollRef.current = currentScrollRef.current
+      currentScrollRef.current = (element
+        ?.getBoundingClientRect()).top;
+    }
+    if (!element) return;
+    element?.addEventListener("scroll", detectScrollDirection);
+    return () => {
+      element?.removeEventListener("scroll", detectScrollDirection)
+    }
+  }, [element])
+  return pos
+}
+
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -23,32 +49,46 @@ function App(props) {
   const [activeSlide, setActiveSlide] = useState(0);
   const carouselViewRef = useRef();
   const debounceTimerId = useRef(null);
+  const scrollbar_thumb = useRef()
+  const scrollDirection = useScrollDirectionDetection2(scrollbar_thumb?.current)
 
   function debounce(callback, delay) {
-    return () => {
+    return (args) => {
       clearTimeout(debounceTimerId.current);
       debounceTimerId.current = setTimeout(() => {
-        callback.call()
+        callback.call(this, args)
       }, delay);
     }
   }
-  function animate() {
-    setActiveSlide(prev => {
-      if (prev === 3) return 0
-      return prev + 1
-    })
+  function animate(scrollDirection) {
+    if (scrollDirection === "down") {
+      setActiveSlide(prev => {
+        if (prev === 3) return 3
+        return prev + 1
+      })
+    } else if (scrollDirection === "up") {
+      setActiveSlide(prev => {
+        if (prev === 0) return 0
+        return prev - 1
+      })
+    } else {
+      setActiveSlide(prev => {
+        if (prev === 3) return 3
+        return prev + 1
+      })
+    }
   }
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
+      getDirection: true
     });
     const debouncedAnimation = debounce(animate, 50)
     scroll.on('scroll', (instance) => {
-      console.log(instance)
+      // console.log(instance)
       if (true) {
-        debouncedAnimation()
-        console.log('heyy', carouselViewRef.current, instance.values, carouselViewRef.current === instance.values.includes(carouselViewRef.current))
+        debouncedAnimation(instance.direction)
       }
     })
     scroll.on('call', (value, way, obj) => {
@@ -65,6 +105,14 @@ function App(props) {
       setLoader(false);
     }, 5000);
   }, []);
+
+  useEffect(() => {
+    if (!scrollbar_thumb.current) {
+      scrollbar_thumb.current = document.getElementsByClassName("c-scrollbar_thumb")[0]
+    }
+  })
+
+
   return (
     <div className="millgrove" data-scroll-container>
       {cookiesPopup && (
