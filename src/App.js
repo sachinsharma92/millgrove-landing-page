@@ -33,7 +33,6 @@ function App(props) {
     }
   }
   function animate() {
-    console.log('animate')
     setActiveSlide(prev => {
       if (prev === 3) return 0
       return prev + 1

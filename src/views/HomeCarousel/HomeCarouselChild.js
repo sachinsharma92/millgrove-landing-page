@@ -4,7 +4,7 @@ import bgImg from "../../assets/images/rectangle-400.png";
 import styles from "./HomeCarousel.module.scss"
 import { useIntersection } from 'hooks/useIntersection';
 
-const HomeCarouselChild = ({ houseImage, description, bgImage = bgImg, supTextLocation, activeSlide, setActiveSlide, keyNos }) => {
+const HomeCarouselChild = ({ houseImage, description, bgImage = bgImg, supTextLocation, activeSlide, setActiveSlide, keyNos, bgColor }) => {
 
     const slideRef = useRef(null)
     const imgRef = useRef(null)
@@ -30,7 +30,7 @@ const HomeCarouselChild = ({ houseImage, description, bgImage = bgImg, supTextLo
     // }, [keyNos, activeSlide])
 
     return (
-        <div ref={slideRef} className={styles.slide}>
+        <div ref={slideRef} className={`${styles.slide} ${styles.hide} ${keyNos === activeSlide && styles.appear}`}>
             <div className={styles.houseAndDescWrapper}>
                 <img className={`${styles.hide} ${keyNos === activeSlide && styles.appear}`} ref={imgRef} src={houseImage} alt={`${houseImage}`} height="40%" width="100%" />
                 <div ref={descriptionRef} className={`${styles.hide} ${keyNos === activeSlide && styles.appear}`}>
@@ -40,7 +40,7 @@ const HomeCarouselChild = ({ houseImage, description, bgImage = bgImg, supTextLo
                     </p>
                 </div>
             </div>
-            {/* <img className={styles.slideBgImg} src={bgImage} alt="background" height="275" width="100%" /> */}
+            <div className={` ${styles.box} ${styles[bgColor]}`}></div>
         </div>
     )
 }

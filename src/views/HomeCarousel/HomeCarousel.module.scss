@@ -58,6 +58,7 @@
     gap: 10rem;
     z-index: $z-9;
     max-width: 75%;
+    text-align: left;
     img{
         height: 60vh;
     }
@@ -105,4 +106,27 @@
   }
   .cSectionInfo {
     // padding-top: 20vh;
+  }
+
+  .box{
+    height: 30vh;
+    width: 100%;
+    position: absolute;
+    bottom:0%;
+    // max-width: 100%;
+    z-index: $z-0;
+  }
+
+  .green{
+    background-color:  #4B5B47;
+  }
+
+  .lightBrown{
+    background-color: #9C7E61;
+  }
+  .darkBrown{
+    background-color: #6B4637;;
+  }
+  .blue{
+    background-color: #434F50;
   }
