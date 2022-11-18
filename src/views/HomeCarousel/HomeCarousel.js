@@ -10,7 +10,6 @@ import ScrollIndicator from "./ScrollIndicator";
 import bgImg from "../../assets/images/rectangle-400.png";
 import { useIntersection } from "../../hooks/useIntersection";
 
-
 const slides = [
   {
     houseImage: swimmingPool,
@@ -39,14 +38,19 @@ const slides = [
     heading: "LOCATIONS",
     description:
       "Millgrove is delicately distanced from the commotion of the city, yet effortlessly linked to the livelier parts of the National Capital Region. On completion of several nearby government infrastructure projects, Millgrove will become one of the most connected places to live in Delhi NCR.",
-  }
-]
+  },
+];
 
 const HomeCarousel = ({ activeSlide, setActiveSlide, carouselViewRef }) => {
-
-
   return (
-    <section ref={carouselViewRef} style={{ height: `${slides.length * 80}vh` }} className={styles.cSection} data-scroll-section data-scroll id="scroll-direction">
+    <section
+      ref={carouselViewRef}
+      style={{ height: `${slides.length * 80}vh` }}
+      className={styles.cSection}
+      data-scroll-section
+      data-scroll
+      id="scroll-direction"
+    >
       <div
         className={styles.cSectionInfo}
         data-scroll
@@ -65,9 +69,15 @@ const HomeCarousel = ({ activeSlide, setActiveSlide, carouselViewRef }) => {
             height="275"
             width="100%"
           /> */}
-          <div data-scroll data-scroll-call="fade" className={styles.carouselWrapper}>
-            {
-              slides.map((slide, idx) => <HomeCarouselChild activeSlide={activeSlide} setActiveSlide={setActiveSlide}
+          <div
+            data-scroll
+            data-scroll-call="fade"
+            className={styles.carouselWrapper}
+          >
+            {slides.map((slide, idx) => (
+              <HomeCarouselChild
+                activeSlide={activeSlide}
+                setActiveSlide={setActiveSlide}
                 keyNos={idx}
                 bgColor={slide.bgColor}
                 houseImage={slide.houseImage}
@@ -76,14 +86,13 @@ const HomeCarousel = ({ activeSlide, setActiveSlide, carouselViewRef }) => {
                   description: slide.description,
                 }}
                 supTextLocation={idx !== 0 && "-20%"}
-              />)
-            }
-
+              />
+            ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 
   // return (
   //   <section className={styles.mainSection} data-scroll-section id="scroll-direction">
