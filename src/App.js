@@ -65,11 +65,6 @@ function App(props) {
   }, []);
 
   useEffect(() => {
-    // const debouncedAnimation = debounce({
-    //   callback: animate,
-    //   delay: 50,
-    //   timerRef: debounceTimerId,
-    // });
     const fadeInOut = (el1, el2) => {
       el1.style.animation = "fade-out 1s ease-in-out forwards";
       el2.style.animation = "fade-in 1s ease-in-out forwards 0.2s";
@@ -95,11 +90,6 @@ function App(props) {
           if (instance.direction === "down") fadeInOut(elem3, elem4);
           else if (instance.direction === "up") fadeInOut(elem4, elem3);
         }
-
-        // debouncedAnimation({
-        //   scrollDirection: instance.direction,
-        //   isCarouselInView: isCarouselInView.current,
-        // });
       }
     });
   }, [isCarouselInView.current]);

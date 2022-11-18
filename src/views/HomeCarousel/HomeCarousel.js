@@ -62,13 +62,6 @@ const HomeCarousel = ({ activeSlide, setActiveSlide, carouselViewRef }) => {
           <div className={styles.scrollIndicatorContainer}>
             <ScrollIndicator activeSlide={activeSlide} nosOfSlides={4} />
           </div>
-          {/* <img
-            className={styles.slideBgImg}
-            src={bgImg}
-            alt="background"
-            height="275"
-            width="100%"
-          /> */}
           <div
             data-scroll
             data-scroll-call="fade"
@@ -93,43 +86,6 @@ const HomeCarousel = ({ activeSlide, setActiveSlide, carouselViewRef }) => {
       </div>
     </section>
   );
-
-  // return (
-  //   <section className={styles.mainSection} data-scroll-section id="scroll-direction">
-  //     <div>
-  //       <div ref={carouselViewRef} className={styles.wrapper}
-  //         data-scroll
-  //         data-scroll-sticky
-  //         data-scroll-target="#scroll-direction">
-  //         <Header />
-  //         <div className={styles.scrollIndicatorContainer}>
-  //           <ScrollIndicator activeSlide={activeSlide} nosOfSlides={4} />
-  //         </div>
-  //         <img
-  //           className={styles.slideBgImg}
-  //           src={bgImg}
-  //           alt="background"
-  //           height="275"
-  //           width="100%"
-  //         />
-  //         <div className={styles.carouselWrapper}>
-  //           {
-  //             slides.map((slide, idx) => <HomeCarouselChild setActiveSlide={setActiveSlide}
-  //               keyNos={idx}
-  //               houseImage={slide.houseImage}
-  //               description={{
-  //                 heading: slide.heading,
-  //                 description: slide.description,
-  //               }}
-  //               supTextLocation={idx !== 0 && "-20%"}
-  //             />)
-  //           }
-
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </section>
-  // );
 };
 
 export default HomeCarousel;

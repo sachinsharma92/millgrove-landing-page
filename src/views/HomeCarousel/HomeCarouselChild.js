@@ -9,8 +9,6 @@ const HomeCarouselChild = ({
     description,
     bgImage = bgImg,
     supTextLocation,
-    activeSlide,
-    setActiveSlide,
     keyNos,
     bgColor,
 }) => {
