@@ -42,22 +42,6 @@
   @include flex(center, flex-start);
   overflow: hidden;
   scroll-snap-align: start;
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes fade-out {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
 }
 
 .slideBgImg {
@@ -147,16 +131,4 @@
 }
 .blue {
   background-color: #434f50;
-}
-.slide1 {
-  opacity: 1;
-}
-.slide2 {
-  opacity: 0;
-}
-.slide3 {
-  opacity: 0;
-}
-.slide4 {
-  opacity: 0;
 }

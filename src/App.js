@@ -65,11 +65,11 @@ function App(props) {
   }, []);
 
   useEffect(() => {
-    const debouncedAnimation = debounce({
-      callback: animate,
-      delay: 50,
-      timerRef: debounceTimerId,
-    });
+    // const debouncedAnimation = debounce({
+    //   callback: animate,
+    //   delay: 50,
+    //   timerRef: debounceTimerId,
+    // });
     const fadeInOut = (el1, el2) => {
       el1.style.animation = "fade-out 1s ease-in-out forwards";
       el2.style.animation = "fade-in 1s ease-in-out forwards 0.2s";
@@ -79,9 +79,8 @@ function App(props) {
       if (isCarouselInView.current) {
         const scrollDiv = document.querySelector("#scroll-direction");
         let offset =
-          scrollDiv.getBoundingClientRect().bottom / (window.innerHeight * 4);
+          scrollDiv.getBoundingClientRect().bottom / (window.innerHeight * 4); // using 4 since nos if slides is four
         offset = 1 - offset;
-        console.log(offset);
         const elem1 = document.querySelector(".slide1");
         const elem2 = document.querySelector(".slide2");
         const elem3 = document.querySelector(".slide3");
