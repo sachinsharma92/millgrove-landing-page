@@ -17,7 +17,6 @@ import LocomotiveScroll from "locomotive-scroll";
 import { useIntersection } from "hooks/useIntersection";
 import debounce from "utils/debounce";
 
-
 function App(props) {
   const [menu, setMenu] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -25,38 +24,39 @@ function App(props) {
   const [activeSlide, setActiveSlide] = useState(0);
   const carouselViewRef = useRef();
   const debounceTimerId = useRef(null);
-  const isCarouselInView = useRef(false)
-  const scrollRef = useRef()
-  isCarouselInView.current = useIntersection(carouselViewRef, `0px 0px -${window.innerHeight / 1.1}px 0px`)
-
+  const isCarouselInView = useRef(false);
+  const scrollRef = useRef();
+  isCarouselInView.current = useIntersection(
+    carouselViewRef,
+    `0px 0px -${window.innerHeight / 1.1}px 0px`
+  );
 
   const animate = ({ scrollDirection, isCarouselInView }) => {
-    if (!isCarouselInView) return
+    if (!isCarouselInView) return;
 
     if (scrollDirection === "down") {
-      setActiveSlide(prev => {
-        if (prev === 3) return 3
-        return prev + 1
-      })
+      setActiveSlide((prev) => {
+        if (prev === 3) return 3;
+        return prev + 1;
+      });
     } else if (scrollDirection === "up") {
-      setActiveSlide(prev => {
-        if (prev === 0) return 0
-        return prev - 1
-      })
+      setActiveSlide((prev) => {
+        if (prev === 0) return 0;
+        return prev - 1;
+      });
     } else {
-      setActiveSlide(prev => {
-        if (prev === 3) return 3
-        return prev + 1
-      })
+      setActiveSlide((prev) => {
+        if (prev === 3) return 3;
+        return prev + 1;
+      });
     }
-  }
-
+  };
 
   useEffect(() => {
     scrollRef.current = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
-      getDirection: true
+      getDirection: true,
     });
 
     setTimeout(() => {
@@ -65,13 +65,45 @@ function App(props) {
   }, []);
 
   useEffect(() => {
-    const debouncedAnimation = debounce({ callback: animate, delay: 50, timerRef: debounceTimerId })
-    scrollRef.current.on('scroll', (instance) => {
+    const debouncedAnimation = debounce({
+      callback: animate,
+      delay: 50,
+      timerRef: debounceTimerId,
+    });
+    const fadeInOut = (el1, el2) => {
+      el1.style.animation = "fade-out 1s ease-in-out forwards";
+      el2.style.animation = "fade-in 1s ease-in-out forwards 0.2s";
+    };
+
+    scrollRef.current.on("scroll", (instance) => {
       if (isCarouselInView.current) {
-        debouncedAnimation({ scrollDirection: instance.direction, isCarouselInView: isCarouselInView.current })
+        const scrollDiv = document.querySelector("#scroll-direction");
+        let offset =
+          scrollDiv.getBoundingClientRect().bottom / (window.innerHeight * 4);
+        offset = 1 - offset;
+        console.log(offset);
+        const elem1 = document.querySelector(".slide1");
+        const elem2 = document.querySelector(".slide2");
+        const elem3 = document.querySelector(".slide3");
+        const elem4 = document.querySelector(".slide4");
+        if (offset > 0.29 && offset < 0.31) {
+          if (instance.direction === "down") fadeInOut(elem1, elem2);
+          else if (instance.direction === "up") fadeInOut(elem2, elem1);
+        } else if (offset > 0.49 && offset < 0.51) {
+          if (instance.direction === "down") fadeInOut(elem2, elem3);
+          else if (instance.direction === "up") fadeInOut(elem3, elem2);
+        } else if (offset > 0.59 && offset < 0.61) {
+          if (instance.direction === "down") fadeInOut(elem3, elem4);
+          else if (instance.direction === "up") fadeInOut(elem4, elem3);
+        }
+
+        // debouncedAnimation({
+        //   scrollDirection: instance.direction,
+        //   isCarouselInView: isCarouselInView.current,
+        // });
       }
-    })
-  }, [isCarouselInView.current])
+    });
+  }, [isCarouselInView.current]);
 
   return (
     <div className="millgrove" data-scroll-container>
@@ -83,7 +115,11 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
-      <HomeCarousel carouselViewRef={carouselViewRef} activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
+      <HomeCarousel
+        carouselViewRef={carouselViewRef}
+        activeSlide={activeSlide}
+        setActiveSlide={setActiveSlide}
+      />
       <Reservation />
       <Footer />
     </div>
