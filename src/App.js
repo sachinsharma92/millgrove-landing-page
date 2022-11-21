@@ -13,92 +13,89 @@ import CookiesPopup from "components/CookiesPopup/cookiesPopup";
 import Footer from "views/Footer";
 import ThreeDView from "views/ThreeDView";
 import HomeCarousel from "views/HomeCarousel";
-
 import LocomotiveScroll from "locomotive-scroll";
+import { useIntersection } from "hooks/useIntersection";
+import debounce from "utils/debounce";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
   const [loader, setLoader] = useState(false);
   const [cookiesPopup, setCookiesPopup] = useState(false);
-  const [progress, setProgress] = useState(0);
-  let container = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const carouselViewRef = useRef();
+  const debounceTimerId = useRef(null);
+  const isCarouselInView = useRef(false);
+  const scrollRef = useRef();
+  isCarouselInView.current = useIntersection(
+    carouselViewRef,
+    `0px 0px -${window.innerHeight / 1.1}px 0px`
+  );
+
+  const animate = ({ scrollDirection, isCarouselInView }) => {
+    if (!isCarouselInView) return;
+
+    if (scrollDirection === "down") {
+      setActiveSlide((prev) => {
+        if (prev === 3) return 3;
+        return prev + 1;
+      });
+    } else if (scrollDirection === "up") {
+      setActiveSlide((prev) => {
+        if (prev === 0) return 0;
+        return prev - 1;
+      });
+    } else {
+      setActiveSlide((prev) => {
+        if (prev === 3) return 3;
+        return prev + 1;
+      });
+    }
+  };
+
   useEffect(() => {
-    handleResize();
-    const scroll = new LocomotiveScroll({
-      // el: document.querySelector("[data-scroll-container]"),
-      el: container,
+    scrollRef.current = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
       smooth: true,
-      getSpeed: true,
       getDirection: true,
-      reloadOnContextChange: true,
     });
+
+    setTimeout(() => {
+      setLoader(false);
+    }, 5000);
+  }, []);
+
+  useEffect(() => {
     const fadeInOut = (el1, el2) => {
-      el1.style.animation = "fade-out 0.2s ease-in-out forwards";
-      el2.style.animation = "fade-in 0.2s ease-in-out forwards 0.2s";
+      el1.style.animation = "fade-out 0.5s ease-in-out forwards";
+      el2.style.animation = "fade-in 0.5s ease-in-out forwards 0.2s";
     };
 
-    let scrollDirection = "down";
-    var scrollableElement = document.body; //document.getElementById('scrollableElement');
-
-    scrollableElement.addEventListener("wheel", checkScrollDirection);
-    function checkScrollDirection(event) {
-      if (checkScrollDirectionIsUp(event)) {
-        scrollDirection = "up";
-      } else {
-        scrollDirection = "down";
-      }
-    }
-    function checkScrollDirectionIsUp(event) {
-      if (event.wheelDelta) {
-        return event.wheelDelta > 0;
-      }
-      return event.deltaY < 0;
-    }
-
-    scroll.on("scroll", (args) => {
-      // Get all current elements : args.currentElements
-      if (typeof args.currentElements["carousel-parent-div"] === "object") {
-        let progress = args.currentElements["carousel-parent-div"].progress;
-        const elem1 = document.querySelector(".carousel-div-1");
-        const elem2 = document.querySelector(".carousel-div-2");
-        const elem3 = document.querySelector(".carousel-div-3");
-        const elem4 = document.querySelector(".carousel-div-4");
-        elem1.style.sticky = "sticky !important";
-        elem1.style.top = "0 !important";
-        elem2.style.top = "0 !important";
-        elem3.style.top = "0 !important";
-        elem4.style.top = "0 !important";
-        const scrollDiv = document.querySelector(".home-carousel");
+    scrollRef.current.on("scroll", (instance) => {
+      if (isCarouselInView.current) {
+        const scrollDiv = document.querySelector("#scroll-direction");
         let offset =
-          scrollDiv.getBoundingClientRect().bottom / (window.innerHeight * 4);
+          scrollDiv.getBoundingClientRect().bottom / (window.innerHeight * 4); // using 4 since nos if slides is four
         offset = 1 - offset;
+        const elem1 = document.querySelector(".slide1");
+        const elem2 = document.querySelector(".slide2");
+        const elem3 = document.querySelector(".slide3");
+        const elem4 = document.querySelector(".slide4");
         if (offset > 0.29 && offset < 0.31) {
-          if (scrollDirection === "down") fadeInOut(elem1, elem2);
-          else if (scrollDirection === "up") fadeInOut(elem2, elem1);
+          if (instance.direction === "down") fadeInOut(elem1, elem2);
+          else if (instance.direction === "up") fadeInOut(elem2, elem1);
         } else if (offset > 0.49 && offset < 0.51) {
-          if (scrollDirection === "down") fadeInOut(elem2, elem3);
-          else if (scrollDirection === "up") fadeInOut(elem3, elem2);
+          if (instance.direction === "down") fadeInOut(elem2, elem3);
+          else if (instance.direction === "up") fadeInOut(elem3, elem2);
         } else if (offset > 0.59 && offset < 0.61) {
-          if (scrollDirection === "down") fadeInOut(elem3, elem4);
-          else if (scrollDirection === "up") fadeInOut(elem4, elem3);
+          if (instance.direction === "down") fadeInOut(elem3, elem4);
+          else if (instance.direction === "up") fadeInOut(elem4, elem3);
         }
-        // console.log(args.currentElements["carousel-div"]);
-        // console.log(progress);
-        // ouput log example: 0.34
-        // elem.target.style.opacity = `${progress} !important`;
-        // gsap example : myGsapAnimation.progress(progress);
       }
     });
-    // setTimeout(() => {
-    //   setLoader(false);
-    // }, 5000);
-  }, []);
+  }, [isCarouselInView.current]);
+
   return (
-    <div
-      className="millgrove"
-      ref={(el) => (container = el)}
-      data-scroll-container
-    >
+    <div className="millgrove" data-scroll-container>
       {cookiesPopup && (
         <CookiesPopup closeCookiesPopup={() => setCookiesPopup(false)} />
       )}
@@ -107,7 +104,11 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
-      <HomeCarousel />
+      <HomeCarousel
+        carouselViewRef={carouselViewRef}
+        activeSlide={activeSlide}
+        setActiveSlide={setActiveSlide}
+      />
       <Reservation />
       <Footer />
     </div>
