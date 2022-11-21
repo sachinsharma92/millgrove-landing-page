@@ -58,7 +58,7 @@ const HomeCarousel = ({ activeSlide, setActiveSlide, carouselViewRef }) => {
         data-scroll-target="#scroll-direction"
       >
         <div className={styles.wrapper} data-scroll>
-          <Header />
+          {/* <Header /> */}
           <div className={styles.scrollIndicatorContainer}>
             <ScrollIndicator activeSlide={activeSlide} nosOfSlides={4} />
           </div>

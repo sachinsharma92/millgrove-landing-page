@@ -8,11 +8,11 @@ const customStyles = { color: "#404040", borderColor: "#404040" };
 const Header = ({ children, defaultElements = true }) => {
   return (
     <header className={styles.header}>
-      {/* {defaultElements && <Button customStyles={customStyles} text="MENU" type={'secondary'} leftIcon={<MENU_FOLDS style={{stroke:"#404040"}} />} />} */}
-      <span></span>
+      {defaultElements ? <a className={styles.siteUrl} href={"https://haryanarera.gov.in/"}>www.haryanarera.gov.in</a> : null}
 
-      {/* {defaultElements && <Button customStyles={customStyles} type={'secondary'} text="LOGIN"/>} */}
-      <span></span>
+      {defaultElements ? <MILLGROVE_LOGO /> : null}
+      {defaultElements ? <span>HRERA2020A0009</span> : null}
+
       {!defaultElements && children}
     </header>
   );

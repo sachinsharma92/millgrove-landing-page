@@ -1,8 +1,14 @@
 @import "../../sass/utils/_mixins.scss";
 @import "../../sass/utils/_variables.scss";
 
-.header{
-    @include flex(space-between,center);
-    padding: 1.5rem 2.25rem;
-    width: 100%;
+.header {
+  @include flex(space-between, center);
+  padding: 1.5rem 2.25rem;
+  width: 100%;
+  color: $grey-10;
+  @include fontStyles($white-100, "Manrope", 400, 1.125rem);
+}
+.siteUrl {
+  text-transform: uppercase;
+  //   @include fontStyles($white-100, "Manrope", 200, 1rem);
 }

@@ -14,7 +14,7 @@ import {
 import Button from "components/Button";
 import { LeftArrow, RightArrow } from "assets/icons/icons";
 
-function Firstfold(props) {
+function Firstfold({ setIsRegistering, openMenu }) {
   return (
     <div className="mg-first-fold" data-scroll-section>
       <div className="mg-first-fold-top-text">
@@ -60,7 +60,7 @@ function Firstfold(props) {
         </div>
         <div data-scroll data-scroll-speed="2" className="mg-first-fold-auth-btns">
           <Button text={"LOGIN"} type="secondary" leftIcon={<LeftArrow />} rightIcon={<RightArrow />} />
-          <Button text={"REGISTER"} type="secondary" leftIcon={<LeftArrow />} rightIcon={<RightArrow />} />
+          <Button clickhandler={() => { console.log('heyy'); setIsRegistering(true) }} text={"REGISTER"} type="secondary" leftIcon={<LeftArrow />} rightIcon={<RightArrow />} />
         </div>
       </div>
       <div className="mg-discover-more">
