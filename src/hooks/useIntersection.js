@@ -3,8 +3,8 @@ import { useState, useEffect } from "react"
 const useIntersection = (element, rootMargin) => {
     const [isVisible, setState] = useState(false);
     useEffect(() => {
-        const nodeElement=element.current
-        if(!nodeElement) return
+        const nodeElement = element.current
+        if (!nodeElement) return
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setState(entry.isIntersecting);
@@ -19,4 +19,4 @@ const useIntersection = (element, rootMargin) => {
     return isVisible;
 }
 
-export {useIntersection}
+export { useIntersection }
