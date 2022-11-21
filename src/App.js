@@ -66,8 +66,8 @@ function App(props) {
 
   useEffect(() => {
     const fadeInOut = (el1, el2) => {
-      el1.style.animation = "fade-out 1s ease-in-out forwards";
-      el2.style.animation = "fade-in 1s ease-in-out forwards 0.2s";
+      el1.style.animation = "fade-out 0.5s ease-in-out forwards";
+      el2.style.animation = "fade-in 0.5s ease-in-out forwards 0.2s";
     };
 
     scrollRef.current.on("scroll", (instance) => {
