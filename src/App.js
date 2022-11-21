@@ -16,6 +16,7 @@ import HomeCarousel from "views/HomeCarousel";
 import LocomotiveScroll from "locomotive-scroll";
 import { useIntersection } from "hooks/useIntersection";
 import debounce from "utils/debounce";
+import Signup from "views/Signup/Signup";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -111,6 +112,7 @@ function App(props) {
       />
       <Reservation />
       <Footer />
+      {/* <Signup /> */}
     </div>
   );
 }

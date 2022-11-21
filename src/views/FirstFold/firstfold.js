@@ -11,6 +11,8 @@ import {
   MILLGROVE_LOGO,
   REEL_BUTTON,
 } from "utils/assets";
+import Button from "components/Button";
+import { LeftArrow, RightArrow } from "assets/icons/icons";
 
 function Firstfold(props) {
   return (
@@ -55,6 +57,10 @@ function Firstfold(props) {
           <div className="mg-play-reel-btn">
             <REEL_BUTTON />
           </div>
+        </div>
+        <div data-scroll data-scroll-speed="2" className="mg-first-fold-auth-btns">
+          <Button text={"LOGIN"} type="secondary" leftIcon={<LeftArrow />} rightIcon={<RightArrow />} />
+          <Button text={"REGISTER"} type="secondary" leftIcon={<LeftArrow />} rightIcon={<RightArrow />} />
         </div>
       </div>
       <div className="mg-discover-more">
