@@ -18,6 +18,7 @@ import { useIntersection } from "hooks/useIntersection";
 import debounce from "utils/debounce";
 import Signup from "views/Signup/Signup";
 import SignupSuccess from "views/Signup/SignupSuccess";
+import Login from "views/Login/Login";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -26,6 +27,7 @@ function App(props) {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isRegistering, setIsRegistering] = useState(false)
   const [isRegisterationSuccessfull, setIsRegisterationSuccessfull] = useState(false)
+  const [isLoggingIn, setIsLoggingIn] = useState(false)
   const carouselViewRef = useRef();
   const debounceTimerId = useRef(null);
   const isCarouselInView = useRef(false);
@@ -105,7 +107,7 @@ function App(props) {
       )}
       {loader && <Home />}
       {/* {} */}
-      <Firstfold openMenu={() => setMenu(true)} setIsRegistering={setIsRegistering} />
+      <Firstfold openMenu={() => setMenu(true)} setIsLoggingIn={setIsLoggingIn} setIsRegistering={setIsRegistering} />
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
@@ -118,6 +120,7 @@ function App(props) {
       <Footer />
       {isRegistering && <Signup isRegistering={isRegistering} setIsRegistering={setIsRegistering} isRegisterationSuccessfull={isRegisterationSuccessfull} setIsRegisterationSuccessfull={setIsRegisterationSuccessfull} />}
       {isRegisterationSuccessfull && <SignupSuccess />}
+      {isLoggingIn && <Login setIsLoggingIn={setIsLoggingIn} />}
     </div>
   );
 }
