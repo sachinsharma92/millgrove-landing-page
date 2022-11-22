@@ -9,7 +9,7 @@ const SignupSuccess = () => {
             <div className={styles.successMsgWrapper}>
                 <h2>Thank You <span className={styles.smallTxt}>for</span> Registering</h2>
                 <div className={styles.successDescription}>
-                    <p>We’ll get in touch with you shortly to share a One Time Passcode code to access the Millgrove Web Experience. Click here to enter your Passcode.</p>
+                    <p>A member of our team will be in touch shortly via phone to discuss your interest and requirements.</p>
                 </div>
             </div>
         </Layout>

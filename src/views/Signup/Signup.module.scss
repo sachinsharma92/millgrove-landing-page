@@ -85,36 +85,23 @@
 }
 
 .successMsgWrapper {
-  width: 40%;
+  width: calc(56% + 1.5625vw);
   text-align: center;
   h2 {
-    @include fontStyles($cream-40, "Editorial New", 200, 3rem);
+    @include fontStyles($cream-40, "Editorial New", 200, calc(18px + 1.5625vw));
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     .smallTxt {
-      @include fontStyles($cream-40, "Notera", 200, 2rem);
+      @include fontStyles($cream-40, "Notera", 200, calc(10px + 1.5625vw));
       text-transform: lowercase;
     }
   }
   .successDescription {
-    width: 80%;
+    width: 56%;
     margin: auto;
     p {
-      @include fontStyles($cream-40, "Manrope", 400, 1.25rem);
+      @include fontStyles($cream-40, "Manrope", 400, calc(12px + 0.390625vw));
     }
-  }
-}
-
-@media only screen and (min-width: 1700px) {
-  .mainWrapper {
-    // padding: calc(15px + 0.5625vw);
-    border-radius: 6px;
-    background-color: #ffffff;
-    position: relative;
-    // max-width: 40%;
-    // margin-top: 2rem;
-    //   height: 80%;
-    //   max-height: 40rem;
   }
 }
 
