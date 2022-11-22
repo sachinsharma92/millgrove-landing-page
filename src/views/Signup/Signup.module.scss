@@ -2,19 +2,16 @@
 @import "../../sass/utils/mixins";
 
 .mainWrapper {
-  padding: 1.25rem;
+  padding: calc(10px + 0.5625vw);
   border-radius: 6px;
   background-color: #ffffff;
   position: relative;
   max-width: 40%;
-  margin-top: 2rem;
-  //   height: 80%;
-  //   max-height: 40rem;
 }
 
 .bgTree {
   position: absolute;
-  top: 5%;
+  top: 2vw;
   left: 36%;
   height: 50%;
   width: 40%;
@@ -24,7 +21,9 @@
 .formWrapper {
   border: 1px solid $brown-80-30;
   border-radius: 6px;
-  padding: 4.5rem 2rem 2rem 2rem;
+  // padding: 4.5rem 2rem 2rem 2rem;
+  padding: calc(8px + 0.5625vw);
+  padding-top: calc(8px + 1.5625vw);
   form {
     width: 95%;
     margin: 0 auto;
@@ -32,19 +31,25 @@
 }
 
 .headingWrapper {
-  max-width: 80%;
-  margin: 0 auto 3rem auto;
+  width: clamp(50%, 70%, 80%);
+  margin: 0 auto;
+  margin-bottom: calc(8px + 1.5625vw);
 }
 .heading {
-  @include fontStyles($black-100, "Editorial New", 200, 3.5vw);
+  @include fontStyles(
+    $black-100,
+    "Editorial New",
+    200,
+    calc(30px + 0.390625vw)
+  );
   text-transform: uppercase;
 }
 .smallText {
-  @include fontStyles($brown-70, "Notera", 200, 4vw);
+  @include fontStyles($brown-70, "Notera", 200, calc(8px + 1.5625vw));
   text-transform: lowercase;
 }
 .formInputWrapper {
-  margin-bottom: 2.5rem;
+  margin-bottom: calc(8px + 1.5625vw);
 }
 .formInput {
   // text-align: center;
@@ -52,14 +57,15 @@
   border-bottom: 1px solid $brown-40;
   width: 93%;
   outline: 1px solid transparent;
-  padding: 0.5rem 0;
+  padding: calc(2px + 0.390625vw) 0;
   letter-spacing: 0.5px;
   @include fontStyles($brown-80, "Manrope", 400, 1.125rem);
 }
 .agreementCheck {
-  @include flex(flex-start, flex-start);
+  @include flex(center, flex-start);
   width: fit-content;
-  margin-top: 2.5rem;
+  max-width: 90%;
+  margin-top: calc(8px + 0.390625vw);
   margin-left: auto;
   margin-right: auto;
   gap: 2rem;
@@ -69,7 +75,8 @@
     }
   }
   p {
-    @include fontStyles($brown-80, "Manrope", 400, 1.125rem);
+    text-align: left;
+    @include fontStyles($brown-80, "Manrope", 400, calc(8px + 0.390625vw));
   }
 }
 .submitBtnWrapper {
@@ -98,32 +105,45 @@
   }
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (min-width: 1700px) {
   .mainWrapper {
-    padding: 1rem;
-    margin-top: 1rem;
-    // background-color: red;
-  }
-  .formWrapper {
-    padding: 2.5rem 1rem 1rem 1rem;
-  }
-  .headingWrapper {
-    max-width: 50%;
-    margin: 0 auto 1.5rem auto;
-    .heading {
-      font-size: 1.5rem;
-    }
-  }
-  .formInputWrapper {
-    margin-bottom: 1rem;
-  }
-  .agreementCheck {
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 1rem;
-  }
-  .submitBtnWrapper {
-    margin-top: 1.5rem;
+    // padding: calc(15px + 0.5625vw);
+    border-radius: 6px;
+    background-color: #ffffff;
+    position: relative;
+    // max-width: 40%;
+    // margin-top: 2rem;
+    //   height: 80%;
+    //   max-height: 40rem;
   }
 }
+
+// @media only screen and (max-width: 1600px) {
+//   .mainWrapper {
+//     padding: 1rem;
+//     margin-top: 1rem;
+//     // background-color: red;
+//   }
+//   .formWrapper {
+//     padding: 2.5rem 1rem 1rem 1rem;
+//   }
+//   .headingWrapper {
+//     max-width: 50%;
+//     margin: 0 auto 1.5rem auto;
+//     .heading {
+//       font-size: 1.5rem;
+//     }
+//   }
+//   .formInputWrapper {
+//     margin-bottom: 1rem;
+//   }
+//   .agreementCheck {
+//     margin-top: 1rem;
+//     margin-left: auto;
+//     margin-right: auto;
+//     gap: 1rem;
+//   }
+//   .submitBtnWrapper {
+//     margin-top: 1.5rem;
+//   }
+// }

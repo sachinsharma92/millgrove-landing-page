@@ -25,7 +25,7 @@ const Signup = ({ isRegistering, setIsRegistering, isRegisterationSuccessfull, s
         <Layout>
             {isRegistering && <div className={styles.mainWrapper}>
                 <div className={styles.bgTree}>
-                    <MILLGROVE_TREE style={{ height: '200' }} fillColor="#8a7f7f14" />
+                    <MILLGROVE_TREE style={{ height: `6vw` }} fillColor="#8a7f7f14" />
                 </div>
                 <div className={styles.formWrapper}>
 
@@ -49,7 +49,7 @@ const Signup = ({ isRegistering, setIsRegistering, isRegisterationSuccessfull, s
                             <p>I accept the terms for processing my personal data</p>
                         </div>
                         <div className={styles.submitBtnWrapper}>
-                            <Button clickhandler={handleSubmit} text={"Continue"} leftIcon={<LeftArrow color='#F1EFE5' />} rightIcon={<RightArrow color='#F1EFE5' />} customStyles={{ backgroundColor: "#2E3430", color: "#F1EFE5", width: "85%", padding: "1rem" }} />
+                            <Button clickhandler={handleSubmit} text={"Continue"} leftIcon={<LeftArrow color='#F1EFE5' />} rightIcon={<RightArrow color='#F1EFE5' />} customStyles={{ backgroundColor: "#2E3430", color: "#F1EFE5", width: "85%", padding: "0.8rem" }} />
                         </div>
                     </form>
                 </div>
