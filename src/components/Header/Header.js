@@ -8,7 +8,7 @@ const customStyles = { color: "#404040", borderColor: "#404040" };
 const Header = ({ children, defaultElements = true }) => {
   return (
     <header className={styles.header}>
-      {defaultElements ? <a className={styles.siteUrl} href={"https://haryanarera.gov.in/"}>www.haryanarera.gov.in</a> : null}
+      {defaultElements ? <a className={styles.siteUrl} href={"https://haryanarera.gov.in/"} target="#blank">www.haryanarera.gov.in</a> : null}
 
       {defaultElements ? <MILLGROVE_LOGO /> : null}
       {defaultElements ? <span>HRERA2020A0009</span> : null}

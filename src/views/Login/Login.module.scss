@@ -7,7 +7,7 @@
   background-color: #ffffff;
   position: relative;
   max-width: 40%;
-  margin-top: 2rem;
+  //   margin-top: 2rem;
   //   height: 80%;
   //   max-height: 40rem;
 }
@@ -47,6 +47,33 @@
 
 .otpWrapper {
   margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  input {
+    width: 2.5rem !important;
+    height: 3rem !important;
+    border: none;
+    border-bottom: 1px solid $black-90-20;
+    margin-right: 0.5rem;
+    font-size: 2rem;
+    color: $black-90-70;
+  }
+}
+.phoneNosWrapper {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  input {
+    width: 2.5rem !important;
+    height: 3rem !important;
+    border: none;
+    border-bottom: 1px solid $black-90-20;
+    font-size: 2rem;
+    color: $black-90-70;
+  }
+}
+.instructionText {
+  @include fontStyles($black-90, "Manrope", 400, 0.875rem);
 }
 
 .resend {

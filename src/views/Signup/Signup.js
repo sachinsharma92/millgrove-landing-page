@@ -31,12 +31,12 @@ const Signup = ({ isRegistering, setIsRegistering, isRegisterationSuccessfull, s
 
                     <div className={styles.headingWrapper}>
                         <h3 className={styles.heading}>
-                            Register <span className={styles.smallText}>and</span> Begin
+                            Register <span className={styles.smallText}>your</span> Details
                         </h3>
                     </div>
                     <form>
                         <div className={styles.formInputWrapper}>
-                            <Input placeholder={"Name"} type="text" />
+                            <Input placeholder={"Enter Name"} type="text" />
                         </div>
                         <div className={styles.formInputWrapper}>
                             <Input placeholder={"Phone"} type="text" />

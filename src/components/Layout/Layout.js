@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
                     <span>Cookies policy</span>
                 </div>
                 <div>
-                    <span className={styles.siteUrl}>www.haryanarera.gov.in</span>
+                    <a className={styles.siteUrl} href={"https://haryanarera.gov.in/"} target="#blank">www.haryanarera.gov.in</a>
                     <span>HRERA2020A0009</span>
                 </div>
             </footer>

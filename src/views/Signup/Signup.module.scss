@@ -32,11 +32,11 @@
 }
 
 .headingWrapper {
-  max-width: 70%;
+  max-width: 80%;
   margin: 0 auto 3rem auto;
 }
 .heading {
-  @include fontStyles($black-100, "Editorial New", 200, 4vw);
+  @include fontStyles($black-100, "Editorial New", 200, 3.5vw);
   text-transform: uppercase;
 }
 .smallText {
@@ -47,7 +47,7 @@
   margin-bottom: 2.5rem;
 }
 .formInput {
-  text-align: center;
+  // text-align: center;
   border: none;
   border-bottom: 1px solid $brown-40;
   width: 93%;
@@ -98,10 +98,11 @@
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (max-width: 1600px) {
   .mainWrapper {
     padding: 1rem;
     margin-top: 1rem;
+    // background-color: red;
   }
   .formWrapper {
     padding: 2.5rem 1rem 1rem 1rem;
