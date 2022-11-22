@@ -1,10 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import OtpInput from 'react18-input-otp'
-import { LeftArrow, RightArrow } from 'assets/icons/icons'
-import Button from 'components/Button'
+import React, { useState } from 'react'
 import Layout from 'components/Layout'
-import { MILLGROVE_TREE } from 'utils/assets'
-import styles from './Login.module.scss'
 import PhoneNumberForm from './PhoneNumberForm'
 import OtpForm from './OtpForm'
 

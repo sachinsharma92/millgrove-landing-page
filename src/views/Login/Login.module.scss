@@ -2,29 +2,29 @@
 @import "../../sass/utils/mixins";
 
 .mainWrapper {
-  padding: 1.25rem;
+  padding: calc(10px + 0.5625vw);
   border-radius: 6px;
   background-color: #ffffff;
   position: relative;
-  max-width: 40%;
-  //   margin-top: 2rem;
-  //   height: 80%;
-  //   max-height: 40rem;
+  // width: clamp(30%, 30%, 40%);
 }
 
 .bgTree {
   position: absolute;
-  top: 5%;
-  left: 36%;
-  height: 50%;
+  top: 2vw;
+  left: 8vw;
+  height: 28%;
   width: 40%;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .formWrapper {
   border: 1px solid $brown-80-30;
   border-radius: 6px;
-  padding: 4.5rem 2rem 2rem 2rem;
+  padding: calc(24px + 1.5625vw) 0 calc(16px + 1.5625vw);
   form {
     width: 95%;
     margin: 0 auto;
@@ -33,20 +33,26 @@
 }
 
 .headingWrapper {
-  max-width: 70%;
-  margin: 0 auto 3rem auto;
+  width: clamp(50%, 70%, 80%);
+  margin: 0 auto;
+  margin-bottom: calc(8px + 1.5625vw);
 }
 .heading {
-  @include fontStyles($black-100, "Editorial New", 200, 4vw);
+  @include fontStyles(
+    $black-100,
+    "Editorial New",
+    200,
+    calc(30px + 0.390625vw)
+  );
   text-transform: uppercase;
 }
 .smallText {
-  @include fontStyles($brown-70, "Notera", 200, 4vw);
+  @include fontStyles($brown-70, "Notera", 200, calc(8px + 1.5625vw));
   text-transform: lowercase;
 }
 
 .otpWrapper {
-  margin-bottom: 1.5rem;
+  margin-bottom: calc(15px + 0.390625vw);
   display: flex;
   justify-content: center;
   input {
@@ -55,21 +61,40 @@
     border: none;
     border-bottom: 1px solid $black-90-20;
     margin-right: 0.5rem;
-    font-size: 2rem;
+    font-size: calc(15px + 0.390625vw);
     color: $black-90-70;
   }
 }
 .phoneNosWrapper {
   margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: center;
+  @include flex(center, center);
+  gap: 1rem;
+  width: 80%;
+  margin: 0 auto 1rem;
   input {
-    width: 2.5rem !important;
+    width: 2rem !important;
     height: 3rem !important;
     border: none;
     border-bottom: 1px solid $black-90-20;
-    font-size: 2rem;
+    font-size: calc(30px + 0.5625vw);
+    font-weight: 200;
     color: $black-90-70;
+    &:focus {
+      // border: none;
+      outline: 1px solid transparent;
+    }
+  }
+}
+
+.countryCodeWrapper {
+  @include flex(center, center);
+  gap: 0.5rem;
+  .countryCode {
+    @include fontStyles($black-100-70, "Manrope", 300, calc(30px + 0.5625vw));
+  }
+  .downArrowWrapper {
+    @include flex(center, center);
+    width: calc(15px + 0.5625vw);
   }
 }
 .instructionText {
@@ -87,4 +112,8 @@
 .submitBtnWrapper {
   @include flex(center, center);
   margin-top: 3rem;
+  button {
+    width: 45%;
+    padding: calc(4px + 0.390625vw) calc(8px + 0.390625vw);
+  }
 }

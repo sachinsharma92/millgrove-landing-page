@@ -21,7 +21,6 @@
 .formWrapper {
   border: 1px solid $brown-80-30;
   border-radius: 6px;
-  // padding: 4.5rem 2rem 2rem 2rem;
   padding: calc(8px + 0.5625vw);
   padding-top: calc(8px + 1.5625vw);
   form {
@@ -104,33 +103,3 @@
     }
   }
 }
-
-// @media only screen and (max-width: 1600px) {
-//   .mainWrapper {
-//     padding: 1rem;
-//     margin-top: 1rem;
-//     // background-color: red;
-//   }
-//   .formWrapper {
-//     padding: 2.5rem 1rem 1rem 1rem;
-//   }
-//   .headingWrapper {
-//     max-width: 50%;
-//     margin: 0 auto 1.5rem auto;
-//     .heading {
-//       font-size: 1.5rem;
-//     }
-//   }
-//   .formInputWrapper {
-//     margin-bottom: 1rem;
-//   }
-//   .agreementCheck {
-//     margin-top: 1rem;
-//     margin-left: auto;
-//     margin-right: auto;
-//     gap: 1rem;
-//   }
-//   .submitBtnWrapper {
-//     margin-top: 1.5rem;
-//   }
-// }
