@@ -40,7 +40,8 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
                                 <DownArrow />
                             </div>
                         </div>
-                        <OtpInput className={styles.otpInput} value={phoneNos} shouldAutoFocus onChange={handleChange} numInputs={10} separator={<span>{" "}</span>} separateAfter={4} />
+                        {/* using otp comp for phone nos as well */}
+                        <OtpInput containerStyle={styles.phoneNosInputContainer} inputStyle={styles.phoneNos} value={phoneNos} shouldAutoFocus onChange={handleChange} numInputs={10} separator={<span>{" "}</span>} separateAfter={4} />
                     </div>
                     <p className={styles.instructionText}>Please press continue to proceed.</p>
                     <div className={styles.submitBtnWrapper}>

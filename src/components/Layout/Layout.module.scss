@@ -29,11 +29,15 @@ footer {
   @include flex(space-between, center);
   & > div {
     @include flex(flex-start, center);
-    gap: 1rem;
+    gap: calc(10px + 00.390625vw);
   }
   background-color: $green-80;
-  padding: 1.5rem 1.25rem;
+  padding: calc(15px + 0.390625vw) calc(12px + 0.390625vw);
   color: $grey-10;
+  .leftFooter,
+  .rightFooter {
+    @include fontStyles($grey-10, "Manrope", 400, calc(12px + 00.390625vw));
+  }
 }
 .siteUrl {
   text-transform: uppercase;

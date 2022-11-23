@@ -13,12 +13,12 @@ const Layout = ({ children }) => {
                 </div>
             </div>
             <footer>
-                <div>
+                <div className={styles.leftFooter}>
                     <span>Privacy Policy</span>
                     <span>Terms & Conditions</span>
                     <span>Cookies policy</span>
                 </div>
-                <div>
+                <div className={styles.rightFooter}>
                     <a className={styles.siteUrl} href={"https://haryanarera.gov.in/"} target="#blank">www.haryanarera.gov.in</a>
                     <span>HRERA2020A0009</span>
                 </div>

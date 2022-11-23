@@ -3,10 +3,10 @@
 
 .header {
   @include flex(space-between, center);
-  padding: 1.5rem 2.25rem;
+  padding: calc(15px + 0.5625vw) calc(26px + 0.5625vw);
   width: 100%;
   color: $grey-10;
-  @include fontStyles($white-100, "Manrope", 400, 1.125rem);
+  @include fontStyles($white-100, "Manrope", 400, calc(10.5px + 0.390625vw));
 }
 .siteUrl {
   text-transform: uppercase;
