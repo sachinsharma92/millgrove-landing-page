@@ -58,16 +58,7 @@ function App(props) {
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
       getDirection: true,
-      mobile: {
-        breakpoint: 0,
-        smooth: false,
-        getDirection: true,
-      },
-      tablet: {
-        breakpoint: 0,
-        smooth: false,
-        getDirection: true,
-      },
+      smoothMobile: true,
     });
 
     setTimeout(() => {
