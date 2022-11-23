@@ -16,7 +16,7 @@ import ThreeDView from "views/ThreeDView";
 import LocomotiveScroll from "locomotive-scroll";
 import { useIntersection } from "hooks/useIntersection";
 import debounce from "utils/debounce";
-import HomeCarousel from "views/HomeCarousel/homecarousel";
+import HomeCarousel from "views/HomeCarousel/HomeCarousel";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -140,11 +140,8 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
-      <HomeCarousel
-        carouselViewRef={carouselViewRef}
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      />
+      <HomeCarousel carouselViewRef={carouselViewRef} />
+
       <Reservation />
       <Footer />
     </div>
