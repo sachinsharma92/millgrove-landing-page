@@ -25,13 +25,13 @@ const Timer = (props) => {
   });
 
   return (
-    <div>
+    <span>
       {minutes === 0 && seconds === 0 ? null : (
         <span>
           Resend code in 0{minutes}:{seconds < 10 ? `0${seconds}` : seconds}
         </span>
       )}
-    </div>
+    </span>
   );
 };
 

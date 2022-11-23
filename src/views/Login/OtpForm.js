@@ -42,6 +42,7 @@ const OtpForm = ({ setIsLoggingIn }) => {
             shouldAutoFocus
             onChange={handleChange}
             numInputs={6}
+            isInputNum
           />
         </div>
         <p className={styles.resend}>

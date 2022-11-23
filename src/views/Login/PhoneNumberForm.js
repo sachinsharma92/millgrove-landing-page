@@ -69,6 +69,7 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
               numInputs={10}
               separator={<span> </span>}
               separateAfter={4}
+              isInputNum
             />
           </div>
           <p className={styles.instructionText}>

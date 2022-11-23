@@ -149,12 +149,12 @@
 }
 
 .mg-first-fold-auth-btns {
-  // margin-left: 500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   width: fit-content;
   margin: auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  z-index: 99;
 }

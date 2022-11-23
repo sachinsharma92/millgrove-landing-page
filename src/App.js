@@ -45,36 +45,40 @@ function App(props) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
-    handleResize();
-    if (!isMobile) {
-      scrollRef.current = new LocomotiveScroll({
-        el: document.querySelector("[data-scroll-container]"),
-        smooth: true,
-        getDirection: true,
-        smoothMobile: true,
-      });
-    }
-  });
-
-  useEffect(() => {
     if (isLoggedIn) {
-      scrollRef.current = new LocomotiveScroll({
-        el: document.querySelector("[data-scroll-container]"),
-        smooth: true,
-        getDirection: true,
-      });
+      handleResize();
+      if (!isMobile) {
+        scrollRef.current = new LocomotiveScroll({
+          el: document.querySelector("[data-scroll-container]"),
+          smooth: true,
+          getDirection: true,
+          smoothMobile: true,
+        });
+      }
     } else {
       document.body.style.overflow = "hidden";
     }
-
     setTimeout(() => {
       setLoader(false);
     }, 5000);
   }, [isLoggedIn]);
 
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     scrollRef.current = new LocomotiveScroll({
+  //       el: document.querySelector("[data-scroll-container]"),
+  //       smooth: true,
+  //       getDirection: true,
+  //     });
+  //   } else {
+  //     document.body.style.overflow = "hidden";
+  //   }
+
+  // }, [isLoggedIn]);
+
   useEffect(() => {
     !isMobile &&
-      scrollRef.current.on("scroll", (instance) => {
+      scrollRef.current?.on("scroll", (instance) => {
         if (isCarouselInView.current) {
           const elem1 = document.querySelector(".slide1");
           const elem1abs = document.querySelector(".slide1-abs");
@@ -150,6 +154,7 @@ function App(props) {
         setIsLoggingIn={setIsLoggingIn}
         setIsRegistering={setIsRegistering}
       />
+      <></>
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />

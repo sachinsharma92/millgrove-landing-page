@@ -16,8 +16,7 @@ import { LeftArrow, RightArrow } from "assets/icons/icons";
 import { AuthContext } from "context/AuthContext";
 
 function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
-
-  const { isLoggedIn } = useContext(AuthContext)
+  const { isLoggedIn } = useContext(AuthContext);
 
   return (
     <div className="mg-first-fold" data-scroll-section>
@@ -62,15 +61,35 @@ function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
             <REEL_BUTTON />
           </div>
         </div>
-        {!isLoggedIn && <div data-scroll data-scroll-speed="2" className="mg-first-fold-auth-btns">
-          <Button clickhandler={() => setIsLoggingIn(true)} text={"LOGIN"} type="secondary" leftIcon={<LeftArrow />} rightIcon={<RightArrow />} />
-          <Button clickhandler={() => setIsRegistering(true)} text={"REGISTER"} type="secondary" leftIcon={<LeftArrow />} rightIcon={<RightArrow />} />
-        </div>}
+        {!isLoggedIn && (
+          <div
+            data-scroll
+            data-scroll-speed="2"
+            className="mg-first-fold-auth-btns"
+          >
+            <Button
+              clickhandler={() => setIsLoggingIn(true)}
+              text={"LOGIN"}
+              type="secondary"
+              leftIcon={<LeftArrow />}
+              rightIcon={<RightArrow />}
+            />
+            <Button
+              clickhandler={() => setIsRegistering(true)}
+              text={"REGISTER"}
+              type="secondary"
+              leftIcon={<LeftArrow />}
+              rightIcon={<RightArrow />}
+            />
+          </div>
+        )}
       </div>
-      <div className="mg-discover-more">
-        <DOWN_ARROW />
-        DISCOVER MORE
-      </div>
+      {isLoggedIn && (
+        <div className="mg-discover-more">
+          <DOWN_ARROW />
+          DISCOVER MORE
+        </div>
+      )}
       <div className="mg-bg-video">
         <video src={TEMP_VIDEO} autoPlay muted loop />
       </div>
