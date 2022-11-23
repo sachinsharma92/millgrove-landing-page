@@ -89,25 +89,38 @@
 .phoneNosWrapper {
   @include flex(center, center);
   gap: 1rem;
-  width: 70%;
+  width: 90%;
   margin: 0 auto calc(15px + 0.5625vw);
-}
-.phoneNos {
-  width: calc(15px + 0.390625vw) !important;
-  border: none;
-  border-bottom: 1px solid $black-90-20;
-  font-size: calc(26px + 0.5625vw);
-  font-weight: 200;
-  font-family: "Manrope";
-  color: $black-90-70;
-  &:focus {
-    outline: 1px solid transparent;
+  input {
+    // width: calc(15px + 0.390625vw) !important;
+    width: 100% !important;
+    border: none;
+    border-bottom: 1px solid $black-90-20;
+    font-size: calc(26px + 0.5625vw);
+    font-weight: 200;
+    font-family: "Manrope";
+    color: $black-90-70;
+    &:focus {
+      outline: 1px solid transparent;
+    }
   }
 }
-.phoneNosInputContainer {
-  width: 100%;
-  background-color: transparent;
-}
+// .phoneNos {
+//   width: calc(15px + 0.390625vw) !important;
+//   border: none;
+//   border-bottom: 1px solid $black-90-20;
+//   font-size: calc(26px + 0.5625vw);
+//   font-weight: 200;
+//   font-family: "Manrope";
+//   color: $black-90-70;
+//   &:focus {
+//     outline: 1px solid transparent;
+//   }
+// }
+// .phoneNosInputContainer {
+//   width: 100%;
+//   background-color: transparent;
+// }
 
 .countryCodeWrapper {
   @include flex(center, center);
