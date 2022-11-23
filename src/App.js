@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 // Styles
 import "styles/App.scss";
@@ -15,7 +15,10 @@ import ThreeDView from "views/ThreeDView";
 
 import LocomotiveScroll from "locomotive-scroll";
 import { useIntersection } from "hooks/useIntersection";
-import debounce from "utils/debounce";
+import Signup from "views/Signup/Signup";
+import SignupSuccess from "views/Signup/SignupSuccess";
+import Login from "views/Login/Login";
+import { AuthContext } from "context/AuthContext";
 import HomeCarousel from "views/HomeCarousel/HomeCarousel";
 import { useMediaQuery } from "hooks/useMediaQuery";
 
@@ -24,10 +27,16 @@ function App(props) {
   const [loader, setLoader] = useState(true);
   const [cookiesPopup, setCookiesPopup] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [isRegisterationSuccessfull, setIsRegisterationSuccessfull] =
+    useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const carouselViewRef = useRef();
   const debounceTimerId = useRef(null);
   const isCarouselInView = useRef(false);
   const scrollRef = useRef();
+  const { isLoggedIn } = useContext(AuthContext);
+
   isCarouselInView.current = useIntersection(
     carouselViewRef,
     `0px 0px -${window.innerHeight / 1.1}px 0px`
@@ -36,24 +45,40 @@ function App(props) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
-    handleResize();
-    if (!isMobile) {
-      scrollRef.current = new LocomotiveScroll({
-        el: document.querySelector("[data-scroll-container]"),
-        smooth: true,
-        getDirection: true,
-        smoothMobile: true,
-      });
+    if (isLoggedIn) {
+      handleResize();
+      if (!isMobile) {
+        scrollRef.current = new LocomotiveScroll({
+          el: document.querySelector("[data-scroll-container]"),
+          smooth: true,
+          getDirection: true,
+          smoothMobile: true,
+        });
+      }
+    } else {
+      document.body.style.overflow = "hidden";
     }
-
     setTimeout(() => {
       setLoader(false);
     }, 5000);
-  }, []);
+  }, [isLoggedIn]);
+
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     scrollRef.current = new LocomotiveScroll({
+  //       el: document.querySelector("[data-scroll-container]"),
+  //       smooth: true,
+  //       getDirection: true,
+  //     });
+  //   } else {
+  //     document.body.style.overflow = "hidden";
+  //   }
+
+  // }, [isLoggedIn]);
 
   useEffect(() => {
     !isMobile &&
-      scrollRef.current.on("scroll", (instance) => {
+      scrollRef.current?.on("scroll", (instance) => {
         if (isCarouselInView.current) {
           const elem1 = document.querySelector(".slide1");
           const elem1abs = document.querySelector(".slide1-abs");
@@ -123,7 +148,13 @@ function App(props) {
         <CookiesPopup closeCookiesPopup={() => setCookiesPopup(false)} />
       )}
       {loader && <Home />}
-      <Firstfold openMenu={() => setMenu(true)} />
+      {/* {} */}
+      <Firstfold
+        openMenu={() => setMenu(true)}
+        setIsLoggingIn={setIsLoggingIn}
+        setIsRegistering={setIsRegistering}
+      />
+      <></>
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
@@ -131,6 +162,16 @@ function App(props) {
 
       <Reservation />
       <Footer />
+      {isRegistering && (
+        <Signup
+          isRegistering={isRegistering}
+          setIsRegistering={setIsRegistering}
+          isRegisterationSuccessfull={isRegisterationSuccessfull}
+          setIsRegisterationSuccessfull={setIsRegisterationSuccessfull}
+        />
+      )}
+      {isRegisterationSuccessfull && <SignupSuccess />}
+      {isLoggingIn && <Login setIsLoggingIn={setIsLoggingIn} />}
     </div>
   );
 }
