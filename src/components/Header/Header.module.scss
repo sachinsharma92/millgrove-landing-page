@@ -2,13 +2,24 @@
 @import "../../sass/utils/_variables.scss";
 
 .header {
-  @include flex(space-between, center);
+  @include flex(center, center);
   padding: calc(15px + 0.5625vw) calc(26px + 0.5625vw);
   width: 100%;
   color: $grey-10;
   @include fontStyles($white-100, "Manrope", 400, calc(10.5px + 0.390625vw));
+  position: relative;
 }
+
+.reraDetails {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2.6%;
+  text-align: right;
+}
+
 .siteUrl {
+  display: block;
   text-transform: uppercase;
-  //   @include fontStyles($white-100, "Manrope", 200, 1rem);
+  margin-bottom: 2px;
 }

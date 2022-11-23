@@ -40,7 +40,7 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
                                 </div>
                                 <select onChange={(e) => { console.log(e.target.value); setCountryCode(`+${e.target.value}`) }}>
                                     {
-                                        countries.map((country, idx) => <option value={country.dial_code} selected={country.dial_code === "+91"}>{country.dial_code}</option>)
+                                        countries.map((country, idx) => <option value={country.dial_code} selected={country.dial_code === "91"}>{country.dial_code}</option>)
                                     }
                                 </select>
                             </div>
