@@ -6,8 +6,6 @@
   position: relative;
 }
 
-
-
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -25,15 +23,31 @@
   }
 }
 
-.slide1 {
-  opacity: 1;
+.invisible {
+  height: 100vh;
+  width: 100%;
+  z-index: 2;
+  position: fixed !important;
+  top: 0 !important;
+  opacity: 0 !important;
+  // transition: opacity 0.4s ease-in-out;
 }
-.slide2 {
-  opacity: 0;
+
+.visible {
+  height: 100vh;
+  width: 100%;
+  opacity: 1 !important;
+  position: fixed !important;
+  top: 0 !important;
+  z-index: 2;
+  transition: opacity 0.4s ease-in-out;
 }
-.slide3 {
-  opacity: 0;
-}
-.slide4 {
-  opacity: 0;
+.visible-noanim {
+  height: 100vh;
+  width: 100%;
+  opacity: 1 !important;
+  position: fixed !important;
+  top: 0 !important;
+  z-index: 2;
+  // transition: opacity 0.4s ease-in-out;
 }

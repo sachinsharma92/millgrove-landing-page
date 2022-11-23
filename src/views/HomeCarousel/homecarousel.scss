@@ -1,0 +1,354 @@
+.home-carousel {
+  width: 100%;
+  height: 500vh;
+  position: relative;
+  .carousel-logic-div {
+    height: 100vh;
+    width: 100%;
+  }
+}
+.slide1 {
+  opacity: 1;
+  background-color: #f9f6ed;
+  .carousel-text-div {
+    position: absolute;
+    bottom: 35vh;
+    right: 8vw;
+    width: 49ch;
+    text-align: left;
+    .carousel-heading {
+      font-family: "Editorial New";
+      font-style: normal;
+      font-weight: 200;
+      font-size: 90px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: #262e2f;
+      &::before {
+        position: absolute;
+        left: -120px;
+        top: -30px;
+        content: "The";
+        font-family: "Notera";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 63px;
+        letter-spacing: 0.01em;
+        color: #9c7e61;
+      }
+    }
+    .carousel-subtext {
+      font-family: "Manrope";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      color: #262e2f;
+      opacity: 0.7;
+    }
+  }
+  > img {
+    position: absolute;
+    bottom: 20vh;
+    width: 40vw;
+    left: 8vw;
+    z-index: 2;
+  }
+  .bottom-color-div {
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    bottom: 0;
+    background-color: #9c7e61;
+    z-index: 1;
+  }
+}
+
+.slide2 {
+  opacity: 0;
+  background-color: #f9f6ed;
+  .carousel-text-div {
+    position: absolute;
+    bottom: 35vh;
+    right: 8vw;
+    width: 49ch;
+    text-align: left;
+    .carousel-heading {
+      font-family: "Editorial New";
+      font-style: normal;
+      font-weight: 200;
+      font-size: 90px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: #262e2f;
+      &::before {
+        position: absolute;
+        left: -120px;
+        top: -30px;
+        content: "The";
+        font-family: "Notera";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 63px;
+        letter-spacing: 0.01em;
+        color: #9c7e61;
+      }
+    }
+    .carousel-subtext {
+      font-family: "Manrope";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      color: #262e2f;
+      opacity: 0.7;
+    }
+  }
+  > img {
+    position: absolute;
+    bottom: 20vh;
+    width: 40vw;
+    left: 8vw;
+    z-index: 2;
+  }
+  .bottom-color-div {
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    bottom: 0;
+    background-color: #4b5b47;
+  }
+}
+.slide3 {
+  opacity: 0;
+  background-color: #f9f6ed;
+  .carousel-text-div {
+    position: absolute;
+    bottom: 35vh;
+    right: 8vw;
+    width: 49ch;
+    text-align: left;
+    .carousel-heading {
+      font-family: "Editorial New";
+      font-style: normal;
+      font-weight: 200;
+      font-size: 90px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: #262e2f;
+      &::before {
+        position: absolute;
+        left: -120px;
+        top: -30px;
+        content: "The";
+        font-family: "Notera";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 63px;
+        letter-spacing: 0.01em;
+        color: #9c7e61;
+      }
+    }
+    .carousel-subtext {
+      font-family: "Manrope";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      color: #262e2f;
+      opacity: 0.7;
+    }
+  }
+  > img {
+    position: absolute;
+    bottom: 20vh;
+    width: 40vw;
+    left: 8vw;
+    z-index: 2;
+  }
+  .bottom-color-div {
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    bottom: 0;
+    background-color: #6b4637;
+  }
+}
+.slide4 {
+  opacity: 0;
+  background-color: #f9f6ed;
+  .carousel-text-div {
+    position: absolute;
+    bottom: 35vh;
+    right: 8vw;
+    width: 49ch;
+    text-align: left;
+    .carousel-heading {
+      font-family: "Editorial New";
+      font-style: normal;
+      font-weight: 200;
+      font-size: 90px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: #262e2f;
+      &::before {
+        position: absolute;
+        left: -120px;
+        top: -30px;
+        content: "The";
+        font-family: "Notera";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 63px;
+        letter-spacing: 0.01em;
+        color: #9c7e61;
+      }
+    }
+    .carousel-subtext {
+      font-family: "Manrope";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      color: #262e2f;
+      opacity: 0.7;
+    }
+  }
+  > img {
+    position: absolute;
+    bottom: 20vh;
+    width: 40vw;
+    left: 8vw;
+    z-index: 2;
+  }
+  .bottom-color-div {
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    bottom: 0;
+    background-color: #434f50;
+  }
+}
+.slide1-abs {
+  width: 100%;
+  height: 100vh;
+  background-color: #f9f6ed;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .carousel-text-div {
+      position: absolute;
+      bottom: 35vh;
+      right: 8vw;
+      width: 49ch;
+      text-align: left;
+      .carousel-heading {
+        font-family: "Editorial New";
+        font-style: normal;
+        font-weight: 200;
+        font-size: 90px;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: #262e2f;
+        &::before {
+          position: absolute;
+          left: -120px;
+          top: -30px;
+          content: "The";
+          font-family: "Notera";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 63px;
+          letter-spacing: 0.01em;
+          color: #9c7e61;
+        }
+      }
+      .carousel-subtext {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        color: #262e2f;
+        opacity: 0.7;
+      }
+    }
+    > img {
+      position: absolute;
+      bottom: 20vh;
+      width: 40vw;
+      left: 8vw;
+      z-index: 2;
+    }
+    .bottom-color-div {
+      width: 100%;
+      height: 30vh;
+      position: absolute;
+      bottom: 0;
+      background-color: #9c7e61;
+    }
+  }
+}
+.slide4-abs {
+  width: 100%;
+  height: 100vh;
+  background-color: #f9f6ed;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+
+  > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .carousel-text-div {
+      position: absolute;
+      bottom: 35vh;
+      right: 8vw;
+      width: 49ch;
+      text-align: left;
+      .carousel-heading {
+        font-family: "Editorial New";
+        font-style: normal;
+        font-weight: 200;
+        font-size: 90px;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: #262e2f;
+        &::before {
+          position: absolute;
+          left: -120px;
+          top: -30px;
+          content: "The";
+          font-family: "Notera";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 63px;
+          letter-spacing: 0.01em;
+          color: #9c7e61;
+        }
+      }
+      .carousel-subtext {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        color: #262e2f;
+        opacity: 0.7;
+      }
+    }
+    > img {
+      position: absolute;
+      bottom: 20vh;
+      width: 40vw;
+      left: 8vw;
+      z-index: 2;
+    }
+    .bottom-color-div {
+      width: 100%;
+      height: 30vh;
+      position: absolute;
+      bottom: 0;
+      background-color: #434f50;
+    }
+  }
+}
