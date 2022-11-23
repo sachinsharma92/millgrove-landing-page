@@ -36,6 +36,7 @@ function App(props) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
+    handleResize();
     if (!isMobile) {
       scrollRef.current = new LocomotiveScroll({
         el: document.querySelector("[data-scroll-container]"),
