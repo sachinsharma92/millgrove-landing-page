@@ -6,13 +6,15 @@
   border-radius: 6px;
   background-color: #ffffff;
   position: relative;
-  // width: clamp(30%, 30%, 40%);
+  width: 33.5rem;
+  max-width: 100%;
 }
 
 .bgTree {
   position: absolute;
-  top: 2vw;
-  left: 8vw;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   height: 28%;
   width: 40%;
   margin: 0 auto;
@@ -20,16 +22,34 @@
   align-items: center;
   justify-content: center;
 }
-
+.otpMainWrapper {
+  @extend .mainWrapper;
+  .bgTree {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 .formWrapper {
   border: 1px solid $brown-80-30;
   border-radius: 6px;
-  padding: calc(24px + 1.5625vw) 0 calc(16px + 1.5625vw);
+  padding: calc(55px + 1.5625vw) calc(10px + 1.5625vw) calc(16px + 1.5625vw);
   form {
     width: 95%;
     margin: 0 auto;
   }
   text-align: center;
+}
+.otpFormWrapper {
+  @extend .formWrapper;
+  .headingWrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: calc(50px + 1.5625vw);
+    .heading {
+      font-size: calc(40px + 0.5625vw);
+    }
+  }
 }
 
 .headingWrapper {
@@ -55,14 +75,15 @@
   margin-bottom: calc(15px + 0.390625vw);
   display: flex;
   justify-content: center;
-  input {
-    width: 2.5rem !important;
-    height: 3rem !important;
+  .otpInput {
+    @include fontStyles($black-90-70, "Manrope", 200, calc(26px + 0.390625vw));
+    margin: 0 calc(8px + 00.390625vw) !important;
     border: none;
     border-bottom: 1px solid $black-90-20;
     margin-right: 0.5rem;
-    font-size: calc(15px + 0.390625vw);
-    color: $black-90-70;
+    &:focus {
+      outline: 1px solid transparent;
+    }
   }
 }
 .phoneNosWrapper {
@@ -74,7 +95,6 @@
 }
 .phoneNos {
   width: calc(15px + 0.390625vw) !important;
-  // height: 3rem !important;
   border: none;
   border-bottom: 1px solid $black-90-20;
   font-size: calc(26px + 0.5625vw);
@@ -116,7 +136,7 @@
 
 .submitBtnWrapper {
   @include flex(center, center);
-  margin-top: 3rem;
+  margin-top: calc(40px + 0.5625vw);
   button {
     width: 45%;
     padding: calc(4px + 0.390625vw) calc(8px + 0.390625vw);

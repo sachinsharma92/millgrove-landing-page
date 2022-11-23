@@ -16,18 +16,18 @@ const OtpForm = ({ setIsLoggingIn }) => {
         setOtp(otp)
     }
     return (
-        <div className={styles.mainWrapper}>
+        <div className={styles.otpMainWrapper}>
             <div className={styles.bgTree}>
                 <MILLGROVE_TREE style={{ height: '200' }} fillColor="#8a7f7f14" />
             </div>
-            <div className={styles.formWrapper}>
+            <div className={styles.otpFormWrapper}>
                 <div className={styles.headingWrapper}>
                     <h3 className={styles.heading}>
                         Enter OTP
                     </h3>
                 </div>
                 <div ref={otpWrapperRef} className={styles.otpWrapper}>
-                    <OtpInput className={styles.otpInput} value={otp} shouldAutoFocus onChange={handleChange} numInputs={6} />
+                    <OtpInput inputStyle={styles.otpInput} value={otp} shouldAutoFocus onChange={handleChange} numInputs={6} />
                 </div>
                 <p className={styles.resend}><span>Resend Code</span> in 00:06 Secs</p>
                 <div className={styles.submitBtnWrapper}>
