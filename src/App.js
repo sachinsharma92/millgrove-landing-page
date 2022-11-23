@@ -46,7 +46,7 @@ function App(props) {
     }
 
     setTimeout(() => {
-      setLoader(true);
+      setLoader(false);
     }, 5000);
   }, []);
 
