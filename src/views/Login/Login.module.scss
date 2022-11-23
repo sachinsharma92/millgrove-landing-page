@@ -1,0 +1,168 @@
+@import "../../sass/utils/variables";
+@import "../../sass/utils/mixins";
+
+.mainWrapper {
+  padding: calc(10px + 0.5625vw);
+  border-radius: 6px;
+  background-color: #ffffff;
+  position: relative;
+  width: calc(26rem + 1.5625vw);
+  max-width: 100%;
+}
+
+.bgTree {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 28%;
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.otpMainWrapper {
+  @extend .mainWrapper;
+  .bgTree {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.formWrapper {
+  border: 1px solid $brown-80-30;
+  border-radius: 6px;
+  padding: calc(55px + 1.5625vw) calc(10px + 1.5625vw) calc(16px + 1.5625vw);
+  form {
+    width: 95%;
+    margin: 0 auto;
+  }
+  text-align: center;
+}
+.otpFormWrapper {
+  @extend .formWrapper;
+  .headingWrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: calc(50px + 1.5625vw);
+    .heading {
+      font-size: calc(40px + 0.5625vw);
+    }
+  }
+}
+
+.headingWrapper {
+  width: clamp(50%, 70%, 80%);
+  margin: 0 auto;
+  margin-bottom: calc(8px + 1.5625vw);
+}
+.heading {
+  @include fontStyles(
+    $black-100,
+    "Editorial New",
+    200,
+    calc(30px + 0.390625vw)
+  );
+  text-transform: uppercase;
+}
+.smallText {
+  @include fontStyles($brown-70, "Notera", 200, calc(8px + 1.5625vw));
+  text-transform: lowercase;
+}
+
+.otpWrapper {
+  margin-bottom: calc(15px + 0.390625vw);
+  display: flex;
+  justify-content: center;
+  .otpInput {
+    @include fontStyles($black-90-70, "Manrope", 200, calc(26px + 0.390625vw));
+    margin: 0 calc(8px + 00.390625vw) !important;
+    border: none;
+    border-bottom: 1px solid $black-90-20;
+    margin-right: 0.5rem;
+    &:focus {
+      outline: 1px solid transparent;
+    }
+  }
+}
+.phoneNosWrapper {
+  @include flex(center, center);
+  gap: 1rem;
+  width: 70%;
+  margin: 0 auto calc(15px + 0.5625vw);
+}
+.phoneNos {
+  width: calc(15px + 0.390625vw) !important;
+  border: none;
+  border-bottom: 1px solid $black-90-20;
+  font-size: calc(26px + 0.5625vw);
+  font-weight: 200;
+  font-family: "Manrope";
+  color: $black-90-70;
+  &:focus {
+    outline: 1px solid transparent;
+  }
+}
+.phoneNosInputContainer {
+  width: 100%;
+  background-color: transparent;
+}
+
+.countryCodeWrapper {
+  @include flex(center, center);
+  gap: 2px;
+  .countryCode {
+    @include fontStyles($black-100-70, "Manrope", 300, calc(26px + 0.5625vw));
+    @include flex(flex-start, center);
+  }
+  .downArrowWrapper {
+    @include flex(flex-start, center);
+    width: calc(12px + 0.5625vw);
+  }
+}
+
+.instructionText {
+  @include fontStyles($black-90, "Manrope", 400, 0.875rem);
+}
+.navigate {
+  @extend .instructionText;
+  color: $brown-70;
+}
+
+.resend {
+  @include fontStyles($black-90, "Manrope", 400, 0.875rem);
+
+  span {
+    @include fontStyles($brown-70, "Manrope", 400, 0.875rem);
+  }
+}
+
+.submitBtnWrapper {
+  @include flex(center, center);
+  margin-top: calc(40px + 0.5625vw);
+  button {
+    background-color: $green-100;
+    color: $cream-50;
+    width: 45%;
+    // padding: 0.8rem;
+    padding: calc(4px + 0.390625vw) calc(8px + 0.390625vw);
+  }
+}
+
+select {
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &:focus {
+    border: none;
+    outline: 1px solid transparent;
+  }
+  width: calc(40px + 00.390625vw);
+  @include fontStyles($black-100-70, "Manrope", 300, calc(26px + 0.5625vw));
+  option {
+    @include fontStyles($black-100-70, "Manrope", 200, calc(12px + 0.5625vw));
+  }
+}

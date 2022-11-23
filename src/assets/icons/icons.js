@@ -12,5 +12,11 @@ const RightArrow = ({ color = "#F9F6ED", height = "17", width = "9" }) => (
     </svg>
 )
 
+const DownArrow = ({ color = "#262E2F", height = "7.5", width = "15" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 18 10" fill="none">
+        <path opacity="0.7" d="M16.5 1.5L9 9L1.5 1.5" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+)
 
-export { LeftArrow, RightArrow }
+
+export { LeftArrow, RightArrow, DownArrow }
