@@ -4,11 +4,12 @@ import Layout from 'components/Layout'
 import React, { useState } from 'react'
 import OtpInput from 'react18-input-otp'
 import { MILLGROVE_TREE } from 'utils/assets'
+import { countries } from './countries'
 import styles from "./Login.module.scss"
 
 const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
     const [phoneNos, setPhoneNos] = useState(null)
-
+    const [countryCode, setCountryCode] = useState('+91')
 
     const continueHandler = () => {
         setIsEnteringPhoneNos(false)
@@ -34,7 +35,14 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
                     <div className={styles.phoneNosWrapper}>
                         <div className={styles.countryCodeWrapper}>
                             <div className={styles.countryCode}>
-                                +91
+                                <div>
+                                    +
+                                </div>
+                                <select onChange={(e) => { console.log(e.target.value); setCountryCode(`+${e.target.value}`) }}>
+                                    {
+                                        countries.map((country, idx) => <option value={country.dial_code} selected={country.dial_code === "+91"}>{country.dial_code}</option>)
+                                    }
+                                </select>
                             </div>
                             <div className={styles.downArrowWrapper}>
                                 <DownArrow />
@@ -45,7 +53,7 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
                     </div>
                     <p className={styles.instructionText}>Please press continue to proceed.</p>
                     <div className={styles.submitBtnWrapper}>
-                        <Button clickhandler={continueHandler} text={"Continue"} customStyles={{ backgroundColor: "#2E3430", color: "#F1EFE5", textTransform: "uppercase" }} />
+                        <Button isDisabled={!phoneNos ? true : false} clickhandler={continueHandler} text={"Continue"} />
                     </div>
                 </div>
             </div>

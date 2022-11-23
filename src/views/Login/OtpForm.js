@@ -1,5 +1,6 @@
 import Button from 'components/Button'
-import React, { useRef, useState } from 'react'
+import { AuthContext } from 'context/AuthContext'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import OtpInput from 'react18-input-otp'
 import { MILLGROVE_TREE } from 'utils/assets'
 import styles from "./Login.module.scss"
@@ -8,13 +9,22 @@ const OtpForm = ({ setIsLoggingIn }) => {
 
     const [otp, setOtp] = useState(null)
     const otpWrapperRef = useRef();
+    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
 
     const handleSubmit = () => {
         setIsLoggingIn(false)
     }
+
     const handleChange = (otp) => {
         setOtp(otp)
     }
+
+    useEffect(() => {
+        if (otp === "111111") {
+            setIsLoggedIn(true)
+        }
+    }, [otp])
+
     return (
         <div className={styles.otpMainWrapper}>
             <div className={styles.bgTree}>

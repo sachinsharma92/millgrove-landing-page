@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 // Styles
 import "styles/App.scss";
@@ -19,6 +19,7 @@ import debounce from "utils/debounce";
 import Signup from "views/Signup/Signup";
 import SignupSuccess from "views/Signup/SignupSuccess";
 import Login from "views/Login/Login";
+import { AuthContext } from "context/AuthContext";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -32,6 +33,9 @@ function App(props) {
   const debounceTimerId = useRef(null);
   const isCarouselInView = useRef(false);
   const scrollRef = useRef();
+  const { isLoggedIn } = useContext(AuthContext)
+
+
   isCarouselInView.current = useIntersection(
     carouselViewRef,
     `0px 0px -${window.innerHeight / 1.1}px 0px`
@@ -59,24 +63,27 @@ function App(props) {
   };
 
   useEffect(() => {
-    scrollRef.current = new LocomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
-      smooth: true,
-      getDirection: true,
-    });
+    if (isLoggedIn) {
+      scrollRef.current = new LocomotiveScroll({
+        el: document.querySelector("[data-scroll-container]"),
+        smooth: true,
+        getDirection: true,
+      });
+    } else {
+      document.body.style.overflow = 'hidden'
+    }
 
     setTimeout(() => {
       setLoader(false);
     }, 5000);
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     const fadeInOut = (el1, el2) => {
       el1.style.animation = "fade-out 0.5s ease-in-out forwards";
       el2.style.animation = "fade-in 0.5s ease-in-out forwards 0.2s";
     };
-
-    scrollRef.current.on("scroll", (instance) => {
+    scrollRef.current?.on("scroll", (instance) => {
       if (isCarouselInView.current) {
         const scrollDiv = document.querySelector("#scroll-direction");
         let offset =
