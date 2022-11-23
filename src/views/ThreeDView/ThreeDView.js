@@ -18,10 +18,10 @@ const ThreeDView = () => {
         <div className={styles.description}>
           <p>
             Millgrove extends an unparalleled offering to a select few - a rare
-            chance to own a 1000* square yard plot inclusive of an exquisite
-            independent home. Millgrove is home to a small tight-knit community
-            and ultra-low-density by design. Only a limited number of single
-            dwelling plots thoughtfully arranged over the vast 23-acre estate.
+            chance to own a 1000 square yard plot inclusive of an exquisite
+            independent home. It is ultra-low-density by design with only a
+            limited number of single dwelling plots thoughtfully arranged over
+            23-acres.
           </p>
         </div>
       </div>
