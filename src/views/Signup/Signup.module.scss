@@ -6,7 +6,7 @@
   border-radius: 6px;
   background-color: #ffffff;
   position: relative;
-  width: 33.5rem;
+  width: calc(26rem + 1.5625vw);
   max-width: 100%;
 }
 
@@ -25,7 +25,7 @@
   padding: calc(8px + 0.5625vw);
   padding-top: calc(8px + 1.5625vw);
   form {
-    width: 95%;
+    // width: 95%;
     margin: 0 auto;
   }
 }
@@ -33,7 +33,7 @@
 .headingWrapper {
   width: clamp(50%, 70%, 80%);
   margin: 0 auto;
-  margin-bottom: calc(8px + 1.5625vw);
+  margin-bottom: calc(8px + 0.5625vw);
 }
 .heading {
   @include fontStyles(
@@ -49,7 +49,7 @@
   text-transform: lowercase;
 }
 .formInputWrapper {
-  margin-bottom: calc(8px + 1.5625vw);
+  margin-bottom: calc(8px + 0.5625vw);
 }
 .formInput {
   // text-align: center;
