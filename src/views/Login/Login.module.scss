@@ -87,11 +87,10 @@
   }
 }
 .phoneNosWrapper {
-  margin-bottom: calc(15px + 0.5625vw);
   @include flex(center, center);
   gap: 1rem;
   width: 70%;
-  margin: 0 auto 1rem;
+  margin: 0 auto calc(15px + 0.5625vw);
 }
 .phoneNos {
   width: calc(15px + 0.390625vw) !important;
@@ -106,7 +105,7 @@
   }
 }
 .phoneNosInputContainer {
-  width: 80%;
+  width: 100%;
   background-color: transparent;
 }
 
@@ -125,6 +124,10 @@
 
 .instructionText {
   @include fontStyles($black-90, "Manrope", 400, 0.875rem);
+}
+.navigate {
+  @extend .instructionText;
+  color: $brown-70;
 }
 
 .resend {
