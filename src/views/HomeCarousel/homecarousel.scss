@@ -1,4 +1,4 @@
-.beforeText {
+@mixin beforeText {
   position: absolute;
   left: -120px;
   top: -30px;
@@ -10,6 +10,24 @@
   font-size: 63px;
   letter-spacing: 0.01em;
   color: #9c7e61;
+}
+
+@mixin carouselHeading {
+  font-family: "Editorial New";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 90px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #262e2f;
+}
+
+@mixin bottomColorDiv($color: #434f50) {
+  width: 100%;
+  height: 30vh;
+  position: absolute;
+  bottom: 0;
+  background-color: $color;
 }
 
 .home-carousel {
@@ -31,15 +49,9 @@
     width: 49ch;
     text-align: left;
     .carousel-heading {
-      font-family: "Editorial New";
-      font-style: normal;
-      font-weight: 200;
-      font-size: 90px;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      color: #262e2f;
+      @include carouselHeading();
       &::before {
-        @extend .beforeText;
+        @include beforeText();
       }
     }
     .carousel-subtext {
@@ -59,11 +71,7 @@
     z-index: 2;
   }
   .bottom-color-div {
-    width: 100%;
-    height: 30vh;
-    position: absolute;
-    bottom: 0;
-    background-color: #9c7e61;
+    @include bottomColorDiv(#9c7e61);
     z-index: 1;
   }
 }
@@ -78,15 +86,9 @@
     width: 49ch;
     text-align: left;
     .carousel-heading {
-      font-family: "Editorial New";
-      font-style: normal;
-      font-weight: 200;
-      font-size: 90px;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      color: #262e2f;
+      @include carouselHeading();
       &::before {
-        @extend .beforeText;
+        @include beforeText();
       }
     }
     .carousel-subtext {
@@ -106,11 +108,7 @@
     z-index: 2;
   }
   .bottom-color-div {
-    width: 100%;
-    height: 30vh;
-    position: absolute;
-    bottom: 0;
-    background-color: #4b5b47;
+    @include bottomColorDiv(#4b5b47);
   }
 }
 .slide3 {
@@ -123,15 +121,9 @@
     width: 49ch;
     text-align: left;
     .carousel-heading {
-      font-family: "Editorial New";
-      font-style: normal;
-      font-weight: 200;
-      font-size: 90px;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      color: #262e2f;
+      @include carouselHeading();
       &::before {
-        @extend .beforeText;
+        @include beforeText();
       }
     }
     .carousel-subtext {
@@ -151,11 +143,7 @@
     z-index: 2;
   }
   .bottom-color-div {
-    width: 100%;
-    height: 30vh;
-    position: absolute;
-    bottom: 0;
-    background-color: #6b4637;
+    @include bottomColorDiv(#6b4637);
   }
 }
 .slide4 {
@@ -168,15 +156,9 @@
     width: 49ch;
     text-align: left;
     .carousel-heading {
-      font-family: "Editorial New";
-      font-style: normal;
-      font-weight: 200;
-      font-size: 90px;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      color: #262e2f;
+      @include carouselHeading();
       &::before {
-        @extend .beforeText;
+        @include beforeText();
       }
     }
     .carousel-subtext {
@@ -196,11 +178,7 @@
     z-index: 2;
   }
   .bottom-color-div {
-    width: 100%;
-    height: 30vh;
-    position: absolute;
-    bottom: 0;
-    background-color: #434f50;
+    @include bottomColorDiv(#434f50);
   }
 }
 .slide1-abs {
@@ -221,15 +199,9 @@
       width: 49ch;
       text-align: left;
       .carousel-heading {
-        font-family: "Editorial New";
-        font-style: normal;
-        font-weight: 200;
-        font-size: 90px;
-        letter-spacing: 0.01em;
-        text-transform: uppercase;
-        color: #262e2f;
+        @include carouselHeading();
         &::before {
-          @extend .beforeText;
+          @include beforeText();
         }
       }
       .carousel-subtext {
@@ -249,11 +221,7 @@
       z-index: 2;
     }
     .bottom-color-div {
-      width: 100%;
-      height: 30vh;
-      position: absolute;
-      bottom: 0;
-      background-color: #9c7e61;
+      @include bottomColorDiv(#9c7e61);
     }
   }
 }
@@ -276,15 +244,9 @@
       width: 49ch;
       text-align: left;
       .carousel-heading {
-        font-family: "Editorial New";
-        font-style: normal;
-        font-weight: 200;
-        font-size: 90px;
-        letter-spacing: 0.01em;
-        text-transform: uppercase;
-        color: #262e2f;
+        @include carouselHeading();
         &::before {
-          @extend .beforeText;
+          @include beforeText();
         }
       }
       .carousel-subtext {
@@ -304,11 +266,7 @@
       z-index: 2;
     }
     .bottom-color-div {
-      width: 100%;
-      height: 30vh;
-      position: absolute;
-      bottom: 0;
-      background-color: #434f50;
+      @include bottomColorDiv(#434f50);
     }
   }
 }
