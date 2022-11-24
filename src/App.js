@@ -54,6 +54,8 @@ function App(props) {
           getDirection: true,
           smoothMobile: true,
         });
+      } else {
+        document.body.style.overflow = "auto";
       }
     } else {
       document.body.style.overflow = "hidden";
@@ -158,7 +160,7 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
-      <HomeCarousel carouselViewRef={carouselViewRef} />
+      {!isMobile && <HomeCarousel carouselViewRef={carouselViewRef} />}
 
       <Reservation />
       <Footer />
