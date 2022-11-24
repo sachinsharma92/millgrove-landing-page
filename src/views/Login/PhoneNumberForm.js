@@ -3,9 +3,7 @@ import Button from "components/Button";
 import Layout from "components/Layout";
 import React, { useState } from "react";
 import PhoneInput from "react-phone-number-input";
-import OtpInput from "react18-input-otp";
 import { MILLGROVE_TREE } from "utils/assets";
-import { countries } from "./countries";
 import styles from "./Login.module.scss";
 import "react-phone-number-input/style.css";
 
