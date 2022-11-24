@@ -5,7 +5,7 @@
   background-color: #434f50;
   padding-top: 35.5rem;
   @media (max-width: 980px) {
-    padding-top: 11.5rem;
+    padding-top: 7.5rem;
   }
 }
 .textWrapper {
@@ -27,6 +27,8 @@
   width: 45ch;
   text-align: left;
   @media (max-width: 980px) {
+    margin-right: 0;
+    margin-left: 0;
     bottom: 0;
     text-align: center;
     font-family: "Manrope";
