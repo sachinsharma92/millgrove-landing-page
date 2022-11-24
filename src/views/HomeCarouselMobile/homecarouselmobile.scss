@@ -1,0 +1,63 @@
+.home-carousel-mobile {
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9f6ed;
+  padding-top: 90px;
+  .carousel-text-mobile {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 33px;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .carousel-heading-mobile {
+      font-family: "Editorial New";
+      font-style: normal;
+      font-weight: 200;
+      font-size: 40px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: #262e2f;
+      width: fit-content;
+      position: relative;
+      &::before {
+        position: absolute;
+        left: -60px;
+        content: "The";
+        font-family: "Notera";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        color: #9c7e61;
+      }
+    }
+    .carousel-subtext-mobile {
+      margin-top: 20px;
+      opacity: 0.5;
+      font-family: "Manrope";
+      font-style: normal;
+      line-height: 1.6em;
+      font-weight: 400;
+      font-size: 14px;
+      text-align: center;
+    }
+    .carousel-btns-mobile {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      > div {
+        cursor: pointer;
+        margin: 0 15px;
+      }
+    }
+  }
+  .carousel-img-mobile {
+    height: 55%;
+    max-width: auto;
+  }
+}

@@ -1,15 +1,15 @@
 import React from "react";
 import "./homecarousel.scss";
-import caraouselImg1 from "assets/images/carousel-img-1.png";
-import caraouselImg2 from "assets/images/carousel-img-2.png";
-import caraouselImg3 from "assets/images/carousel-img-3.png";
-import caraouselImg4 from "assets/images/carousel-img-4.png";
+import carouselImg1 from "assets/images/carousel-img-1.png";
+import carouselImg2 from "assets/images/carousel-img-2.png";
+import carouselImg3 from "assets/images/carousel-img-3.png";
+import carouselImg4 from "assets/images/carousel-img-4.png";
 
 function HomeCarousel({ carouselViewRef }) {
   return (
     <>
       <div className="slide1">
-        <img src={caraouselImg1} alt="" className="carousel-img" />
+        <img src={carouselImg1} alt="" className="carousel-img" />
         <div className="bottom-color-div"></div>
         <div className="carousel-text-div">
           <div className="carousel-heading">Homes</div>
@@ -24,7 +24,7 @@ function HomeCarousel({ carouselViewRef }) {
         </div>
       </div>
       <div className="slide2">
-        <img src={caraouselImg2} alt="" className="carousel-img" />
+        <img src={carouselImg2} alt="" className="carousel-img" />
         <div className="carousel-text-div">
           <div className="carousel-heading">Grounds</div>
           <div className="carousel-subtext">
@@ -38,7 +38,7 @@ function HomeCarousel({ carouselViewRef }) {
         <div className="bottom-color-div"></div>
       </div>
       <div className="slide3">
-        <img src={caraouselImg3} alt="" className="carousel-img" />
+        <img src={carouselImg3} alt="" className="carousel-img" />
         <div className="carousel-text-div">
           <div className="carousel-heading">Comforts</div>
           <div className="carousel-subtext">
@@ -51,7 +51,7 @@ function HomeCarousel({ carouselViewRef }) {
         <div className="bottom-color-div"></div>
       </div>
       <div className="slide4">
-        <img src={caraouselImg4} alt="" className="carousel-img" />
+        <img src={carouselImg4} alt="" className="carousel-img" />
         <div className="carousel-text-div">
           <div className="carousel-heading">Location</div>
           <div className="carousel-subtext">
@@ -73,7 +73,7 @@ function HomeCarousel({ carouselViewRef }) {
       >
         <div className="slide1-abs">
           <div>
-            <img src={caraouselImg1} alt="" className="carousel-img" />
+            <img src={carouselImg1} alt="" className="carousel-img" />
             <div className="carousel-text-div">
               <div className="carousel-heading">Homes</div>
               <div className="carousel-subtext">
@@ -90,7 +90,7 @@ function HomeCarousel({ carouselViewRef }) {
         </div>
         <div className="slide4-abs">
           <div>
-            <img src={caraouselImg4} alt="" className="carousel-img" />
+            <img src={carouselImg4} alt="" className="carousel-img" />
             <div className="carousel-text-div">
               <div className="carousel-heading">Location</div>
               <div className="carousel-subtext">

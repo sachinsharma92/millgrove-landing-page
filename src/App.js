@@ -21,6 +21,7 @@ import Login from "views/Login/Login";
 import { AuthContext } from "context/AuthContext";
 import HomeCarousel from "views/HomeCarousel/HomeCarousel";
 import { useMediaQuery } from "hooks/useMediaQuery";
+import HomeCarouselMobile from "views/HomeCarouselMobile/HomeCarouselMobile";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -160,7 +161,11 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
-      {!isMobile && <HomeCarousel carouselViewRef={carouselViewRef} />}
+      {isMobile ? (
+        <HomeCarouselMobile />
+      ) : (
+        <HomeCarousel carouselViewRef={carouselViewRef} />
+      )}
 
       <Reservation />
       <Footer />
