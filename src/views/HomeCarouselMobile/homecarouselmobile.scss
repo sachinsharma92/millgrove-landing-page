@@ -58,7 +58,9 @@
     }
   }
   .carousel-img-mobile {
+    position: relative;
     height: 55vh;
-    max-width: auto;
+    max-width: auto !important;
+    transform: translateY(-30%);
   }
 }
