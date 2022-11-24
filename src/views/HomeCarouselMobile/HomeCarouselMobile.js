@@ -67,10 +67,11 @@ function HomeCarouselMobile(props) {
           </div>
         </div>
       </div>
-      <img
+      <div
         className="carousel-img-mobile"
-        src={CAROUSEL_DATA_MOBILE[currentItem].img}
-        alt="carousel-img"
+        style={{
+          backgroundImage: `url(${CAROUSEL_DATA_MOBILE[currentItem].img})`,
+        }}
       />
     </div>
   );
