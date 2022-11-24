@@ -38,6 +38,14 @@ footer {
   .rightFooter {
     @include fontStyles($grey-10, "Manrope", 400, calc(10px + 0.390625vw));
   }
+  @media (max-width: 980px) {
+    flex-direction: column-reverse;
+    .rightFooter {
+      flex-direction: column;
+      line-height: 0.2em;
+      margin-bottom: 20px;
+    }
+  }
 }
 .siteUrl {
   text-transform: uppercase;

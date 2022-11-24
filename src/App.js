@@ -21,6 +21,7 @@ import Login from "views/Login/Login";
 import { AuthContext } from "context/AuthContext";
 import HomeCarousel from "views/HomeCarousel/HomeCarousel";
 import { useMediaQuery } from "hooks/useMediaQuery";
+import HomeCarouselMobile from "views/HomeCarouselMobile/HomeCarouselMobile";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -45,8 +46,8 @@ function App(props) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
+    handleResize();
     if (isLoggedIn) {
-      handleResize();
       if (!isMobile) {
         scrollRef.current = new LocomotiveScroll({
           el: document.querySelector("[data-scroll-container]"),
@@ -54,6 +55,8 @@ function App(props) {
           getDirection: true,
           smoothMobile: true,
         });
+      } else {
+        document.body.style.overflow = "auto";
       }
     } else {
       document.body.style.overflow = "hidden";
@@ -158,7 +161,11 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
-      <HomeCarousel carouselViewRef={carouselViewRef} />
+      {isMobile ? (
+        <HomeCarouselMobile />
+      ) : (
+        <HomeCarousel carouselViewRef={carouselViewRef} />
+      )}
 
       <Reservation />
       <Footer />
