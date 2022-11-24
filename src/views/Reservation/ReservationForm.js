@@ -1,6 +1,7 @@
 import React from "react";
 import Checkbox from "components/Checkbox/Checkbox";
 import styles from "./Reservation.module.scss";
+import { MILLGROVE_GRADIENT_LEAF } from "utils/assets";
 
 const Input = ({ placeholder, type = "text" }) => {
   return (
@@ -13,6 +14,7 @@ const ReservationForm = () => {
       <div className={styles.formHeadingWrapper}>
         <h1 className={styles.formHeading}>
           Reserve <span>a</span> Visit
+          <MILLGROVE_GRADIENT_LEAF className={styles.gradientLeaf} />
         </h1>
       </div>
       <form>
@@ -30,6 +32,7 @@ const ReservationForm = () => {
           <p>I accept the terms for processing my personal data</p>
         </div>
       </form>
+      <div className={styles.requestAVisitBtn}>request a visit</div>
     </div>
   );
 };
