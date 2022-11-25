@@ -84,12 +84,12 @@ function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
           </div>
         )}
       </div>
-      {isLoggedIn && (
+      {/* {isLoggedIn && (
         <div className="mg-discover-more">
           <DOWN_ARROW />
           DISCOVER MORE
         </div>
-      )}
+      )} */}
       <div className="mg-bg-video">
         <video src={TEMP_VIDEO} autoPlay muted loop />
       </div>

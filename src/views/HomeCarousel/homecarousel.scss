@@ -25,8 +25,9 @@
       text-transform: uppercase;
       color: #262e2f;
       &::before {
+        text-transform: capitalize;
         position: absolute;
-        left: -120px;
+        left: -100px;
         top: -30px;
         content: "The";
         font-family: "Notera";
@@ -81,8 +82,9 @@
       text-transform: uppercase;
       color: #262e2f;
       &::before {
+        text-transform: capitalize;
         position: absolute;
-        left: -120px;
+        left: -100px;
         top: -30px;
         content: "The";
         font-family: "Notera";
@@ -135,8 +137,9 @@
       text-transform: uppercase;
       color: #262e2f;
       &::before {
+        text-transform: capitalize;
         position: absolute;
-        left: -120px;
+        left: -100px;
         top: -30px;
         content: "The";
         font-family: "Notera";
@@ -189,8 +192,9 @@
       text-transform: uppercase;
       color: #262e2f;
       &::before {
+        text-transform: capitalize;
         position: absolute;
-        left: -120px;
+        left: -100px;
         top: -30px;
         content: "The";
         font-family: "Notera";
@@ -251,8 +255,9 @@
         text-transform: uppercase;
         color: #262e2f;
         &::before {
+          text-transform: capitalize;
           position: absolute;
-          left: -120px;
+          left: -100px;
           top: -30px;
           content: "The";
           font-family: "Notera";
@@ -315,8 +320,9 @@
         text-transform: uppercase;
         color: #262e2f;
         &::before {
+          text-transform: capitalize;
           position: absolute;
-          left: -120px;
+          left: -100px;
           top: -30px;
           content: "The";
           font-family: "Notera";
