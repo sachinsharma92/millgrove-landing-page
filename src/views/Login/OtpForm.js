@@ -43,6 +43,7 @@ const OtpForm = ({ setIsLoggingIn }) => {
             onChange={handleChange}
             numInputs={6}
             isInputNum
+            placeholder="000000"
           />
         </div>
         <p className={styles.resend}>
@@ -50,8 +51,9 @@ const OtpForm = ({ setIsLoggingIn }) => {
         </p>
         <div className={styles.submitBtnWrapper}>
           <Button
-            clickhandler={handleSubmit}
+            clickhandler={() => otp?.length === 6 && handleSubmit()}
             text={"Continue"}
+            isDisabled={otp?.length === 6 ? false : true}
             customStyles={{
               backgroundColor: "#2E3430",
               color: "#F1EFE5",

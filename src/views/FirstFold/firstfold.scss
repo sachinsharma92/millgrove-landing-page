@@ -201,15 +201,6 @@
     > button {
       padding: 15px 0;
       width: 100%;
-
-      span {
-        &:first-of-type {
-          display: none;
-        }
-        &:last-of-type {
-          display: none;
-        }
-      }
     }
   }
 }

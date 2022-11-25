@@ -57,9 +57,9 @@ function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
           natural haven that gives youa complete sense of belonging. A place
           where you can nurture relationships and make time for what matters
           most.
-          <div className="mg-play-reel-btn">
+          {/* <div className="mg-play-reel-btn">
             <REEL_BUTTON />
-          </div>
+          </div> */}
         </div>
         {!isLoggedIn && (
           <div
@@ -71,15 +71,15 @@ function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
               clickhandler={() => setIsLoggingIn(true)}
               text={"LOGIN"}
               type="secondary"
-              leftIcon={<LeftArrow />}
-              rightIcon={<RightArrow />}
+              // leftIcon={<LeftArrow />}
+              // rightIcon={<RightArrow />}
             />
             <Button
               clickhandler={() => setIsRegistering(true)}
               text={"REGISTER"}
               type="secondary"
-              leftIcon={<LeftArrow />}
-              rightIcon={<RightArrow />}
+              // leftIcon={<LeftArrow />}
+              // rightIcon={<RightArrow />}
             />
           </div>
         )}

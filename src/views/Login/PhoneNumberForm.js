@@ -70,12 +70,15 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
               separator={<span> </span>}
               separateAfter={4}
               isInputNum
+              placeholder="0000000000"
             />
           </div>
           <p className={styles.instructionText}>
             {error.errorOccured
               ? error.msg
-              : "Please press continue to proceed."}
+              : phoneNos?.length === 10
+              ? "Please press continue to proceed."
+              : " "}
           </p>
           {error.errorOccured && (
             <p className={styles.instructionText}>
@@ -84,8 +87,8 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
           )}
           <div className={styles.submitBtnWrapper}>
             <Button
-              isDisabled={!phoneNos ? true : false}
-              clickhandler={continueHandler}
+              isDisabled={phoneNos?.length === 10 ? false : true}
+              clickhandler={() => phoneNos?.length === 10 && continueHandler()}
               text={"Continue"}
             />
           </div>
