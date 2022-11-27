@@ -25,6 +25,11 @@
   align-items: center;
   height: 85%;
 }
+@include for-phone-only {
+  .childrenWrapper {
+    align-items: flex-start;
+  }
+}
 footer {
   @include flex(space-between, center);
   & > div {
