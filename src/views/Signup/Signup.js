@@ -1,12 +1,10 @@
-import { LeftArrow, RightArrow } from "assets/icons/icons";
+import React, { useState } from "react";
 import Button from "components/Button";
 import Checkbox from "components/Checkbox/Checkbox";
 import Layout from "components/Layout";
-import React, { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import { MILLGROVE_TREE } from "utils/assets";
 import styles from "./Signup.module.scss";
-import SignupSuccess from "./SignupSuccess";
 
 const Signup = ({
   isRegistering,
@@ -18,7 +16,8 @@ const Signup = ({
   const [isBoxChecked, setIsBoxChecked] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log("submitted");
     setIsRegistering(false);
     setIsRegisterationSuccessfull(true);
   };
@@ -53,7 +52,7 @@ const Signup = ({
                 Register <span className={styles.smallText}>your</span> Details
               </h3>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className={styles.formInputWrapper}>
                 <input
                   onChange={(e) => updateUserInfo("name", e)}
@@ -89,8 +88,8 @@ const Signup = ({
               <div className={styles.submitBtnWrapper}>
                 <Button
                   isDisabled={shouldBtnBeDisabled()}
-                  clickhandler={handleSubmit}
                   text={"Continue"}
+                  type="submit"
                 />
               </div>
             </form>

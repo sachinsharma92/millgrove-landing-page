@@ -35,7 +35,7 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
         <div className={styles.bgTree}>
           <MILLGROVE_TREE style={{ height: "6vw" }} fillColor="#8a7f7f14" />
         </div>
-        <div className={styles.formWrapper}>
+        <form onSubmit={continueHandler} className={styles.formWrapper}>
           <div className={styles.headingWrapper}>
             <h3 className={styles.heading}>Enter Phone Number</h3>
           </div>
@@ -60,12 +60,12 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
           )}
           <div className={styles.submitBtnWrapper}>
             <Button
+              type="submit"
               isDisabled={!phoneNos ? true : false}
-              clickhandler={continueHandler}
               text={"Continue"}
             />
           </div>
-        </div>
+        </form>
       </div>
     </Layout>
   );

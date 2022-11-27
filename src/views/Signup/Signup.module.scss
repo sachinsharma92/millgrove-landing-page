@@ -6,7 +6,7 @@
   // border-radius: 6px;
   background-color: #ffffff;
   position: relative;
-  width: calc(26rem + 1.5625vw);
+  width: calc(29rem + 1.5625vw);
   max-width: 100%;
 }
 
@@ -35,6 +35,7 @@
   margin: 0 auto;
   margin-bottom: calc(8px + 0.5625vw);
 }
+
 .heading {
   @include fontStyles(
     $black-100,
@@ -48,11 +49,13 @@
   @include fontStyles($brown-70, "Notera", 200, calc(8px + 1.5625vw));
   text-transform: lowercase;
 }
+
 .formInputWrapper {
-  margin-bottom: calc(8px + 0.5625vw);
+  margin-bottom: calc(10px + 0.5625vw);
   display: flex;
   justify-content: center;
 }
+
 .formInput {
   border: none;
   border-bottom: 1px solid $black-90-20;
@@ -69,7 +72,7 @@
   margin-top: calc(8px + 0.390625vw);
   margin-left: auto;
   margin-right: auto;
-  gap: 2rem;
+  gap: calc(1.675rem + 00.390625vw);
   .round {
     label {
       top: 0.25rem;
@@ -82,7 +85,7 @@
 }
 .submitBtnWrapper {
   @include flex(center, center);
-  margin-top: 3rem;
+  margin-top: calc(2.5rem + 00.5625vw);
   button {
     background-color: $green-100;
     color: $cream-50;
@@ -125,5 +128,51 @@
     &:focus {
       outline: 1px solid transparent;
     }
+  }
+}
+
+@include for-phone-only {
+  .mainWrapper {
+    border-radius: 1.5rem 1.5rem 0.875rem 0.875rem;
+  }
+
+  .formWrapper {
+    border-radius: 1rem 1rem 0.75rem 0.75rem;
+  }
+
+  .headingWrapper {
+    width: 100%;
+  }
+  .heading {
+    font-size: calc(24px + 0.390625vw);
+  }
+  .smallText {
+    font-size: calc(12px + 1.5625vw);
+  }
+  .formInputWrapper,
+  .phoneNosWrapper {
+    margin-bottom: calc(1.5rem + 0.5625vw);
+  }
+  .formInput {
+    font-size: calc(0.875rem + 00.390625vw);
+  }
+  .agreementCheck p {
+    font-size: calc(10px + 0.5625vw);
+  }
+  .submitBtnWrapper {
+    margin-top: calc(1rem + 00.5625vw);
+  }
+}
+
+@include for-tablet-only {
+  .formInputWrapper,
+  .phoneNosWrapper {
+    margin-bottom: calc(1.375rem + 0.5625vw);
+  }
+  .submitBtnWrapper {
+    margin-top: calc(1.5rem + 00.5625vw);
+  }
+  .agreementCheck p {
+    font-size: calc(10px + 0.39625vw);
   }
 }

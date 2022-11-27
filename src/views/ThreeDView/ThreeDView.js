@@ -34,7 +34,7 @@ const ThreeDView = () => {
         <Button
           classname={styles.interactBtn}
           customStyles={customStyles}
-          type={"secondary"}
+          variant={"secondary"}
           text="INTERACT WITH MAP"
           leftIcon={<LeftArrow color="#F9F6ED" />}
           rightIcon={<RightArrow color="#F9F6ED" />}

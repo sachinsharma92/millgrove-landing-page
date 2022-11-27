@@ -51,6 +51,7 @@ const OtpForm = ({ setIsLoggingIn }) => {
         </p>
         <div className={styles.submitBtnWrapper}>
           <Button
+            type="submit"
             clickhandler={handleSubmit}
             text={"Continue"}
             customStyles={{
