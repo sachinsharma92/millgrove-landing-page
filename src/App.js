@@ -21,6 +21,7 @@ import Login from "views/Login/Login";
 import { AuthContext } from "context/AuthContext";
 import HomeCarousel from "views/HomeCarousel/HomeCarousel";
 import { useMediaQuery } from "hooks/useMediaQuery";
+import HomeCarouselMobile from "views/HomeCarouselMobile/HomeCarouselMobile";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
@@ -45,8 +46,8 @@ function App(props) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
+    handleResize();
     if (isLoggedIn) {
-      handleResize();
       if (!isMobile) {
         scrollRef.current = new LocomotiveScroll({
           el: document.querySelector("[data-scroll-container]"),
@@ -54,6 +55,8 @@ function App(props) {
           getDirection: true,
           smoothMobile: true,
         });
+      } else {
+        document.body.style.overflow = "auto";
       }
     } else {
       document.body.style.overflow = "hidden";
@@ -97,9 +100,16 @@ function App(props) {
             document.body.scrollTop < scroll1.getBoundingClientRect().bottom
           ) {
             elem1.classList.remove("invisible");
-            if (instance.direction === "down")
+            elem4abs.style.display = "none";
+            if (instance.direction === "down") {
+              elem1abs.style.display = "none";
               elem1.classList.add("visible-noanim");
-            else elem1.classList.add("visible");
+            } else {
+              setTimeout(() => {
+                elem1abs.style.display = "block";
+              }, 500);
+              elem1.classList.add("visible");
+            }
           } else {
             elem1.classList.remove("visible");
             elem1.classList.remove("visible-noanim");
@@ -130,9 +140,15 @@ function App(props) {
             document.body.scrollTop < scroll4.getBoundingClientRect().bottom
           ) {
             elem4.classList.remove("invisible");
-            if (instance.direction === "up")
+            if (instance.direction === "up") {
+              elem4abs.style.display = "none";
               elem4.classList.add("visible-noanim");
-            else elem4.classList.add("visible");
+            } else {
+              setTimeout(() => {
+                elem4abs.style.display = "block";
+              }, 500);
+              elem4.classList.add("visible");
+            }
           } else {
             elem4.classList.remove("visible");
             elem4.classList.remove("visible-noanim");
@@ -158,7 +174,11 @@ function App(props) {
       <Secondfold />
       {menu && <Menu closeMenu={() => setMenu(false)} />}
       <ThreeDView />
-      <HomeCarousel carouselViewRef={carouselViewRef} />
+      {isMobile ? (
+        <HomeCarouselMobile />
+      ) : (
+        <HomeCarousel carouselViewRef={carouselViewRef} />
+      )}
 
       <Reservation />
       <Footer />

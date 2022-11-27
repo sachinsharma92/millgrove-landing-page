@@ -18,6 +18,9 @@
     > div {
       margin-top: 8px;
     }
+    @media (max-width: 980px) {
+      display: none;
+    }
   }
   .mg-first-fold-header {
     box-sizing: border-box;
@@ -67,6 +70,12 @@
       text-transform: uppercase;
       color: #dacfba;
     }
+    @media (max-width: 980px) {
+      padding-top: 5vh;
+      > svg {
+        width: 45vw !important;
+      }
+    }
   }
   .mg-first-fold-text {
     box-sizing: border-box;
@@ -100,6 +109,29 @@
         cursor: pointer;
       }
     }
+    @media (max-width: 980px) {
+      .mg-first-fold-heading {
+        font-family: "Editorial New";
+        font-style: normal;
+        font-weight: 200;
+        font-size: 50px;
+        line-height: 1.6em;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: #f1efe5;
+      }
+      .mg-first-fold-subheading {
+        margin-top: 2em;
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.6em;
+        text-align: center;
+        color: #f9f6ed;
+        width: 35ch;
+      }
+    }
   }
   .mg-discover-more {
     box-sizing: border-box;
@@ -126,6 +158,9 @@
     color: #f1efe5;
     > svg {
       margin-bottom: 20px;
+    }
+    @media (max-width: 980px) {
+      display: none;
     }
   }
 
@@ -157,4 +192,24 @@
   margin: auto;
   margin-top: 1rem;
   z-index: 99;
+  cursor: pointer;
+  @media (max-width: 980px) {
+    margin-top: 30px;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 40px;
+    > button {
+      padding: 15px 0;
+      width: 100%;
+
+      span {
+        &:first-of-type {
+          display: none;
+        }
+        &:last-of-type {
+          display: none;
+        }
+      }
+    }
+  }
 }

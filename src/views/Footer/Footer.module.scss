@@ -15,12 +15,18 @@
     span {
       text-transform: uppercase;
     }
+    @media (max-width: 980px) {
+      display: none;
+    }
   }
   sup {
     @include fontStyles($grey-20, "Notera", 400, 63px);
     position: absolute;
     top: -1.2vw;
     left: -5.2vw;
+  }
+  @media (max-width: 980px) {
+    height: fit-content;
   }
 }
 
@@ -30,6 +36,9 @@
   left: 50vw;
   height: 6.5vw;
   width: 6.5vw;
+  @media (max-width: 980px) {
+    display: none;
+  }
 }
 .houseImg {
   position: absolute;
@@ -38,22 +47,75 @@
   width: 30%;
   max-width: 100%;
   height: auto;
+  @media (max-width: 980px) {
+    display: none;
+  }
 }
 
 .crookedLine {
   margin-bottom: 4rem;
+  @media (max-width: 980px) {
+    margin-bottom: -12rem;
+    margin-top: 5rem;
+    > path {
+      stroke-width: 1px;
+      stroke: white;
+      stroke-opacity: 0.5;
+    }
+  }
 }
 .brandName {
   margin-bottom: 5.25rem;
+  @media (max-width: 980px) {
+    margin-bottom: 10.25rem;
+    > path {
+      stroke: white;
+      stroke-opacity: 0.5;
+    }
+  }
 }
 
 .footerLinksWrapper {
   @include flex(space-between, center);
   @include fontStyles($grey-10, "Manrope", 400, 1.125rem);
+  @media (max-width: 980px) {
+    flex-direction: column-reverse;
+    width: 100vw;
+    padding: 0;
+    margin: 0 auto;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #f7f0ec;
+    position: absolute;
+    bottom: 10vh;
+    left: 0;
+    right: 0;
+  }
 }
 .spacedLinks {
   @include flex(center, center);
   gap: 0.625rem;
+  @media (max-width: 980px) {
+    opacity: 0.7;
+  }
+}
+.haryanaLinks {
+  @media (max-width: 980px) {
+    flex-direction: column;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #f7f0ec;
+    margin-bottom: 30px;
+    opacity: 1 !important;
+  }
 }
 a {
   text-decoration: none;
