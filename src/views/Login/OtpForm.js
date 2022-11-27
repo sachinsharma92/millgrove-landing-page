@@ -45,8 +45,9 @@ const OtpForm = ({ setIsLoggingIn }) => {
             isInputNum
           />
         </div>
-        <p className={styles.resend}>
-          <Timer initialMinutes={0} initialSeconds={60} />
+        <p className={styles.resendMsg}>
+          <span className={styles.resend}>Resend code</span> in{" "}
+          <Timer totalSeconds={60} />
         </p>
         <div className={styles.submitBtnWrapper}>
           <Button

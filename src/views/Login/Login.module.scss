@@ -3,7 +3,7 @@
 
 .mainWrapper {
   padding: calc(10px + 0.5625vw);
-  border-radius: 6px;
+  // border-radius: 6px;
   background-color: #ffffff;
   position: relative;
   width: calc(26rem + 1.5625vw);
@@ -32,7 +32,7 @@
 }
 .formWrapper {
   border: 1px solid $brown-80-30;
-  border-radius: 6px;
+  // border-radius: 6px;
   padding: calc(55px + 1.5625vw) calc(10px + 1.5625vw) calc(16px + 1.5625vw);
   form {
     width: 95%;
@@ -143,11 +143,12 @@
   color: $brown-70;
 }
 
-.resend {
+.resendMsg {
   @include fontStyles($black-90, "Manrope", 400, 0.875rem);
 
-  span {
+  .resend {
     @include fontStyles($brown-70, "Manrope", 400, 0.875rem);
+    cursor: pointer;
   }
 }
 
