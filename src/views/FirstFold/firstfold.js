@@ -91,7 +91,7 @@ function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
         </div>
       )} */}
       <div className="mg-bg-video">
-        <video src={TEMP_VIDEO} autoPlay muted loop />
+        <video src={TEMP_VIDEO} autoPlay muted playsInline loop />
       </div>
     </div>
   );
