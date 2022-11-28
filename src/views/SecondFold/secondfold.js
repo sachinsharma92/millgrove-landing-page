@@ -55,11 +55,11 @@ function Secondfold(props) {
           Made <span>with</span> Care
         </div>
         <div className="mg-second-fold-subheading">
-          Our purpose has always been simple. To create somewhere we can be
-          proud to call home; somewhere to leave a fitting legacy. We warmly
-          invite you to join our small, peaceful community, where neighbours
-          become friends. Welcome to Millgrove - a private collection of homes
-          nestled in the heart of Gurugram.
+          Our purpose has always been simple. To create somewhere we are proud
+          to call home; somewhere to leave a fitting legacy. We warmly invite
+          you to join our small, peaceful community, where neighbours are
+          friends. Welcome to Millgrove - a private collection of homes nestled
+          in the heart of Gurugram.
         </div>
         <div className="mg-second-fold-footer">Millgrove</div>
       </div>

@@ -7,7 +7,7 @@ import rectangleHouse from "../../assets/images/footer-img.png";
 const Footer = () => {
   return (
     <div className={styles.footerWrapper} data-scroll-section>
-      <h4>
+      {/* <h4>
         <sup>The</sup>
         <span>Homes</span>
       </h4>
@@ -18,8 +18,8 @@ const Footer = () => {
         alt="House"
         width="628"
         height="430"
-      />
-      <CROOKED_LINE className={styles.crookedLine} />
+      /> */}
+      {/* <CROOKED_LINE className={styles.crookedLine} /> */}
       <BRANDNAME_HALF_SOLID_TEXT className={styles.brandName} />
       <div className={styles.footerLinksWrapper}>
         <p className={styles.spacedLinks}>

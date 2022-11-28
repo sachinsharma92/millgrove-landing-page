@@ -1,6 +1,6 @@
 @mixin beforeText {
   position: absolute;
-  left: -120px;
+  left: -100px;
   top: -30px;
   content: "The";
   text-transform: capitalize;
@@ -38,6 +38,21 @@
     height: 100vh;
     width: 100%;
   }
+  .carousel-dots {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 30px;
+    top: calc(45vh);
+    z-index: 99;
+    > div {
+      margin: 10px 0;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #2e3430;
+    }
+  }
 }
 .slide1 {
   opacity: 1;
@@ -45,8 +60,8 @@
   .carousel-text-div {
     position: absolute;
     bottom: 35vh;
-    right: 8vw;
-    width: 49ch;
+    right: 6vw;
+    width: 54ch;
     text-align: left;
     .carousel-heading {
       @include carouselHeading();
@@ -67,7 +82,7 @@
     position: absolute;
     bottom: 20vh;
     width: 40vw;
-    left: 8vw;
+    left: 6vw;
     z-index: 2;
   }
   .bottom-color-div {
@@ -82,8 +97,8 @@
   .carousel-text-div {
     position: absolute;
     bottom: 35vh;
-    right: 8vw;
-    width: 49ch;
+    right: 6vw;
+    width: 54ch;
     text-align: left;
     .carousel-heading {
       @include carouselHeading();
@@ -104,7 +119,7 @@
     position: absolute;
     bottom: 20vh;
     width: 40vw;
-    left: 8vw;
+    left: 6vw;
     z-index: 2;
   }
   .bottom-color-div {
@@ -117,8 +132,8 @@
   .carousel-text-div {
     position: absolute;
     bottom: 35vh;
-    right: 8vw;
-    width: 49ch;
+    right: 6vw;
+    width: 54ch;
     text-align: left;
     .carousel-heading {
       @include carouselHeading();
@@ -139,7 +154,7 @@
     position: absolute;
     bottom: 20vh;
     width: 40vw;
-    left: 8vw;
+    left: 6vw;
     z-index: 2;
   }
   .bottom-color-div {
@@ -152,8 +167,8 @@
   .carousel-text-div {
     position: absolute;
     bottom: 35vh;
-    right: 8vw;
-    width: 49ch;
+    right: 6vw;
+    width: 54ch;
     text-align: left;
     .carousel-heading {
       @include carouselHeading();
@@ -174,7 +189,7 @@
     position: absolute;
     bottom: 20vh;
     width: 40vw;
-    left: 8vw;
+    left: 6vw;
     z-index: 2;
   }
   .bottom-color-div {
@@ -195,8 +210,8 @@
     .carousel-text-div {
       position: absolute;
       bottom: 35vh;
-      right: 8vw;
-      width: 49ch;
+      right: 6vw;
+      width: 54ch;
       text-align: left;
       .carousel-heading {
         @include carouselHeading();
@@ -217,7 +232,7 @@
       position: absolute;
       bottom: 20vh;
       width: 40vw;
-      left: 8vw;
+      left: 6vw;
       z-index: 2;
     }
     .bottom-color-div {
@@ -240,8 +255,8 @@
     .carousel-text-div {
       position: absolute;
       bottom: 35vh;
-      right: 8vw;
-      width: 49ch;
+      right: 6vw;
+      width: 54ch;
       text-align: left;
       .carousel-heading {
         @include carouselHeading();
@@ -262,11 +277,63 @@
       position: absolute;
       bottom: 20vh;
       width: 40vw;
-      left: 8vw;
+      left: 6vw;
       z-index: 2;
     }
     .bottom-color-div {
       @include bottomColorDiv(#434f50);
     }
+  }
+}
+
+.carousel-dots-abs {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 30px;
+  top: calc(45vh);
+  z-index: 99;
+  > div {
+    margin: 10px 0;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #2e3430;
+    &:first-of-type {
+      background-color: black;
+    }
+  }
+}
+.carousel-dots-end-abs {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 30px;
+  bottom: calc(37vh);
+  z-index: 99;
+  > div {
+    margin: 10px 0;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #2e3430;
+    &:last-of-type {
+      background-color: black;
+    }
+  }
+}
+.carousel-dots {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  left: 30px;
+  top: calc(45vh);
+  z-index: 99;
+  > div {
+    margin: 10px 0;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #2e3430;
   }
 }

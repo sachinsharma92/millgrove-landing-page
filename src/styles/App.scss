@@ -32,6 +32,21 @@
   top: 0 !important;
   opacity: 0 !important;
   // transition: opacity 0.4s ease-in-out;
+  .bottom-color-div {
+    opacity: 0 !important;
+  }
+  .carousel-img {
+    opacity: 0 !important;
+    // transition: opacity 0.4s ease-in-out;
+  }
+  .carousel-text-div {
+    .carousel-heading {
+      opacity: 0 !important;
+    }
+    .carousel-subtext {
+      opacity: 0 !important;
+    }
+  }
 }
 
 .visible {
@@ -41,7 +56,24 @@
   position: fixed !important;
   top: 0 !important;
   z-index: 2;
-  transition: opacity 0.4s ease-in-out;
+  .bottom-color-div {
+    opacity: 1 !important;
+    // transition: opacity 0.4s ease-in-out;
+  }
+  .carousel-img {
+    opacity: 1 !important;
+    transition: opacity 0.4s ease-in-out;
+  }
+  .carousel-text-div {
+    .carousel-heading {
+      opacity: 1 !important;
+      transition: opacity 0.4s ease-in-out 0.1s;
+    }
+    .carousel-subtext {
+      opacity: 1 !important;
+      transition: opacity 0.4s ease-in-out 0.2s;
+    }
+  }
 }
 .visible-noanim {
   height: 100vh;

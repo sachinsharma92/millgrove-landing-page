@@ -13,7 +13,7 @@ const ReservationForm = () => {
     <div className={styles.formWrapper}>
       <div className={styles.formHeadingWrapper}>
         <h1 className={styles.formHeading}>
-          Reserve <span>a</span> Visit
+          Request <span>a</span> Visit
           <MILLGROVE_GRADIENT_LEAF className={styles.gradientLeaf} />
         </h1>
       </div>

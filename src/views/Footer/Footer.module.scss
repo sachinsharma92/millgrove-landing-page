@@ -2,10 +2,10 @@
 @import "../../sass/utils/_mixins.scss";
 
 .footerWrapper {
-  background-color: #4b5b47;
+  background-color: #293227;
   padding: 5rem 1.75rem 1.75rem 1.75rem;
   position: relative;
-  height: 100vh;
+  // height: 30vh;
   h4 {
     @include fontStyles($grey-20, "Editorial New", 200, 80px);
     position: relative;

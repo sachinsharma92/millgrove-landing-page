@@ -59,7 +59,8 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
           <div className={styles.submitBtnWrapper}>
             <Button
               type="submit"
-              isDisabled={!phoneNos ? true : false}
+              // isDisabled={phoneNos?.length === 10 ? false : true}
+              clickhandler={() => continueHandler()}
               text={"Continue"}
             />
           </div>

@@ -8,6 +8,12 @@ import carouselImg4 from "assets/images/carousel-img-4.png";
 function HomeCarousel({ carouselViewRef }) {
   return (
     <>
+      <div className="carousel-dots">
+        <div className="carousel-dots-first"></div>
+        <div className="carousel-dots-second"></div>
+        <div className="carousel-dots-third"></div>
+        <div className="carousel-dots-fourth"></div>
+      </div>
       <div className="slide1">
         <img src={carouselImg1} alt="" className="carousel-img" />
         <div className="bottom-color-div"></div>
@@ -71,6 +77,18 @@ function HomeCarousel({ carouselViewRef }) {
         data-scroll
         id="scroll-direction"
       >
+        <div className="carousel-dots-abs">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className="carousel-dots-end-abs">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <div className="slide1-abs">
           <div>
             <img src={carouselImg1} alt="" className="carousel-img" />

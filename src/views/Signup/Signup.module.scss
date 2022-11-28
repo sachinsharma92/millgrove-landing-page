@@ -86,7 +86,7 @@
   }
   p {
     text-align: left;
-    @include fontStyles($brown-80, "Manrope", 400, calc(8px + 0.390625vw));
+    @include fontStyles($brown-80, "Manrope", 400, 14px);
   }
 }
 .submitBtnWrapper {

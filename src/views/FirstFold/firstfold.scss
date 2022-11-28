@@ -168,11 +168,12 @@
     box-sizing: border-box;
     position: absolute;
     z-index: -1;
-    top: 0;
+    top: -10px;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100vh;
+    height: 105vh;
+    opacity: 0.7;
     overflow: hidden;
     > video {
       object-fit: cover;
@@ -201,15 +202,6 @@
     > button {
       padding: 15px 0;
       width: 100%;
-
-      span {
-        &:first-of-type {
-          display: none;
-        }
-        &:last-of-type {
-          display: none;
-        }
-      }
     }
   }
 }
