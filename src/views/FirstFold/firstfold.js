@@ -70,14 +70,14 @@ function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
             <Button
               clickhandler={() => setIsLoggingIn(true)}
               text={"LOGIN"}
-              type="secondary"
+              variant="secondary"
               // leftIcon={<LeftArrow />}
               // rightIcon={<RightArrow />}
             />
             <Button
               clickhandler={() => setIsRegistering(true)}
               text={"REGISTER"}
-              type="secondary"
+              variant="secondary"
               // leftIcon={<LeftArrow />}
               // rightIcon={<RightArrow />}
             />
