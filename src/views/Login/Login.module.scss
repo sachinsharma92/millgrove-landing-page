@@ -179,11 +179,19 @@ select {
 
 @include for-phone-only {
   .mainWrapper {
-    border-radius: 1.5rem 1.5rem 0.875rem 0.875rem;
-    margin-top: 1rem;
+    margin-top: 1.25rem;
   }
-  .formWrapper {
-    border-radius: 1rem 1rem 0.75rem 0.75rem;
+  .bgTree {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 40%;
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .heading {
     font-size: calc(24px + 0.390625vw);

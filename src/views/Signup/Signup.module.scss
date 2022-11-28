@@ -122,6 +122,7 @@
     width: 92.75%;
   }
   input {
+    padding: 4px 0;
     border: none;
     border-bottom: 1px solid $black-90-20;
     @include fontStyles($black-100-70, "Manrope", 400, calc(12px + 0.5625vw));
@@ -133,15 +134,12 @@
 
 @include for-phone-only {
   .mainWrapper {
-    border-radius: 1.5rem 1.5rem 0.875rem 0.875rem;
-  }
-
-  .formWrapper {
-    border-radius: 1rem 1rem 0.75rem 0.75rem;
+    margin-top: 1.25rem;
   }
 
   .headingWrapper {
     width: 100%;
+    margin-bottom: calc(1.5rem + 00.390625vw);
   }
   .heading {
     font-size: calc(24px + 0.390625vw);
@@ -161,6 +159,13 @@
   }
   .submitBtnWrapper {
     margin-top: calc(1rem + 00.5625vw);
+  }
+
+  .successMsgWrapper {
+    width: 90%;
+    .successDescription {
+      width: 100%;
+    }
   }
 }
 

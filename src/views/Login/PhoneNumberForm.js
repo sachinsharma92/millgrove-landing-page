@@ -11,13 +11,14 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
   const [phoneNos, setPhoneNos] = useState(null);
   const [error, setError] = useState({ errorOccured: false, msg: "" });
 
-  const continueHandler = () => {
+  const continueHandler = (e) => {
     if (phoneNos !== "+913333333333") {
       setError((prev) => ({
         ...prev,
         errorOccured: true,
         msg: "Phone number not registered.",
       }));
+      e.preventDefault();
       return;
     }
     setIsEnteringPhoneNos(false);
@@ -33,6 +34,7 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
     <Layout>
       <div className={styles.mainWrapper}>
         <div className={styles.bgTree}>
+          {/* <MILLGROVE_TREE style={{ height: "6vw" }} fillColor="red" /> */}
           <MILLGROVE_TREE style={{ height: "6vw" }} fillColor="#8a7f7f14" />
         </div>
         <form onSubmit={continueHandler} className={styles.formWrapper}>
