@@ -10,7 +10,7 @@
 }
 .textWrapper {
   margin: auto;
-  width: 80%;
+  width: 85%;
   @media (max-width: 980px) {
     width: 100%;
   }
@@ -24,7 +24,9 @@
   @include fontStyles($grey-60, "Manrope", 400, 1rem);
   position: relative;
   bottom: 7rem;
-  width: 45ch;
+  > p {
+    width: 49ch;
+  }
   text-align: left;
   @media (max-width: 980px) {
     margin-right: 0;
