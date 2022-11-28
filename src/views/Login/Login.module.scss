@@ -53,7 +53,7 @@
 }
 
 .headingWrapper {
-  width: clamp(50%, 70%, 80%);
+  // width: clamp(50%, 70%, 80%);
   margin: 0 auto;
   margin-bottom: calc(8px + 1.5625vw);
 }
@@ -77,6 +77,9 @@
     border: none;
     border-bottom: 1px solid $black-90-20;
     margin-right: 0.5rem;
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.2);
+    }
     &:focus {
       outline: 1px solid transparent;
     }
@@ -96,6 +99,9 @@
     font-weight: 200;
     font-family: "Manrope";
     color: $black-90-70;
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.2);
+    }
     &:focus {
       outline: 1px solid transparent;
     }
@@ -133,6 +139,7 @@
 
 .instructionText {
   @include fontStyles($black-90, "Manrope", 400, 0.875rem);
+  height: 15px;
 }
 .navigate {
   @extend .instructionText;

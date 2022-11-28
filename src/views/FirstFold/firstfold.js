@@ -70,26 +70,26 @@ function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
             <Button
               clickhandler={() => setIsLoggingIn(true)}
               text={"LOGIN"}
-              variant="secondary"
-              leftIcon={<LeftArrow />}
-              rightIcon={<RightArrow />}
+              type="secondary"
+              // leftIcon={<LeftArrow />}
+              // rightIcon={<RightArrow />}
             />
             <Button
               clickhandler={() => setIsRegistering(true)}
               text={"REGISTER"}
-              variant="secondary"
-              leftIcon={<LeftArrow />}
-              rightIcon={<RightArrow />}
+              type="secondary"
+              // leftIcon={<LeftArrow />}
+              // rightIcon={<RightArrow />}
             />
           </div>
         )}
       </div>
-      {isLoggedIn && (
+      {/* {isLoggedIn && (
         <div className="mg-discover-more">
           <DOWN_ARROW />
           Discover more
         </div>
-      )}
+      )} */}
       <div className="mg-bg-video">
         <video src={TEMP_VIDEO} autoPlay muted loop />
       </div>

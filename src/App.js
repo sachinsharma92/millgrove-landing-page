@@ -83,6 +83,8 @@ function App(props) {
     !isMobile &&
       scrollRef.current?.on("scroll", (instance) => {
         if (isCarouselInView.current) {
+          const carouselDiv = document.querySelector(".home-carousel");
+
           const elem1 = document.querySelector(".slide1");
           const elem1abs = document.querySelector(".slide1-abs");
           const elem2 = document.querySelector(".slide2");
@@ -94,6 +96,23 @@ function App(props) {
           const scroll2 = document.querySelector(".carousel-logic-div-2");
           const scroll3 = document.querySelector(".carousel-logic-div-3");
           const scroll4 = document.querySelector(".carousel-logic-div-4");
+
+          const carouselDots = document.querySelector(".carousel-dots");
+
+          const dot1 = document.querySelector(".carousel-dots-first");
+          const dot2 = document.querySelector(".carousel-dots-second");
+          const dot3 = document.querySelector(".carousel-dots-third");
+          const dot4 = document.querySelector(".carousel-dots-fourth");
+
+          if (
+            document.body.scrollTop > carouselDiv.getBoundingClientRect().top &&
+            document.body.scrollTop <
+              carouselDiv.getBoundingClientRect().bottom - window.innerHeight
+          ) {
+            carouselDots.style.display = "flex";
+          } else {
+            carouselDots.style.display = "none";
+          }
 
           if (
             document.body.scrollTop > scroll1.getBoundingClientRect().top &&
@@ -110,10 +129,12 @@ function App(props) {
               }, 500);
               elem1.classList.add("visible");
             }
+            dot1.style.backgroundColor = "black";
           } else {
             elem1.classList.remove("visible");
             elem1.classList.remove("visible-noanim");
             elem1.classList.add("invisible");
+            dot1.style.backgroundColor = "transparent";
           }
           if (
             document.body.scrollTop > scroll2.getBoundingClientRect().top &&
@@ -121,9 +142,11 @@ function App(props) {
           ) {
             elem2.classList.remove("invisible");
             elem2.classList.add("visible");
+            dot2.style.backgroundColor = "black";
           } else {
             elem2.classList.remove("visible");
             elem2.classList.add("invisible");
+            dot2.style.backgroundColor = "transparent";
           }
           if (
             document.body.scrollTop > scroll3.getBoundingClientRect().top &&
@@ -131,9 +154,11 @@ function App(props) {
           ) {
             elem3.classList.remove("invisible");
             elem3.classList.add("visible");
+            dot3.style.backgroundColor = "black";
           } else {
             elem3.classList.remove("visible");
             elem3.classList.add("invisible");
+            dot3.style.backgroundColor = "transparent";
           }
           if (
             document.body.scrollTop > scroll4.getBoundingClientRect().top &&
@@ -149,10 +174,12 @@ function App(props) {
               }, 500);
               elem4.classList.add("visible");
             }
+            dot4.style.backgroundColor = "black";
           } else {
             elem4.classList.remove("visible");
             elem4.classList.remove("visible-noanim");
             elem4.classList.add("invisible");
+            dot4.style.backgroundColor = "transparent";
           }
         }
       });
@@ -164,7 +191,6 @@ function App(props) {
         <CookiesPopup closeCookiesPopup={() => setCookiesPopup(false)} />
       )}
       {loader && <Home />}
-      {/* {} */}
       <Firstfold
         openMenu={() => setMenu(true)}
         setIsLoggingIn={setIsLoggingIn}
