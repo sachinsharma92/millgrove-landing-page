@@ -1,7 +1,6 @@
-import { DownArrow } from "assets/icons/icons";
+import React, { useState } from "react";
 import Button from "components/Button";
 import Layout from "components/Layout";
-import React, { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import { MILLGROVE_TREE } from "utils/assets";
 import styles from "./Login.module.scss";
@@ -16,7 +15,7 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
       setError((prev) => ({
         ...prev,
         errorOccured: true,
-        msg: "Phone number not registered.",
+        msg: "This number is not registered with us yet,",
       }));
       e.preventDefault();
       return;
@@ -41,6 +40,9 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
           <div className={styles.headingWrapper}>
             <h3 className={styles.heading}>Enter Phone Number</h3>
           </div>
+          <p className={styles.notRegisteredText}>
+            Not registered yet? <span>Register here</span>
+          </p>
           <div className={styles.phoneNosWrapper}>
             <PhoneInput
               international
@@ -50,16 +52,10 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
               onChange={handleChange}
             />
           </div>
-          <p className={styles.instructionText}>
-            {error.errorOccured
-              ? error.msg
-              : "Please press continue to proceed."}
+          <p className={styles.errorText}>
+            {error.errorOccured ? error.msg : ""}
+            {error.errorOccured && <span> register here</span>}
           </p>
-          {error.errorOccured && (
-            <p className={styles.instructionText}>
-              Please register <span className={styles.navigate}>here</span>
-            </p>
-          )}
           <div className={styles.submitBtnWrapper}>
             <Button
               type="submit"
