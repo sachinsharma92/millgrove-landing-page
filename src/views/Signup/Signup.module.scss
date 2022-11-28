@@ -55,7 +55,7 @@
 }
 
 .formInputWrapper {
-  margin-bottom: calc(10px + 0.5625vw);
+  margin-bottom: calc(2px + 0.5625vw);
   display: flex;
   justify-content: center;
 }
@@ -159,8 +159,7 @@
   .smallText {
     font-size: calc(12px + 1.5625vw);
   }
-  .formInputWrapper,
-  .phoneNosWrapper {
+  .errorText {
     margin-bottom: calc(1.5rem + 0.5625vw);
   }
   .formInput {
@@ -182,8 +181,7 @@
 }
 
 @include for-tablet-only {
-  .formInputWrapper,
-  .phoneNosWrapper {
+  .errorText {
     margin-bottom: calc(1.375rem + 0.5625vw);
   }
   .submitBtnWrapper {
