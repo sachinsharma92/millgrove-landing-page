@@ -7,6 +7,7 @@ const Button = ({
   rightIcon,
   text,
   customStyles,
+  variant,
   type,
   isRounded,
   clickhandler = () => {},
@@ -30,9 +31,10 @@ const Button = ({
     <button
       onClick={clickhandler}
       disabled={isDisabled}
-      className={`${classname} ${getClassname(type)} ${styles.btn} ${
+      className={`${classname} ${getClassname(variant)} ${styles.btn} ${
         isRounded && styles.rounded
       }`}
+      type={type || "button"}
       style={customStyles && { ...customStyles }}
     >
       {leftIcon && <span className={styles.btnIcon}>{leftIcon}</span>}

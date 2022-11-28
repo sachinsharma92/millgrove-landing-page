@@ -46,11 +46,13 @@ const OtpForm = ({ setIsLoggingIn }) => {
             placeholder="000000"
           />
         </div>
-        <p className={styles.resend}>
-          <Timer initialMinutes={0} initialSeconds={60} />
+        <p className={styles.resendMsg}>
+          <span className={styles.resend}>Resend code</span> in{" "}
+          <Timer totalSeconds={60} />
         </p>
         <div className={styles.submitBtnWrapper}>
           <Button
+            type="submit"
             clickhandler={() => otp?.length === 6 && handleSubmit()}
             text={"Continue"}
             isDisabled={otp?.length === 6 ? false : true}

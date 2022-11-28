@@ -3,7 +3,7 @@
 
 .mainWrapper {
   padding: calc(10px + 0.5625vw);
-  border-radius: 6px;
+  // border-radius: 6px;
   background-color: #ffffff;
   position: relative;
   width: calc(26rem + 1.5625vw);
@@ -32,7 +32,7 @@
 }
 .formWrapper {
   border: 1px solid $brown-80-30;
-  border-radius: 6px;
+  // border-radius: 6px;
   padding: calc(55px + 1.5625vw) calc(10px + 1.5625vw) calc(16px + 1.5625vw);
   form {
     width: 95%;
@@ -66,10 +66,6 @@
   );
   text-transform: uppercase;
 }
-.smallText {
-  @include fontStyles($brown-70, "Notera", 200, calc(8px + 1.5625vw));
-  text-transform: lowercase;
-}
 
 .otpWrapper {
   margin-bottom: calc(15px + 0.390625vw);
@@ -92,28 +88,41 @@
 .phoneNosWrapper {
   @include flex(center, center);
   gap: 1rem;
-  width: 70%;
+  width: 90%;
   margin: 0 auto calc(15px + 0.5625vw);
-}
-.phoneNos {
-  width: calc(15px + 0.390625vw) !important;
-  border: none;
-  border-bottom: 1px solid $black-90-20;
-  font-size: calc(26px + 0.5625vw);
-  font-weight: 200;
-  font-family: "Manrope";
-  color: $black-90-70;
-  &::placeholder {
-    color: rgba(0, 0, 0, 0.2);
+  input {
+    // width: calc(15px + 0.390625vw) !important;
+    width: 100% !important;
+    border: none;
+    border-bottom: 1px solid $black-90-20;
+    font-size: calc(26px + 0.5625vw);
+    font-weight: 200;
+    font-family: "Manrope";
+    color: $black-90-70;
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.2);
+    }
+    &:focus {
+      outline: 1px solid transparent;
+    }
   }
-  &:focus {
-    outline: 1px solid transparent;
-  }
 }
-.phoneNosInputContainer {
-  width: 100%;
-  background-color: transparent;
-}
+// .phoneNos {
+//   width: calc(15px + 0.390625vw) !important;
+//   border: none;
+//   border-bottom: 1px solid $black-90-20;
+//   font-size: calc(26px + 0.5625vw);
+//   font-weight: 200;
+//   font-family: "Manrope";
+//   color: $black-90-70;
+//   &:focus {
+//     outline: 1px solid transparent;
+//   }
+// }
+// .phoneNosInputContainer {
+//   width: 100%;
+//   background-color: transparent;
+// }
 
 .countryCodeWrapper {
   @include flex(center, center);
@@ -137,11 +146,12 @@
   color: $brown-70;
 }
 
-.resend {
+.resendMsg {
   @include fontStyles($black-90, "Manrope", 400, 0.875rem);
 
-  span {
+  .resend {
     @include fontStyles($brown-70, "Manrope", 400, 0.875rem);
+    cursor: pointer;
   }
 }
 
@@ -171,5 +181,48 @@ select {
   @include fontStyles($black-100-70, "Manrope", 300, calc(26px + 0.5625vw));
   option {
     @include fontStyles($black-100-70, "Manrope", 200, calc(12px + 0.5625vw));
+  }
+}
+
+@include for-phone-only {
+  .mainWrapper {
+    margin-top: 1.25rem;
+  }
+  .bgTree {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 40%;
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .heading {
+    font-size: calc(24px + 0.390625vw);
+  }
+  .formInputWrapper {
+    margin-bottom: calc(1.5rem + 0.5625vw);
+  }
+  .phoneNosWrapper {
+    margin-bottom: calc(3.5rem + 0.5625vw);
+  }
+  .formInput {
+    font-size: calc(0.875rem + 00.390625vw);
+  }
+  .submitBtnWrapper {
+    margin-top: calc(1rem + 00.5625vw);
+  }
+}
+
+@include for-tablet-only {
+  .formInputWrapper,
+  .phoneNosWrapper {
+    margin-bottom: calc(1.375rem + 0.5625vw);
+  }
+  .submitBtnWrapper {
+    margin-top: calc(1.5rem + 00.5625vw);
   }
 }

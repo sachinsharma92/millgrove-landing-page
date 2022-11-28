@@ -87,7 +87,7 @@ function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
       {/* {isLoggedIn && (
         <div className="mg-discover-more">
           <DOWN_ARROW />
-          DISCOVER MORE
+          Discover more
         </div>
       )} */}
       <div className="mg-bg-video">
