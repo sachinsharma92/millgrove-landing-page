@@ -1,11 +1,10 @@
-import { LeftArrow, RightArrow } from "assets/icons/icons";
+import React, { useState } from "react";
 import Button from "components/Button";
 import Checkbox from "components/Checkbox/Checkbox";
 import Layout from "components/Layout";
-import React, { useState } from "react";
+import PhoneInput from "react-phone-number-input";
 import { MILLGROVE_TREE } from "utils/assets";
 import styles from "./Signup.module.scss";
-import SignupSuccess from "./SignupSuccess";
 
 const Signup = ({
   isRegistering,
@@ -17,13 +16,18 @@ const Signup = ({
   const [isBoxChecked, setIsBoxChecked] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log("submitted");
     setIsRegistering(false);
     setIsRegisterationSuccessfull(true);
   };
 
   const updateUserInfo = (field, e) => {
-    setUserInfo({ ...userInfo, [field]: e.target.value });
+    if (field === "phone") {
+      setUserInfo({ ...userInfo, [field]: e });
+    } else {
+      setUserInfo({ ...userInfo, [field]: e.target.value });
+    }
   };
 
   const shouldBtnBeDisabled = () => {
@@ -48,21 +52,22 @@ const Signup = ({
                 Register <span className={styles.smallText}>your</span> Details
               </h3>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className={styles.formInputWrapper}>
                 <input
                   onChange={(e) => updateUserInfo("name", e)}
                   type={"text"}
                   className={styles.formInput}
-                  placeholder={"Enter Name"}
+                  placeholder={"Name *"}
                 />
               </div>
-              <div className={styles.formInputWrapper}>
-                <input
+              <div className={styles.phoneNosWrapper}>
+                <PhoneInput
+                  international
+                  countryCallingCodeEditable={false}
+                  defaultCountry="IN"
+                  value={userInfo.phone}
                   onChange={(e) => updateUserInfo("phone", e)}
-                  type={"text"}
-                  className={styles.formInput}
-                  placeholder={"Phone"}
                 />
               </div>
               <div className={styles.formInputWrapper}>
@@ -70,7 +75,7 @@ const Signup = ({
                   onChange={(e) => updateUserInfo("email", e)}
                   type={"email"}
                   className={styles.formInput}
-                  placeholder={"Email"}
+                  placeholder={"Email *"}
                 />
               </div>
               <div className={styles.agreementCheck}>
@@ -83,8 +88,8 @@ const Signup = ({
               <div className={styles.submitBtnWrapper}>
                 <Button
                   isDisabled={shouldBtnBeDisabled()}
-                  clickhandler={handleSubmit}
                   text={"Continue"}
+                  type="submit"
                 />
               </div>
             </form>
