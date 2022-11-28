@@ -33,7 +33,7 @@ const OtpForm = ({ setIsLoggingIn }) => {
       </div>
       <div className={styles.otpFormWrapper}>
         <div className={styles.headingWrapper}>
-          <h3 className={styles.heading}>Enter OTP</h3>
+          <h3 className={styles.heading}>Enter One time password</h3>
         </div>
         <div ref={otpWrapperRef} className={styles.otpWrapper}>
           <OtpInput
@@ -47,8 +47,10 @@ const OtpForm = ({ setIsLoggingIn }) => {
           />
         </div>
         <p className={styles.resendMsg}>
-          <span className={styles.resend}>Resend code</span> in{" "}
-          <Timer totalSeconds={60} />
+          <span className={styles.resend}>
+            Click here to receive a new code
+          </span>{" "}
+          in <Timer totalSeconds={60} /> secs
         </p>
         <div className={styles.submitBtnWrapper}>
           <Button

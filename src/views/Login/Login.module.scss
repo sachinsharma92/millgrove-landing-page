@@ -4,9 +4,9 @@
 .mainWrapper {
   padding: calc(10px + 0.5625vw);
   // border-radius: 6px;
-  background-color: #ffffff;
+  background-color: $cream-40;
   position: relative;
-  width: calc(26rem + 1.5625vw);
+  width: calc(27rem + 1.5625vw);
   max-width: 100%;
 }
 
@@ -24,6 +24,7 @@
 }
 .otpMainWrapper {
   @extend .mainWrapper;
+  width: calc(30rem + 1.5625vw);
   .bgTree {
     top: 30%;
     left: 50%;
@@ -55,7 +56,7 @@
 .headingWrapper {
   // width: clamp(50%, 70%, 80%);
   margin: 0 auto;
-  margin-bottom: calc(8px + 1.5625vw);
+  // margin-bottom: calc(8px + 1.5625vw);
 }
 .heading {
   @include fontStyles(
@@ -65,6 +66,15 @@
     calc(30px + 0.390625vw)
   );
   text-transform: uppercase;
+}
+
+.notRegisteredText {
+  @include fontStyles($black-100-70, "Manrope", 400, calc(6px + 00.390625vw));
+  margin-bottom: calc(8px + 1.5625vw);
+  span {
+    color: $brown-70;
+    cursor: pointer;
+  }
 }
 
 .otpWrapper {
@@ -77,6 +87,7 @@
     border: none;
     border-bottom: 1px solid $black-90-20;
     margin-right: 0.5rem;
+    background-color: transparent;
     &::placeholder {
       color: rgba(0, 0, 0, 0.2);
     }
@@ -88,8 +99,8 @@
 .phoneNosWrapper {
   @include flex(center, center);
   gap: 1rem;
-  width: 90%;
-  margin: 0 auto calc(15px + 0.5625vw);
+  width: 100%;
+  margin: 0 auto 0.5rem;
   input {
     // width: calc(15px + 0.390625vw) !important;
     width: 100% !important;
@@ -99,6 +110,7 @@
     font-weight: 200;
     font-family: "Manrope";
     color: $black-90-70;
+    background-color: transparent;
     &::placeholder {
       color: rgba(0, 0, 0, 0.2);
     }
@@ -137,20 +149,21 @@
   }
 }
 
-.instructionText {
-  @include fontStyles($black-90, "Manrope", 400, 0.875rem);
-  height: 15px;
-}
-.navigate {
-  @extend .instructionText;
-  color: $brown-70;
+.errorText {
+  @include fontStyles($red-100, "Manrope", 400, 0.875rem);
+  text-align: left;
+  span {
+    color: $black-90;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 .resendMsg {
-  @include fontStyles($black-90, "Manrope", 400, 0.875rem);
+  @include fontStyles($brown-70, "Manrope", 400, 0.875rem);
 
   .resend {
-    @include fontStyles($brown-70, "Manrope", 400, 0.875rem);
+    @include fontStyles($black-90, "Manrope", 400, 0.875rem);
     cursor: pointer;
   }
 }
@@ -206,7 +219,7 @@ select {
   .formInputWrapper {
     margin-bottom: calc(1.5rem + 0.5625vw);
   }
-  .phoneNosWrapper {
+  .errorText {
     margin-bottom: calc(3.5rem + 0.5625vw);
   }
   .formInput {
@@ -219,7 +232,7 @@ select {
 
 @include for-tablet-only {
   .formInputWrapper,
-  .phoneNosWrapper {
+  .errorText {
     margin-bottom: calc(1.375rem + 0.5625vw);
   }
   .submitBtnWrapper {
