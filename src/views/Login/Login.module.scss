@@ -4,7 +4,7 @@
 .mainWrapper {
   padding: calc(10px + 0.5625vw);
   // border-radius: 6px;
-  background-color: #ffffff;
+  background-color: $cream-40;
   position: relative;
   width: calc(26rem + 1.5625vw);
   max-width: 100%;
@@ -24,6 +24,7 @@
 }
 .otpMainWrapper {
   @extend .mainWrapper;
+  width: calc(30rem + 1.5625vw);
   .bgTree {
     top: 30%;
     left: 50%;
@@ -67,6 +68,14 @@
   text-transform: uppercase;
 }
 
+.notRegisteredText {
+  @include fontStyles($black-100-70, "Manrope", 400, calc(6px + 00.390625vw));
+  span {
+    color: $brown-70;
+    cursor: pointer;
+  }
+}
+
 .otpWrapper {
   margin-bottom: calc(15px + 0.390625vw);
   display: flex;
@@ -96,6 +105,7 @@
     font-weight: 200;
     font-family: "Manrope";
     color: $black-90-70;
+    background-color: transparent;
     &:focus {
       outline: 1px solid transparent;
     }
@@ -131,19 +141,20 @@
   }
 }
 
-.instructionText {
-  @include fontStyles($black-90, "Manrope", 400, 0.875rem);
-}
-.navigate {
-  @extend .instructionText;
-  color: $brown-70;
+.errorText {
+  @include fontStyles($red-100, "Manrope", 400, 0.875rem);
+  span {
+    color: $black-90;
+    text-decoration: underline;
+    cursor: poi;
+  }
 }
 
 .resendMsg {
-  @include fontStyles($black-90, "Manrope", 400, 0.875rem);
+  @include fontStyles($brown-70, "Manrope", 400, 0.875rem);
 
   .resend {
-    @include fontStyles($brown-70, "Manrope", 400, 0.875rem);
+    @include fontStyles($black-90, "Manrope", 400, 0.875rem);
     cursor: pointer;
   }
 }

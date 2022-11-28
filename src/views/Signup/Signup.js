@@ -23,56 +23,46 @@ const Signup = ({
     emailError: "",
   });
 
-  const isAnyFieldEmpty = (field) => {
-    if (!userInfo[field]) {
-      console.log({ field });
+  const isAnyFieldEmpty = () => {
+    if (!userInfo.name) {
       setError((prev) => ({
         ...prev,
         errorOccured: true,
-        [`${field}Error`]: ERROR_MSG,
+        nameError: ERROR_MSG,
       }));
       return true;
-    } else {
+    }
+    if (!userInfo.phone) {
       setError((prev) => ({
         ...prev,
-        errorOccured: false,
-        [`${field}Error`]: "",
+        errorOccured: true,
+        phoneError: ERROR_MSG,
       }));
-      return false;
+      return true;
+    }
+    if (!userInfo.email) {
+      setError((prev) => ({
+        ...prev,
+        errorOccured: true,
+        emailError: ERROR_MSG,
+      }));
+      return true;
     }
     return false;
   };
 
   const handleSubmit = (e) => {
-    console.log(e);
-    if (isAnyFieldEmpty(e.target.name)) {
-      console.log("empty field");
+    if (isAnyFieldEmpty()) {
       e.preventDefault();
       return;
     }
-    // if (!userInfo.name) {
-    //   setError((prev) => ({
-    //     ...prev,
-    //     errorOccured: true,
-    //     nameError: ERROR_MSG,
-    //   }));
-    // }
-    // if (!userInfo.phone) {
-    //   setError((prev) => ({
-    //     ...prev,
-    //     errorOccured: true,
-    //     phoneError: ERROR_MSG,
-    //   }));
-    // }
-    // if (!userInfo.email) {
-    //   setError((prev) => ({
-    //     ...prev,
-    //     errorOccured: true,
-    //     emailError: ERROR_MSG,
-    //   }));
-    // }
-    // return;
-    console.log("submitted");
+    setError((prev) => ({
+      ...prev,
+      errorOccured: false,
+      nameError: "",
+      phoneError: "",
+      emailError: "",
+    }));
     setIsRegistering(false);
     setIsRegisterationSuccessfull(true);
   };
