@@ -53,9 +53,7 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
           <p className={styles.instructionText}>
             {error.errorOccured
               ? error.msg
-              : phoneNos?.length === 10
-              ? "Please press continue to proceed."
-              : " "}
+              : "Please press continue to proceed."}
           </p>
           {error.errorOccured && (
             <p className={styles.instructionText}>
@@ -65,8 +63,8 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
           <div className={styles.submitBtnWrapper}>
             <Button
               type="submit"
-              isDisabled={phoneNos?.length === 10 ? false : true}
-              clickhandler={() => phoneNos?.length === 10 && continueHandler()}
+              // isDisabled={phoneNos?.length === 10 ? false : true}
+              clickhandler={() => continueHandler()}
               text={"Continue"}
             />
           </div>
