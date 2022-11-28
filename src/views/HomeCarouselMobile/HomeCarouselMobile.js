@@ -46,17 +46,14 @@ function HomeCarouselMobile(props) {
         </div>
         <div className="carousel-btns-mobile">
           <div
-            style={{ visibility: currentItem > 0 ? "visible" : "hidden" }}
+            style={{ opacity: currentItem > 0 ? 1 : 0.3 }}
             onClick={() => currentItem > 0 && setCurrentItem(currentItem - 1)}
           >
             <LEFT_ARROW />
           </div>
           <div
             style={{
-              visibility:
-                currentItem < CAROUSEL_DATA_MOBILE.length - 1
-                  ? "visible"
-                  : "hidden",
+              opacity: currentItem < CAROUSEL_DATA_MOBILE.length - 1 ? 1 : 0.3,
             }}
             onClick={() =>
               currentItem < CAROUSEL_DATA_MOBILE.length - 1 &&
