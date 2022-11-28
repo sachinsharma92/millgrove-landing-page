@@ -87,6 +87,7 @@
     border: none;
     border-bottom: 1px solid $black-90-20;
     margin-right: 0.5rem;
+    background-color: transparent;
     &::placeholder {
       color: rgba(0, 0, 0, 0.2);
     }
