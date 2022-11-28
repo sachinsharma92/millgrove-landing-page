@@ -6,6 +6,8 @@ import PhoneInput from "react-phone-number-input";
 import { MILLGROVE_TREE } from "utils/assets";
 import styles from "./Signup.module.scss";
 
+const ERROR_MSG = "This is a required field, can’t be left empty";
+
 const Signup = ({
   isRegistering,
   setIsRegistering,
@@ -14,15 +16,69 @@ const Signup = ({
 }) => {
   const [userInfo, setUserInfo] = useState({ name: "", phone: "", email: "" });
   const [isBoxChecked, setIsBoxChecked] = useState(false);
+  const [error, setError] = useState({
+    errorOccured: false,
+    nameError: "",
+    phoneError: "",
+    emailError: "",
+  });
+
+  const isAnyFieldEmpty = (field) => {
+    if (!userInfo[field]) {
+      console.log({ field });
+      setError((prev) => ({
+        ...prev,
+        errorOccured: true,
+        [`${field}Error`]: ERROR_MSG,
+      }));
+      return true;
+    } else {
+      setError((prev) => ({
+        ...prev,
+        errorOccured: false,
+        [`${field}Error`]: "",
+      }));
+      return false;
+    }
+    return false;
+  };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    console.log(e);
+    if (isAnyFieldEmpty(e.target.name)) {
+      console.log("empty field");
+      e.preventDefault();
+      return;
+    }
+    // if (!userInfo.name) {
+    //   setError((prev) => ({
+    //     ...prev,
+    //     errorOccured: true,
+    //     nameError: ERROR_MSG,
+    //   }));
+    // }
+    // if (!userInfo.phone) {
+    //   setError((prev) => ({
+    //     ...prev,
+    //     errorOccured: true,
+    //     phoneError: ERROR_MSG,
+    //   }));
+    // }
+    // if (!userInfo.email) {
+    //   setError((prev) => ({
+    //     ...prev,
+    //     errorOccured: true,
+    //     emailError: ERROR_MSG,
+    //   }));
+    // }
+    // return;
     console.log("submitted");
     setIsRegistering(false);
     setIsRegisterationSuccessfull(true);
   };
 
   const updateUserInfo = (field, e) => {
+    setError((prev) => ({ ...prev, [`${field}Error`]: ERROR_MSG }));
     if (field === "phone") {
       setUserInfo({ ...userInfo, [field]: e });
     } else {
@@ -52,17 +108,25 @@ const Signup = ({
                 Register <span className={styles.smallText}>your</span> Details
               </h3>
             </div>
-            <form onSubmit={handleSubmit}>
+            <p className={styles.fieldRequiredText}>
+              (All Fields are required)
+            </p>
+            <form onSubmit={(e) => handleSubmit(e)}>
               <div className={styles.formInputWrapper}>
                 <input
+                  name="name"
                   onChange={(e) => updateUserInfo("name", e)}
                   type={"text"}
                   className={styles.formInput}
                   placeholder={"Name *"}
                 />
               </div>
+              {error.errorOccured && !userInfo.name ? (
+                <p className={styles.errorText}>{ERROR_MSG}</p>
+              ) : null}
               <div className={styles.phoneNosWrapper}>
                 <PhoneInput
+                  name="phone"
                   international
                   countryCallingCodeEditable={false}
                   defaultCountry="IN"
@@ -70,14 +134,21 @@ const Signup = ({
                   onChange={(e) => updateUserInfo("phone", e)}
                 />
               </div>
+              {error.errorOccured && !userInfo.phone ? (
+                <p className={styles.errorText}>{ERROR_MSG}</p>
+              ) : null}
               <div className={styles.formInputWrapper}>
                 <input
+                  name="email"
                   onChange={(e) => updateUserInfo("email", e)}
                   type={"email"}
                   className={styles.formInput}
                   placeholder={"Email *"}
                 />
               </div>
+              {error.errorOccured && !userInfo.email ? (
+                <p className={styles.errorText}>{ERROR_MSG}</p>
+              ) : null}
               <div className={styles.agreementCheck}>
                 <Checkbox
                   isChecked={isBoxChecked}
@@ -87,7 +158,7 @@ const Signup = ({
               </div>
               <div className={styles.submitBtnWrapper}>
                 <Button
-                  isDisabled={shouldBtnBeDisabled()}
+                  // isDisabled={shouldBtnBeDisabled()}
                   text={"Continue"}
                   type="submit"
                 />

@@ -4,7 +4,7 @@
 .mainWrapper {
   padding: calc(10px + 0.5625vw);
   // border-radius: 6px;
-  background-color: #ffffff;
+  background-color: $cream-40;
   position: relative;
   width: calc(29rem + 1.5625vw);
   max-width: 100%;
@@ -22,8 +22,8 @@
 .formWrapper {
   border: 1px solid $brown-80-30;
   // border-radius: 6px;
-  padding: calc(8px + 0.5625vw);
-  padding-top: calc(8px + 1.5625vw);
+  padding: calc(8px + 1.5625vw) calc(12px + 0.5625vw) calc(10px + 0.5625vw);
+  // padding-top: calc(8px + 1.5625vw);
   form {
     // width: 95%;
     margin: 0 auto;
@@ -50,6 +50,10 @@
   text-transform: lowercase;
 }
 
+.fieldRequiredText {
+  @include fontStyles($black-100-70, "Manrope", 400, calc(6px + 00.390625vw));
+}
+
 .formInputWrapper {
   margin-bottom: calc(10px + 0.5625vw);
   display: flex;
@@ -59,7 +63,8 @@
 .formInput {
   border: none;
   border-bottom: 1px solid $black-90-20;
-  width: 93%;
+  width: 100%;
+  background-color: transparent;
   outline: 1px solid transparent;
   padding: calc(2px + 0.390625vw) 0;
   letter-spacing: 0.5px;
@@ -70,9 +75,10 @@
   width: fit-content;
   max-width: 90%;
   margin-top: calc(8px + 0.390625vw);
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
   gap: calc(1.675rem + 00.390625vw);
+
   .round {
     label {
       top: 0.25rem;
@@ -117,19 +123,25 @@
 
 .phoneNosWrapper {
   margin-bottom: calc(8px + 0.5625vw);
-  @include flex(center, center);
+  @include flex(flex-start, center);
   > div {
-    width: 92.75%;
+    width: 100%;
   }
   input {
     padding: 4px 0;
     border: none;
     border-bottom: 1px solid $black-90-20;
+    background-color: transparent;
     @include fontStyles($black-100-70, "Manrope", 400, calc(12px + 0.5625vw));
     &:focus {
       outline: 1px solid transparent;
     }
   }
+}
+
+.errorText {
+  @include fontStyles($red-100, "Manrope", 400, 0.75rem);
+  text-align: left;
 }
 
 @include for-phone-only {
