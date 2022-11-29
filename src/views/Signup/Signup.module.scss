@@ -68,12 +68,12 @@
   outline: 1px solid transparent;
   padding: calc(2px + 0.390625vw) 0;
   letter-spacing: 0.5px;
-  @include fontStyles($black-100-70, "Manrope", 400, 1.125rem);
+  @include fontStyles($black-100, "Manrope", 400, 1.125rem);
 }
 .agreementCheck {
   @include flex(center, center);
   width: fit-content;
-  max-width: 90%;
+  // max-width: 90%;
   margin-top: calc(8px + 0.390625vw);
   // margin-left: auto;
   // margin-right: auto;
@@ -132,7 +132,7 @@
     border: none;
     border-bottom: 1px solid $black-90-20;
     background-color: transparent;
-    @include fontStyles($black-100-70, "Manrope", 400, calc(12px + 0.5625vw));
+    @include fontStyles($black-100, "Manrope", 400, calc(12px + 0.5625vw));
     &:focus {
       outline: 1px solid transparent;
     }
