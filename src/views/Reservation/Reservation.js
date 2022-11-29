@@ -10,7 +10,7 @@ const Reservation = () => {
       <div>
         <div className={styles.verticalDash}></div>
         <div className={styles.reservationCard}>
-          <div className={styles.reservationBorder}></div>
+          {/* <div className={styles.reservationBorder}></div> */}
           {/* <Border className={styles.halfBorder} /> */}
           <TreePrint className={styles.treePrint} />
           <ReservationForm />
