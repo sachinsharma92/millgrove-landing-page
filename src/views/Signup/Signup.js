@@ -5,6 +5,8 @@ import Layout from "components/Layout";
 import PhoneInput from "react-phone-number-input";
 import { MILLGROVE_TREE } from "utils/assets";
 import styles from "./Signup.module.scss";
+import axios from "axios";
+import { apiKey, baseUrl } from "utils/constants";
 // import en from "react-phone-number-input/locale/en";
 // import { getCountries, getCountryCallingCode } from "react-phone-number-input";
 
@@ -65,17 +67,16 @@ const Signup = ({
     if (
       Object.values(userInfo).includes("" || undefined || null) ||
       isInvalidPhoneNumber(userInfo.phone)
-    )
+    ) {
       return true;
+    }
     if (!isBoxChecked) return true;
     return false;
   };
 
-  const handleSubmit = (e) => {
-    if (isAnyFieldEmpty()) {
-      e.preventDefault();
-      return;
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isAnyFieldEmpty()) return;
     setError((prev) => ({
       ...prev,
       errorOccured: false,
@@ -83,8 +84,23 @@ const Signup = ({
       phoneError: "",
       emailError: "",
     }));
-    setIsRegistering(false);
-    setIsRegisterationSuccessfull(true);
+    const res = await axios.post(
+      `${baseUrl}/client/register`,
+      {
+        name: userInfo.name,
+        email: userInfo.email,
+        phone: userInfo.phone,
+      },
+      {
+        headers: {
+          "rest-api-key": apiKey,
+        },
+      }
+    );
+    if (res?.status === 200) {
+      setIsRegistering(false);
+      setIsRegisterationSuccessfull(true);
+    }
   };
 
   const updateUserInfo = (field, e) => {
