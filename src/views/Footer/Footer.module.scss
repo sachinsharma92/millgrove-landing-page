@@ -27,6 +27,7 @@
   }
   @media (max-width: 980px) {
     height: fit-content;
+    padding-top: 1rem;
   }
 }
 
@@ -67,7 +68,7 @@
 .brandName {
   margin-bottom: 5.25rem;
   @media (max-width: 980px) {
-    margin-bottom: 10.25rem;
+    margin-bottom: 4.25rem;
     > path {
       stroke: white;
       stroke-opacity: 0.5;
@@ -91,7 +92,7 @@
     letter-spacing: 0.01em;
     color: #f7f0ec;
     position: absolute;
-    bottom: 10vh;
+    bottom: 5vh;
     left: 0;
     right: 0;
   }

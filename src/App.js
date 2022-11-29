@@ -66,19 +66,6 @@ function App(props) {
     }, 5000);
   }, [isLoggedIn]);
 
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     scrollRef.current = new LocomotiveScroll({
-  //       el: document.querySelector("[data-scroll-container]"),
-  //       smooth: true,
-  //       getDirection: true,
-  //     });
-  //   } else {
-  //     document.body.style.overflow = "hidden";
-  //   }
-
-  // }, [isLoggedIn]);
-
   useEffect(() => {
     !isMobile &&
       scrollRef.current?.on("scroll", (instance) => {

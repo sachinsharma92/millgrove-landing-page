@@ -58,10 +58,15 @@
   opacity: 1;
   background-color: #f9f6ed;
   .carousel-text-div {
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     position: absolute;
-    bottom: 35vh;
+    bottom: 32vh;
     right: 6vw;
-    width: 54ch;
+    width: 56ch;
     text-align: left;
     .carousel-heading {
       @include carouselHeading();
@@ -95,10 +100,15 @@
   opacity: 0;
   background-color: #f9f6ed;
   .carousel-text-div {
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     position: absolute;
-    bottom: 35vh;
+    bottom: 32vh;
     right: 6vw;
-    width: 54ch;
+    width: 56ch;
     text-align: left;
     .carousel-heading {
       @include carouselHeading();
@@ -130,10 +140,15 @@
   opacity: 0;
   background-color: #f9f6ed;
   .carousel-text-div {
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     position: absolute;
-    bottom: 35vh;
+    bottom: 32vh;
     right: 6vw;
-    width: 54ch;
+    width: 56ch;
     text-align: left;
     .carousel-heading {
       @include carouselHeading();
@@ -165,10 +180,15 @@
   opacity: 0;
   background-color: #f9f6ed;
   .carousel-text-div {
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     position: absolute;
-    bottom: 35vh;
+    bottom: 32vh;
     right: 6vw;
-    width: 54ch;
+    width: 56ch;
     text-align: left;
     .carousel-heading {
       @include carouselHeading();
@@ -208,10 +228,15 @@
     width: 100%;
     height: 100%;
     .carousel-text-div {
+      height: 20rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
       position: absolute;
-      bottom: 35vh;
+      bottom: 32vh;
       right: 6vw;
-      width: 54ch;
+      width: 56ch;
       text-align: left;
       .carousel-heading {
         @include carouselHeading();
@@ -253,10 +278,15 @@
     width: 100%;
     height: 100%;
     .carousel-text-div {
+      height: 20rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
       position: absolute;
-      bottom: 35vh;
+      bottom: 32vh;
       right: 6vw;
-      width: 54ch;
+      width: 56ch;
       text-align: left;
       .carousel-heading {
         @include carouselHeading();
