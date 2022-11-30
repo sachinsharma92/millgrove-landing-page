@@ -47,9 +47,7 @@ function App(props) {
 
   useEffect(() => {
     handleResize();
-    console.log({ isLoggedInFromeffect: isLoggedIn });
     if (userToken) {
-      console.log("runn");
       if (!isMobile) {
         scrollRef.current = new LocomotiveScroll({
           el: document.querySelector("[data-scroll-container]"),

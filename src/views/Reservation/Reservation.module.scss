@@ -7,6 +7,8 @@
   padding-bottom: 7.5rem;
   margin: auto;
   text-align: left;
+  position: relative;
+  z-index: $z-99;
   > div {
     display: flex;
     flex-direction: column;
