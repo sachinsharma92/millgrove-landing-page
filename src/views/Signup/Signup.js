@@ -5,6 +5,10 @@ import Layout from "components/Layout";
 import PhoneInput from "react-phone-number-input";
 import { MILLGROVE_TREE } from "utils/assets";
 import styles from "./Signup.module.scss";
+import axios from "axios";
+import { apiKey, baseUrl } from "utils/constants";
+// import en from "react-phone-number-input/locale/en";
+// import { getCountries, getCountryCallingCode } from "react-phone-number-input";
 
 const ERROR_MSG = "This is a required field, can’t be left empty";
 
@@ -23,6 +27,10 @@ const Signup = ({
     emailError: "",
   });
 
+  const isInvalidPhoneNumber = (str) => {
+    if (str.startsWith("+91") && str.slice(3).length !== 10) return true;
+    return false;
+  };
   const isAnyFieldEmpty = () => {
     if (!userInfo.name) {
       setError((prev) => ({
@@ -30,7 +38,7 @@ const Signup = ({
         errorOccured: true,
         nameError: ERROR_MSG,
       }));
-      return true;
+      // return true;
     }
     if (!userInfo.phone) {
       setError((prev) => ({
@@ -38,7 +46,7 @@ const Signup = ({
         errorOccured: true,
         phoneError: ERROR_MSG,
       }));
-      return true;
+      // return true;
     }
     if (!userInfo.email) {
       setError((prev) => ({
@@ -46,16 +54,30 @@ const Signup = ({
         errorOccured: true,
         emailError: ERROR_MSG,
       }));
+      // return true;
+    }
+    if (isInvalidPhoneNumber(userInfo.phone)) {
+      setError((prev) => ({
+        ...prev,
+        errorOccured: true,
+        phoneError: "Phone number must be 10 digits long.",
+      }));
+      // return true;
+    }
+    if (
+      Object.values(userInfo).includes("") ||
+      isInvalidPhoneNumber(userInfo.phone)
+    ) {
       return true;
     }
+    if (!isBoxChecked) return true;
     return false;
   };
 
-  const handleSubmit = (e) => {
-    if (isAnyFieldEmpty()) {
-      e.preventDefault();
-      return;
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isAnyFieldEmpty()) return;
+    console.log("resetting error");
     setError((prev) => ({
       ...prev,
       errorOccured: false,
@@ -63,12 +85,30 @@ const Signup = ({
       phoneError: "",
       emailError: "",
     }));
-    setIsRegistering(false);
-    setIsRegisterationSuccessfull(true);
+    const res = await axios.post(
+      `${baseUrl}/client/register`,
+      {
+        name: userInfo.name,
+        email: userInfo.email,
+        phone: userInfo.phone,
+      },
+      {
+        headers: {
+          "rest-api-key": apiKey,
+        },
+      }
+    );
+    if (res?.status === 200) {
+      setIsRegistering(false);
+      setIsRegisterationSuccessfull(true);
+    }
   };
 
   const updateUserInfo = (field, e) => {
-    setError((prev) => ({ ...prev, [`${field}Error`]: ERROR_MSG }));
+    setError((prev) => ({
+      ...prev,
+      [`${field}Error`]: "",
+    }));
     if (field === "phone") {
       setUserInfo({ ...userInfo, [field]: e });
     } else {
@@ -108,12 +148,17 @@ const Signup = ({
                   onChange={(e) => updateUserInfo("name", e)}
                   type={"text"}
                   className={styles.formInput}
-                  placeholder={"Name *"}
+                  placeholder={"Name"}
                 />
               </div>
-              {error.errorOccured && !userInfo.name ? (
-                <p className={styles.errorText}>{ERROR_MSG}</p>
-              ) : null}
+              <p
+                style={{
+                  opacity: error.errorOccured && !userInfo.name ? 1 : 0,
+                }}
+                className={styles.errorText}
+              >
+                {ERROR_MSG}
+              </p>
               <div className={styles.phoneNosWrapper}>
                 <PhoneInput
                   name="phone"
@@ -121,24 +166,39 @@ const Signup = ({
                   countryCallingCodeEditable={false}
                   defaultCountry="IN"
                   value={userInfo.phone}
+                  placeholder="Phone number"
                   onChange={(e) => updateUserInfo("phone", e)}
                 />
               </div>
-              {error.errorOccured && !userInfo.phone ? (
-                <p className={styles.errorText}>{ERROR_MSG}</p>
-              ) : null}
+              <p
+                style={{
+                  opacity:
+                    (error.errorOccured && !userInfo.phone) ||
+                    isInvalidPhoneNumber(userInfo.phone)
+                      ? 1
+                      : 0,
+                }}
+                className={styles.errorText}
+              >
+                {error.phoneError}
+              </p>
               <div className={styles.formInputWrapper}>
                 <input
                   name="email"
                   onChange={(e) => updateUserInfo("email", e)}
                   type={"email"}
                   className={styles.formInput}
-                  placeholder={"Email *"}
+                  placeholder={"Email"}
                 />
               </div>
-              {error.errorOccured && !userInfo.email ? (
-                <p className={styles.errorText}>{ERROR_MSG}</p>
-              ) : null}
+              <p
+                style={{
+                  opacity: error.errorOccured && !userInfo.email ? 1 : 0,
+                }}
+                className={styles.errorText}
+              >
+                {ERROR_MSG}
+              </p>
               <div className={styles.agreementCheck}>
                 <Checkbox
                   isChecked={isBoxChecked}

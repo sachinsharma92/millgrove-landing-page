@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import Checkbox from "components/Checkbox/Checkbox";
 import styles from "./Reservation.module.scss";
 import { MILLGROVE_GRADIENT_LEAF } from "utils/assets";
+import { AuthContext } from "context/AuthContext";
 
-const Input = ({ placeholder, type = "text" }) => {
+const Input = ({ placeholder, type = "text", value }) => {
   return (
-    <input type={type} className={styles.formInput} placeholder={placeholder} />
+    <input
+      disabled
+      type={type}
+      className={styles.formInput}
+      placeholder={placeholder}
+      value={value}
+    />
   );
 };
-const ReservationForm = () => {
+
+const ReservationForm = ({ isBoxChecked, setIsBoxChecked }) => {
+  const {
+    userDetails: { name, email, phone },
+  } = useContext(AuthContext);
+
   return (
     <div className={styles.formWrapper}>
       <div className={styles.formHeadingWrapper}>
@@ -19,16 +31,16 @@ const ReservationForm = () => {
       </div>
       <form>
         <div className={styles.formInputWrapper}>
-          <Input placeholder={"Name"} type="text" />
+          <Input value={name} placeholder={"Name"} type="text" />
         </div>
         <div className={styles.formInputWrapper}>
-          <Input placeholder={"Phone"} type="text" />
+          <Input value={phone} placeholder={"Phone"} type="text" />
         </div>
         <div className={styles.formInputWrapper}>
-          <Input placeholder={"Email"} type="email" />
+          <Input value={email} placeholder={"Email"} type="email" />
         </div>
         <div className={styles.agreementCheck}>
-          <Checkbox />
+          <Checkbox isChecked={isBoxChecked} setIsChecked={setIsBoxChecked} />
           <p>I accept the terms for processing my personal data</p>
         </div>
       </form>

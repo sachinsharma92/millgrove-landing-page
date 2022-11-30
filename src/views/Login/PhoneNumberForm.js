@@ -5,23 +5,51 @@ import PhoneInput from "react-phone-number-input";
 import { MILLGROVE_TREE } from "utils/assets";
 import styles from "./Login.module.scss";
 import "react-phone-number-input/style.css";
+import axios from "axios";
+import { apiKey, baseUrl } from "utils/constants";
 
-const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
+const PhoneNumberForm = ({
+  setIsEnteringPhoneNos,
+  setIsEnteringOtp,
+  setOtpToken,
+}) => {
   const [phoneNos, setPhoneNos] = useState(null);
   const [error, setError] = useState({ errorOccured: false, msg: "" });
 
-  const continueHandler = (e) => {
-    if (phoneNos !== "+913333333333") {
+  const continueHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        `${baseUrl}/client/login`,
+        {
+          phone: phoneNos,
+        },
+        {
+          headers: {
+            "rest-api-key": apiKey,
+          },
+        }
+      );
+      // console.log(res);
+      setOtpToken(res.data.data.otpToken);
+      if (res.status === 200) {
+        setIsEnteringPhoneNos(false);
+        setIsEnteringOtp(true);
+      } else {
+        setError((prev) => ({
+          ...prev,
+          errorOccured: true,
+          msg: "This number is not registered with us yet, ",
+        }));
+      }
+    } catch (err) {
+      console.log(err);
       setError((prev) => ({
         ...prev,
         errorOccured: true,
-        msg: "This number is not registered with us yet,",
+        msg: "This number is not registered with us yet, ",
       }));
-      e.preventDefault();
-      return;
     }
-    setIsEnteringPhoneNos(false);
-    setIsEnteringOtp(true);
   };
 
   const handleChange = (val) => {
