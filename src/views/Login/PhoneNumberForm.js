@@ -8,7 +8,11 @@ import "react-phone-number-input/style.css";
 import axios from "axios";
 import { apiKey, baseUrl } from "utils/constants";
 
-const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
+const PhoneNumberForm = ({
+  setIsEnteringPhoneNos,
+  setIsEnteringOtp,
+  setOtpToken,
+}) => {
   const [phoneNos, setPhoneNos] = useState(null);
   const [error, setError] = useState({ errorOccured: false, msg: "" });
 
@@ -27,6 +31,7 @@ const PhoneNumberForm = ({ setIsEnteringPhoneNos, setIsEnteringOtp }) => {
         }
       );
       console.log(res);
+      setOtpToken(res.data.data.otpToken);
       // if (phoneNos !== "+913333333333") {
       //   setError((prev) => ({
       //     ...prev,

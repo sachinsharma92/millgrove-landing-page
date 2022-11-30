@@ -8,7 +8,7 @@ import { apiKey, baseUrl } from "utils/constants";
 import styles from "./Login.module.scss";
 import Timer from "./Timer";
 
-const OtpForm = ({ setIsLoggingIn }) => {
+const OtpForm = ({ setIsLoggingIn, otpToken }) => {
   const [otp, setOtp] = useState(null);
   const otpWrapperRef = useRef();
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
@@ -23,11 +23,13 @@ const OtpForm = ({ setIsLoggingIn }) => {
         {
           headers: {
             "rest-api-key": apiKey,
+            Authorization: `Bearer ${otpToken}`,
           },
         }
       );
       if (res.status === 200) {
         setIsLoggingIn(false);
+        setIsLoggedIn(true);
       }
       // if (otp !== "111111") return;
       // setIsLoggingIn(false);
@@ -40,11 +42,11 @@ const OtpForm = ({ setIsLoggingIn }) => {
     setOtp(otp);
   };
 
-  useEffect(() => {
-    if (otp === "111111") {
-      setIsLoggedIn(true);
-    }
-  }, [otp]);
+  // useEffect(() => {
+  //   if (otp === "111111") {
+  //     setIsLoggedIn(true);
+  //   }
+  // }, [otp]);
 
   return (
     <div className={styles.otpMainWrapper}>

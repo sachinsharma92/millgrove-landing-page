@@ -37,7 +37,7 @@ function App(props) {
   const isCarouselInView = useRef(false);
   const scrollRef = useRef();
   const { isLoggedIn } = useContext(AuthContext);
-
+  console.log({ isLoggedIn });
   isCarouselInView.current = useIntersection(
     carouselViewRef,
     `0px 0px -${window.innerHeight / 1.1}px 0px`
@@ -47,7 +47,9 @@ function App(props) {
 
   useEffect(() => {
     handleResize();
+    console.log({ isLoggedInFromeffect: isLoggedIn });
     if (isLoggedIn) {
+      console.log("runn");
       if (!isMobile) {
         scrollRef.current = new LocomotiveScroll({
           el: document.querySelector("[data-scroll-container]"),
