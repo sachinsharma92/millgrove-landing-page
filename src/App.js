@@ -36,7 +36,7 @@ function App(props) {
   const debounceTimerId = useRef(null);
   const isCarouselInView = useRef(false);
   const scrollRef = useRef();
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, userToken } = useContext(AuthContext);
   console.log({ isLoggedIn });
   isCarouselInView.current = useIntersection(
     carouselViewRef,
@@ -48,7 +48,7 @@ function App(props) {
   useEffect(() => {
     handleResize();
     console.log({ isLoggedInFromeffect: isLoggedIn });
-    if (isLoggedIn) {
+    if (userToken) {
       console.log("runn");
       if (!isMobile) {
         scrollRef.current = new LocomotiveScroll({
@@ -66,7 +66,7 @@ function App(props) {
     setTimeout(() => {
       setLoader(false);
     }, 5000);
-  }, [isLoggedIn]);
+  }, [userToken]);
 
   useEffect(() => {
     !isMobile &&

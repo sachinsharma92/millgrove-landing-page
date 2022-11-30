@@ -17,30 +17,42 @@ const AuthProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState({
     name: token?.name,
     email: token?.email,
+    phone: token?.phone,
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  async function loginWithCredentials(otpToken) {
+  async function loginWithCredentials(otp, otpToken) {
     try {
-      const res = await axios({
-        method: "POST",
-        url: `${baseUrl}/client/verify-otp`,
-        headers: {
-          "rest-api-key": apiKey,
-          Authorization: `Bearer ${otpToken}`,
+      const res = await axios.post(
+        `${baseUrl}/client/verify-otp`,
+        {
+          otp,
         },
-      });
+        {
+          headers: {
+            "rest-api-key": apiKey,
+            Authorization: `Bearer ${otpToken}`,
+          },
+        }
+      );
 
       if (res.status === 200) {
-        setUserToken(token);
-        setUserDetails({ name: res.data.name, email: res.data.email });
+        setUserToken(res?.data.data.accessToken);
+        console.log(res);
+        setUserDetails({
+          name: res.data.data.name,
+          email: res.data.data.email,
+          phone: res.data.data.phone,
+        });
 
         localStorage?.setItem(
           "userToken",
           JSON.stringify({
-            authToken: token,
-            name: res.data.name,
-            email: res.data.email,
+            // authToken: token,
+            authToken: res.data.data.accessToken,
+            name: res.data.data.name,
+            email: res.data.data.email,
+            phone: res.data.data.phone,
           })
         );
         return true;

@@ -16,7 +16,7 @@ import { LeftArrow, RightArrow } from "assets/icons/icons";
 import { AuthContext } from "context/AuthContext";
 
 function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, userToken } = useContext(AuthContext);
 
   return (
     <div className="mg-first-fold" data-scroll-section>
@@ -61,7 +61,7 @@ function Firstfold({ setIsRegistering, openMenu, setIsLoggingIn }) {
             <REEL_BUTTON />
           </div> */}
         </div>
-        {!isLoggedIn && (
+        {!userToken && (
           <div
             data-scroll
             data-scroll-speed="2"

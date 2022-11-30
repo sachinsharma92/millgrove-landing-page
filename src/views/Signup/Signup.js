@@ -65,7 +65,7 @@ const Signup = ({
       // return true;
     }
     if (
-      Object.values(userInfo).includes("" || undefined || null) ||
+      Object.values(userInfo).includes("") ||
       isInvalidPhoneNumber(userInfo.phone)
     ) {
       return true;
@@ -77,6 +77,7 @@ const Signup = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isAnyFieldEmpty()) return;
+    console.log("resetting error");
     setError((prev) => ({
       ...prev,
       errorOccured: false,

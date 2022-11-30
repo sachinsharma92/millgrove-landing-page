@@ -11,28 +11,15 @@ import Timer from "./Timer";
 const OtpForm = ({ setIsLoggingIn, otpToken }) => {
   const [otp, setOtp] = useState(null);
   const otpWrapperRef = useRef();
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn, loginWithCredentials } =
+    useContext(AuthContext);
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post(
-        `${baseUrl}/client/verify-otp`,
-        {
-          otp,
-        },
-        {
-          headers: {
-            "rest-api-key": apiKey,
-            Authorization: `Bearer ${otpToken}`,
-          },
-        }
-      );
-      if (res.status === 200) {
+      if (loginWithCredentials(otp, otpToken)) {
         setIsLoggingIn(false);
         setIsLoggedIn(true);
       }
-      // if (otp !== "111111") return;
-      // setIsLoggingIn(false);
     } catch (err) {
       console.log(err);
     }
@@ -41,12 +28,6 @@ const OtpForm = ({ setIsLoggingIn, otpToken }) => {
   const handleChange = (otp) => {
     setOtp(otp);
   };
-
-  // useEffect(() => {
-  //   if (otp === "111111") {
-  //     setIsLoggedIn(true);
-  //   }
-  // }, [otp]);
 
   return (
     <div className={styles.otpMainWrapper}>

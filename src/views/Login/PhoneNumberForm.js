@@ -30,23 +30,25 @@ const PhoneNumberForm = ({
           },
         }
       );
-      console.log(res);
+      // console.log(res);
       setOtpToken(res.data.data.otpToken);
-      // if (phoneNos !== "+913333333333") {
-      //   setError((prev) => ({
-      //     ...prev,
-      //     errorOccured: true,
-      //     msg: "This number is not registered with us yet,",
-      //   }));
-      //   e.preventDefault();
-      //   return;
-      // }
       if (res.status === 200) {
         setIsEnteringPhoneNos(false);
         setIsEnteringOtp(true);
+      } else {
+        setError((prev) => ({
+          ...prev,
+          errorOccured: true,
+          msg: "This number is not registered with us yet, ",
+        }));
       }
     } catch (err) {
       console.log(err);
+      setError((prev) => ({
+        ...prev,
+        errorOccured: true,
+        msg: "This number is not registered with us yet, ",
+      }));
     }
   };
 
