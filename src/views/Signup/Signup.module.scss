@@ -3,29 +3,25 @@
 
 .mainWrapper {
   padding: calc(10px + 0.5625vw);
-  // border-radius: 6px;
   background-color: $cream-40;
   position: relative;
-  width: calc(29rem + 1.5625vw);
-  max-width: 100%;
+  width: 536px;
+  max-width: 536px;
 }
 
 .bgTree {
   position: absolute;
-  top: 2vw;
-  left: 36%;
-  height: 50%;
-  width: 40%;
+  top: 40px;
+  left: 0;
+  width: 172px;
+  height: 129px;
   margin: 0 auto;
 }
 
 .formWrapper {
   border: 1px solid $brown-80-30;
-  // border-radius: 6px;
   padding: calc(8px + 1.5625vw) calc(12px + 0.5625vw) calc(10px + 0.5625vw);
-  // padding-top: calc(8px + 1.5625vw);
   form {
-    // width: 95%;
     margin: 0 auto;
   }
 }
@@ -33,31 +29,39 @@
 .headingWrapper {
   width: clamp(50%, 70%, 80%);
   margin: 0 auto;
-  margin-bottom: calc(8px + 0.5625vw);
+
+  .heading {
+    @include fontStyles(
+      $black-100,
+      "Editorial New",
+      200,
+      calc(30px + 0.390625vw)
+    );
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
 }
 
-.heading {
-  @include fontStyles(
-    $black-100,
-    "Editorial New",
-    200,
-    calc(30px + 0.390625vw)
-  );
-  text-transform: uppercase;
-}
+
 .smallText {
   @include fontStyles($brown-70, "Notera", 200, calc(8px + 1.5625vw));
   text-transform: lowercase;
 }
 
 .fieldRequiredText {
-  @include fontStyles($black-100-70, "Manrope", 400, calc(6px + 00.390625vw));
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  color: #262E2F;
+opacity: 0.7;
+margin: 14px 0 0;
 }
 
 .formInputWrapper {
   margin-bottom: calc(2px + 0.5625vw);
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .formInput {
@@ -70,41 +74,40 @@
   letter-spacing: 0.5px;
   @include fontStyles($black-100, "Manrope", 400, 1.125rem);
 }
-.agreementCheck {
-  @include flex(center, center);
-  width: fit-content;
-  // max-width: 90%;
-  margin-top: calc(8px + 0.390625vw);
-  // margin-left: auto;
-  // margin-right: auto;
-  gap: calc(1.675rem + 00.390625vw);
 
-  .round {
-    label {
-      top: 0.25rem;
-    }
+.agreementCheck {
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
+  margin-top: 56px;
+
+  @include desktop-lg {
+    margin-top: 66px;
   }
+
   p {
     text-align: left;
-    @include fontStyles($brown-80, "Manrope", 400, 14px);
+    font-size: 12px;
+    line-height: 130%;
+    opacity: 0.7;
+    margin: 0
   }
 }
 .submitBtnWrapper {
   @include flex(center, center);
-  margin-top: calc(2.5rem + 00.5625vw);
+  margin-top: 16px;
   button {
     background-color: $green-100;
     color: $cream-50;
-    width: 45%;
-    padding: calc(4px + 0.390625vw) calc(8px + 0.390625vw);
+    width: 159.17px;
   }
 }
 
 .successMsgWrapper {
   width: calc(56% + 1.5625vw);
   text-align: center;
-  h2 {
-    @include fontStyles($cream-40, "Editorial New", 200, calc(18px + 1.5625vw));
+  .title2 {
+    @include fontStyles($cream-40, "Editorial New", 200, 50px);
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     .smallTxt {
@@ -113,10 +116,11 @@
     }
   }
   .successDescription {
-    width: 56%;
+    width: 66%;
     margin: auto;
     p {
-      @include fontStyles($cream-40, "Manrope", 400, calc(12px + 0.390625vw));
+      @include fontStyles($cream-40, "Manrope", 400, 20px);
+      line-height: 170%;
     }
   }
 }
@@ -124,61 +128,80 @@
 .phoneNosWrapper {
   margin-bottom: calc(8px + 0.5625vw);
   @include flex(flex-start, center);
+  position: relative;
+  border-bottom: 1px solid $black-90-20;
   > div {
     width: 100%;
   }
+
   input {
     padding: 4px 0;
     border: none;
-    border-bottom: 1px solid $black-90-20;
     background-color: transparent;
-    @include fontStyles($black-100, "Manrope", 400, calc(12px + 0.5625vw));
+    font-size: 20px;
+    line-height: 130%;
+    color: rgba(#262E2F, 0.6);
+
     &:focus {
       outline: 1px solid transparent;
     }
   }
 }
 
+
+.formInputSection {
+  display: flex;
+  flex-direction: column;
+  gap: 28px 0;
+  
+  @include desktop-lg {
+    gap: 38px 0;
+  }
+}
+
 .errorText {
   @include fontStyles($red-100, "Manrope", 400, 0.75rem);
   text-align: left;
+  position: absolute;
+  bottom: -40px;
+  left: 0;
 }
 
-@include for-phone-only {
-  .mainWrapper {
-    margin-top: 1.25rem;
-  }
+// @include for-phone-only {
+//   .mainWrapper {
+//     margin-top: 1.25rem;
+//   }
 
-  .headingWrapper {
-    width: 100%;
-    margin-bottom: calc(1.5rem + 00.390625vw);
-  }
-  .heading {
-    font-size: calc(24px + 0.390625vw);
-  }
-  .smallText {
-    font-size: calc(12px + 1.5625vw);
-  }
-  .errorText {
-    margin-bottom: calc(1.5rem + 0.5625vw);
-  }
-  .formInput {
-    font-size: calc(0.875rem + 00.390625vw);
-  }
-  .agreementCheck p {
-    font-size: calc(10px + 0.5625vw);
-  }
-  .submitBtnWrapper {
-    margin-top: calc(1rem + 00.5625vw);
-  }
+//   .headingWrapper {
+//     width: 100%;
+//     position: relative;
+//   }
+//   .heading {
+//     font-size: calc(24px + 0.390625vw);
+//   }
+//   .smallText {
+//     font-size: calc(12px + 1.5625vw);
+//   }
+//   .errorText {
+//     margin-bottom: calc(1.5rem + 0.5625vw);
+//   }
+//   .formInput {
+//     font-size: calc(0.875rem + 00.390625vw);
+//   }
+//   .agreementCheck p {
+//     font-size: calc(10px + 0.5625vw);
+//   }
+//   .submitBtnWrapper {
+//     margin-top: calc(1rem + 00.5625vw);
+//   }
 
-  .successMsgWrapper {
-    width: 90%;
-    .successDescription {
-      width: 100%;
-    }
-  }
-}
+//   .successMsgWrapper {
+//     width: 90%;
+//     .successDescription {
+//       width: 100%;
+//     }
+//   }
+// }
 
 @include for-tablet-only {
   .errorText {

@@ -129,76 +129,81 @@ const Signup = ({
     <Layout>
       {isRegistering && (
         <div className={styles.mainWrapper}>
-          <div className={styles.bgTree}>
-            <MILLGROVE_TREE style={{ height: `6vw` }} fillColor="#8a7f7f14" />
-          </div>
           <div className={styles.formWrapper}>
             <div className={styles.headingWrapper}>
               <h3 className={styles.heading}>
                 Register <span className={styles.smallText}>your</span> Details
               </h3>
+              <div className={styles.bgTree}>
+                <MILLGROVE_TREE style={{ height: `6vw` }} fillColor="#8a7f7f14" />
+              </div>
             </div>
             <p className={styles.fieldRequiredText}>
               (All Fields are required)
             </p>
             <form onSubmit={(e) => handleSubmit(e)}>
-              <div className={styles.formInputWrapper}>
-                <input
-                  name="name"
-                  onChange={(e) => updateUserInfo("name", e)}
-                  type={"text"}
-                  className={styles.formInput}
-                  placeholder={"Name"}
-                />
+              <div className={styles.formInputSection}>
+                <div className={styles.formInputWrapper}>
+                  <input
+                    name="name"
+                    onChange={(e) => updateUserInfo("name", e)}
+                    type={"text"}
+                    className={styles.formInput}
+                    placeholder={"Name"}
+                  />
+                  <p
+                    style={{
+                      opacity: error.errorOccured && !userInfo.name ? 1 : 0,
+                    }}
+                    className={styles.errorText}
+                  >
+                    {ERROR_MSG}
+                  </p>
+                </div>
+
+                <div className={styles.phoneNosWrapper}>
+                  <PhoneInput
+                    name="phone"
+                    international
+                    countryCallingCodeEditable={false}
+                    defaultCountry="IN"
+                    value={userInfo.phone}
+                    placeholder="Phone number"
+                    onChange={(e) => updateUserInfo("phone", e)}
+                  />
+                  <p
+                    style={{
+                      opacity:
+                        (error.errorOccured && !userInfo.phone) ||
+                          isInvalidPhoneNumber(userInfo.phone)
+                          ? 1
+                          : 0,
+                    }}
+                    className={styles.errorText}
+                  >
+                    {error.phoneError}
+                  </p>
+                </div>
+
+                <div className={styles.formInputWrapper}>
+                  <input
+                    name="email"
+                    onChange={(e) => updateUserInfo("email", e)}
+                    type={"email"}
+                    className={styles.formInput}
+                    placeholder={"Email"}
+                  />
+
+                  <p
+                    style={{
+                      opacity: error.errorOccured && !userInfo.email ? 1 : 0,
+                    }}
+                    className={styles.errorText}
+                  >
+                    {ERROR_MSG}
+                  </p>
+                </div>
               </div>
-              <p
-                style={{
-                  opacity: error.errorOccured && !userInfo.name ? 1 : 0,
-                }}
-                className={styles.errorText}
-              >
-                {ERROR_MSG}
-              </p>
-              <div className={styles.phoneNosWrapper}>
-                <PhoneInput
-                  name="phone"
-                  international
-                  countryCallingCodeEditable={false}
-                  defaultCountry="IN"
-                  value={userInfo.phone}
-                  placeholder="Phone number"
-                  onChange={(e) => updateUserInfo("phone", e)}
-                />
-              </div>
-              <p
-                style={{
-                  opacity:
-                    (error.errorOccured && !userInfo.phone) ||
-                    isInvalidPhoneNumber(userInfo.phone)
-                      ? 1
-                      : 0,
-                }}
-                className={styles.errorText}
-              >
-                {error.phoneError}
-              </p>
-              <div className={styles.formInputWrapper}>
-                <input
-                  name="email"
-                  onChange={(e) => updateUserInfo("email", e)}
-                  type={"email"}
-                  className={styles.formInput}
-                  placeholder={"Email"}
-                />
-              </div>
-              <p
-                style={{
-                  opacity: error.errorOccured && !userInfo.email ? 1 : 0,
-                }}
-                className={styles.errorText}
-              >
-                {ERROR_MSG}
-              </p>
               <div className={styles.agreementCheck}>
                 <Checkbox
                   isChecked={isBoxChecked}
@@ -206,11 +211,12 @@ const Signup = ({
                 />
                 <p>I accept the terms for processing my personal data</p>
               </div>
+
               <div className={styles.submitBtnWrapper}>
                 <Button
-                  // isDisabled={shouldBtnBeDisabled()}
                   text={"Continue"}
                   type="submit"
+                  classname="button-style48"
                 />
               </div>
             </form>

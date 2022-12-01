@@ -3,7 +3,12 @@
 
 .footerWrapper {
   background-color: #293227;
-  padding: 5rem 1.75rem 1.75rem 1.75rem;
+  padding: 0 26px 28px;
+  min-height: 470px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   // height: 30vh;
   h4 {
@@ -15,19 +20,12 @@
     span {
       text-transform: uppercase;
     }
-    @media (max-width: 980px) {
-      display: none;
-    }
   }
   sup {
     @include fontStyles($grey-20, "Notera", 400, 63px);
     position: absolute;
     top: -1.2vw;
     left: -5.2vw;
-  }
-  @media (max-width: 980px) {
-    height: fit-content;
-    padding-top: 1rem;
   }
 }
 
@@ -77,25 +75,10 @@
 }
 
 .footerLinksWrapper {
-  @include flex(space-between, center);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   @include fontStyles($grey-10, "Manrope", 400, 1.125rem);
-  @media (max-width: 980px) {
-    flex-direction: column-reverse;
-    width: 100vw;
-    padding: 0;
-    margin: 0 auto;
-    font-family: "Manrope";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #f7f0ec;
-    position: absolute;
-    bottom: 5vh;
-    left: 0;
-    right: 0;
-  }
 }
 .spacedLinks {
   @include flex(center, center);
@@ -121,4 +104,22 @@
 a {
   text-decoration: none;
   color: $grey-10;
+}
+
+.themeText {
+  position: relative;
+  width: 100%;
+  height: 185px;
+  top: 112px;
+
+  // .themeTextBold {
+  //   width: 100%;
+  // }
+
+  img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    // margin-top: -100px;
+  }
 }

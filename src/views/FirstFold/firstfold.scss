@@ -3,41 +3,38 @@
   height: 100vh;
   position: relative;
   overflow: visible;
+
   .mg-first-fold-top-text {
     position: absolute;
-    top: 2.1%;
-    right: 2.6%;
+    top: 26px;
+    right: 46px;
+    z-index: 1;
     font-family: "Manrope";
-    font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 14px;
     text-align: right;
     letter-spacing: 0.01em;
     text-transform: uppercase;
-    color: #f7f0ec;
-    > div {
-      margin-top: 8px;
-    }
-    @media (max-width: 980px) {
-      display: none;
+    color: #F7F0EC;
+    a {
+      margin-bottom: 8px;
+      display: block;
     }
   }
   .mg-first-fold-header {
-    box-sizing: border-box;
     position: absolute;
     top: 0;
     margin: 0 auto;
     width: 100%;
-    max-width: 1728px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.9% 2.6%;
+    justify-content: center;
+    padding-top: 34px;
+
     .mg-first-fold-menu {
       cursor: pointer;
       display: flex;
       align-items: center;
-      box-sizing: border-box;
       border: 1px solid #dacfba;
       border-radius: 150px;
       padding: 10px 21px;
@@ -57,7 +54,6 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      box-sizing: border-box;
       border: 1px solid #dacfba;
       border-radius: 150px;
       padding: 10px 50px;
@@ -78,10 +74,13 @@
     }
   }
   .mg-first-fold-text {
-    box-sizing: border-box;
-    margin: 0 auto;
     height: 100vh;
-    padding-top: calc((100vh - 350px) / 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 100px;
+
     .mg-first-fold-heading {
       font-family: "Editorial New";
       font-style: normal;
@@ -90,17 +89,19 @@
       text-align: center;
       letter-spacing: 0.01em;
       text-transform: uppercase;
-      color: #f9f6ed;
+      color: #F9F6ED;
     }
+
     .mg-first-fold-subheading {
-      margin: 0 auto;
+      margin: 19px auto 74px;
       font-family: "Manrope";
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
+      line-height: 170%;
       text-align: center;
-      color: #f9f6ed;
-      width: 46ch;
+      color: #F9F6ED;
+      max-width: 673px;
       position: relative;
       .mg-play-reel-btn {
         position: absolute;
@@ -175,6 +176,18 @@
     height: 105vh;
     opacity: 0.7;
     overflow: hidden;
+
+    &::before{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: linear-gradient(0deg, rgba(black, 0.3), rgba(black, 0.3));
+backdrop-filter: blur(12px);
+content: '';
+    }
     > video {
       object-fit: cover;
       overflow: hidden;
@@ -194,14 +207,17 @@
   margin-top: 1rem;
   z-index: 99;
   cursor: pointer;
-  @media (max-width: 980px) {
-    margin-top: 30px;
-    flex-direction: column;
-    width: 100%;
-    padding: 0 40px;
-    > button {
-      padding: 15px 0;
-      width: 100%;
-    }
+
+  .btn-hero-sec {
+    height: 58px;
+    min-width: 240px;
+    font-weight: 400;
+font-size: 20px;
+line-height: 110%;
+
+&:hover {
+  background: rgba(#dacfba, 0.3);
+}
   }
+
 }

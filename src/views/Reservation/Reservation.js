@@ -37,9 +37,9 @@ const Reservation = () => {
       <div>
         <div className={styles.verticalDash}></div>
         <div className={styles.reservationCard}>
-          {/* <div className={styles.reservationBorder}></div> */}
-          {/* <Border className={styles.halfBorder} /> */}
-          <TreePrint className={styles.treePrint} />
+          <div className={styles.treeSection}>
+            <TreePrint className={styles.treePrint} />
+          </div>
           <ReservationForm
             isBoxChecked={isBoxChecked}
             setIsBoxChecked={setIsBoxChecked}
@@ -47,8 +47,6 @@ const Reservation = () => {
           <div onClick={requestVisit}>
             <RESERVE_VISIT className={styles.reserveVisit} />
           </div>
-
-          <div className={styles.verticalDash}></div>
         </div>
         <div className={styles.verticalDash}></div>
       </div>

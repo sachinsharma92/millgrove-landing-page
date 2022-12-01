@@ -3,8 +3,7 @@
 
 .wrapper {
   background-color: #f9f6ed;
-  padding-top: 4rem;
-  padding-bottom: 7.5rem;
+  padding-top: 68px;
   margin: auto;
   text-align: left;
   position: relative;
@@ -27,30 +26,25 @@
 
 .reservationCard {
   background-color: white;
-  width: 62.5vw;
+  max-width: 1051px;
+  width: 100%;
   min-height: min-content;
   position: relative;
   padding: 4.5rem;
   overflow: hidden;
   margin: 20px 0;
-  > .verticalDash {
-    height: 12rem;
-    width: 1px;
-    color: red;
-    // color: $brown-80-10;
+ 
+  &::before {
     position: absolute;
-    right: 40%;
-    bottom: 10%;
-  }
-  @media (max-width: 980px) {
-    z-index: 1;
-    min-height: 80vh;
-    height: 80vh;
-    margin: 0 auto;
-    min-height: 60%;
-    border-radius: 14px;
-    width: 90vw;
-    padding: 20px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 97%;
+    height: 96%;
+    margin: auto;
+    content: '';
+    border: 0.664418px solid #434F50;
   }
 }
 .halfBorder {
@@ -64,16 +58,28 @@
   }
 }
 
-.treePrint {
+.treeSection {
   position: absolute;
   top: -5.375rem;
   right: 0;
   width: 30rem;
   height: 34rem;
-  z-index: 1;
-  @media (max-width: 980px) {
-    display: none;
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 71%;
+    height: 68%;
+    margin: auto;
+    content: '';
+   background: white;
   }
+
+.treePrint {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 }
 
 .verticalDash {
@@ -85,57 +91,52 @@
   }
 }
 
-.formWrapper {
-  width: 50%;
-  // position: absolute;
-  // top: 4.5rem;
-  // left: 5rem;
-  z-index: 2;
-  @media (max-width: 980px) {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+.formContainer {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    right: -25px;
+    width: 71%;
+    height: 78%;
+    margin: auto;
+    content: '';
+  border-right: 1px solid #5C5043;
+  opacity: 0.1;
   }
 }
+
+.formWrapper {
+  width: 60%;
+  z-index: 2;
+  margin-top: -50px;
+  position: relative;
+
+  .inputSection {
+    padding-right: 70px;
+  }
+}
+
 .formHeadingWrapper {
   width: 25rem;
   margin-bottom: 1rem;
-  @media (max-width: 980px) {
-    position: relative;
-    width: 100%;
-    margin-top: 40px;
-  }
+
 }
 .formHeading {
-  @include fontStyles($grey-100, "Editorial New", 200, 5rem);
-  line-height: 7rem;
+  font-family: 'Editorial New';
+  font-weight: 200;
+  font-size: 80px;
+  line-height: 140.8%;
+  letter-spacing: 0.01em;
+  color: #262E2F;
   text-align: left;
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin-bottom: 0;
   span {
     @include fontStyles($brown-50, "Notera", 400, 4.5rem);
     text-transform: lowercase;
-  }
-  @media (max-width: 980px) {
-    font-family: "Editorial New";
-    font-style: normal;
-    font-weight: 200;
-    font-size: 30px;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #262e2f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    span {
-      margin: 0 5px;
-      font-size: 38px;
-    }
   }
 }
 .formInputWrapper {
@@ -144,10 +145,11 @@
 .formInput {
   border: none;
   border-bottom: 1px solid $brown-40;
-  width: 93%;
+  width: 100%;
   outline: 1px solid transparent;
   padding: 0.5rem 0;
   letter-spacing: 0.5px;
+  background: none;
   @include fontStyles($brown-80, "Manrope", 400, 1.125rem);
   @media (max-width: 980px) {
     text-align: center;
@@ -156,34 +158,27 @@
 }
 
 .agreementCheck {
-  @include flex(flex-start, flex-start);
-  gap: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
   .round {
     label {
       top: 0.25rem;
     }
   }
   p {
-    @include fontStyles($brown-80, "Manrope", 400, 1.125rem);
-  }
-  @media (max-width: 980px) {
-    justify-content: center;
-    p {
-      font-family: "Manrope";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
-      color: #262e2f;
-      opacity: 0.7;
-      width: 27ch;
-    }
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+color: #262E2F;
   }
 }
 
 .reserveVisit {
   position: absolute;
-  bottom: 20%;
-  right: 15%;
+  bottom: 57px;
+  right: 108px;
   @media (max-width: 980px) {
     display: none;
   }

@@ -61,13 +61,7 @@ const OtpForm = ({ setIsLoggingIn, otpToken }) => {
             clickhandler={() => otp?.length === 6 && handleSubmit()}
             text={"Continue"}
             isDisabled={otp?.length === 6 ? false : true}
-            customStyles={{
-              backgroundColor: "#2E3430",
-              color: "#F1EFE5",
-              width: "85%",
-              padding: "1rem",
-              textTransform: "uppercase",
-            }}
+            classname="button-style48"
           />
         </div>
       </div>

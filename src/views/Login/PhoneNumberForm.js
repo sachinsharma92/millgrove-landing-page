@@ -79,17 +79,19 @@ const PhoneNumberForm = ({
               value={phoneNos}
               onChange={handleChange}
             />
+
+            <p className={styles.errorText}>
+              {error.errorOccured ? error.msg : ""}
+              {error.errorOccured && <span> register here</span>}
+            </p>
           </div>
-          <p className={styles.errorText}>
-            {error.errorOccured ? error.msg : ""}
-            {error.errorOccured && <span> register here</span>}
-          </p>
           <div className={styles.submitBtnWrapper}>
             <Button
               type="submit"
               // isDisabled={phoneNos?.length === 10 ? false : true}
               clickhandler={() => continueHandler()}
               text={"Continue"}
+              classname="button-style48"
             />
           </div>
         </form>

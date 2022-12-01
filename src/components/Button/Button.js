@@ -10,7 +10,7 @@ const Button = ({
   variant,
   type,
   isRounded,
-  clickhandler = () => {},
+  clickhandler = () => { },
   isDisabled,
 }) => {
   const getClassname = (btnType) => {
@@ -31,9 +31,8 @@ const Button = ({
     <button
       onClick={clickhandler}
       disabled={isDisabled}
-      className={`${classname} ${getClassname(variant)} ${styles.btn} ${
-        isRounded && styles.rounded
-      }`}
+      className={`${classname} ${getClassname(variant)} ${styles.btn} ${isRounded && styles.rounded
+        }`}
       type={type || "button"}
       style={customStyles && { ...customStyles }}
     >

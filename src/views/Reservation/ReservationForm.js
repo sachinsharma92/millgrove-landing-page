@@ -29,15 +29,17 @@ const ReservationForm = ({ isBoxChecked, setIsBoxChecked }) => {
           <MILLGROVE_GRADIENT_LEAF className={styles.gradientLeaf} />
         </h1>
       </div>
-      <form>
-        <div className={styles.formInputWrapper}>
-          <Input value={name} placeholder={"Name"} type="text" />
-        </div>
-        <div className={styles.formInputWrapper}>
-          <Input value={phone} placeholder={"Phone"} type="text" />
-        </div>
-        <div className={styles.formInputWrapper}>
-          <Input value={email} placeholder={"Email"} type="email" />
+      <form className={styles.formContainer}>
+        <div className={styles.inputSection}>
+          <div className={styles.formInputWrapper}>
+            <Input value={name} placeholder={"Name"} type="text" />
+          </div>
+          <div className={styles.formInputWrapper}>
+            <Input value={phone} placeholder={"Phone"} type="text" />
+          </div>
+          <div className={styles.formInputWrapper}>
+            <Input value={email} placeholder={"Email"} type="email" />
+          </div>
         </div>
         <div className={styles.agreementCheck}>
           <Checkbox isChecked={isBoxChecked} setIsChecked={setIsBoxChecked} />

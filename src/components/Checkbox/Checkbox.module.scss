@@ -9,11 +9,11 @@
   border: 1px solid #ccc;
   border-radius: 50%;
   cursor: pointer;
-  height: 28px;
+  height: 24px;
   left: 0;
   position: absolute;
-  top: 0;
-  width: 28px;
+  top: -2px;
+  width: 24px;
 }
 
 .round label:after {
@@ -22,10 +22,10 @@
   border-right: none;
   content: "";
   height: 6px;
-  left: 7px;
+  left: 5px;
   opacity: 0;
   position: absolute;
-  top: 8px;
+  top: 7px;
   transform: rotate(-45deg);
   width: 12px;
 }
