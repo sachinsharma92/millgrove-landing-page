@@ -3,9 +3,9 @@
 
 .wrapper {
   background-color: #434f50;
-  padding-top: 35.5rem;
-  @media (max-width: 980px) {
-    padding-top: 7.5rem;
+
+  @include mobile {
+    padding-top: 5.5rem;
   }
 
   .flexSection {
@@ -16,31 +16,52 @@
     margin-bottom: 150px;
 
     .third {
-      font-family: 'Editorial New';
+      font-family: "Editorial New";
       font-weight: 200;
       font-size: 70px;
       line-height: 110%;
-      color: #F9F6ED;
+      color: #f9f6ed;
       letter-spacing: 0.01em;
-    text-transform: uppercase;
-    margin: 0;
+      text-transform: uppercase;
+      margin: 0;
     }
-    
+
     .description {
       max-width: 539px;
       margin: 0;
+
+      @include mobile {
+        max-width: 98%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+        line-height: 170%;
+        color: #f9f6ed;
+      }
     }
   }
 }
 
-
-.textWrapper {
+.textWrapperDesktop {
   margin: auto;
   width: 85%;
-  @media (max-width: 980px) {
-    width: 100%;
+
+  @include mobile {
+    display: none;
   }
 }
+
+.textWrapperMobile {
+  margin: auto;
+  width: 85%;
+  display: none;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .heading {
   display: flex;
   flex-direction: column;
@@ -55,19 +76,32 @@
   text-align: left;
 }
 .first {
+  font-family: "Editorial New";
   align-self: center;
   text-transform: uppercase;
   display: flex;
-  @include fontStyles($cream-40, "Editorial New", 200, 5.675rem);
+  font-weight: 200;
+  font-size: 90px;
+  line-height: 110%;
+  color: $cream-40;
   margin: 0;
+
+  @include mobile {
+    font-size: 40px;
+    flex-direction: column;
+  }
+
   .second {
-    margin-left: 20px;
     align-self: center;
     @include fontStyles($brown-50, "Notera", 400, 2.5rem);
+    margin: 0 0 0 20px;
+
+    @include mobile {
+      font-size: 25px;
+      margin: 10px 0;
+    }
   }
 }
-
-
 
 .threeDView {
   position: relative;
@@ -78,7 +112,7 @@
   bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
-  @media (max-width: 980px) {
-    display: none !important;
+  @include mobile {
+    display: none;
   }
 }

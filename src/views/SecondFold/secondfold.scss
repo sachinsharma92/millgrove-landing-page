@@ -1,19 +1,22 @@
+@import "../../sass/utils/_variables.scss";
+@import "../../sass/utils/_mixins.scss";
+
 .mg-second-fold {
   box-sizing: border-box;
-  height: 120vh;
+  min-height: 100vh;
   background-color: #f9f6ed;
-  padding: 150px 50px;
-  // overflow-x: hidden;
+  padding: 150px 50px 400px;
   position: relative;
   z-index: 2;
-  @media (max-width: 980px) {
+
+  @include mobile {
     height: fit-content;
-    padding: 0;
-    padding-top: 88px;
+    padding: 88px 0px 0;
   }
   .mg-second-fold-text {
     width: 100%;
     margin: 0 auto;
+
     .mg-second-fold-heading {
       font-family: "Editorial New";
       font-weight: 200;
@@ -23,6 +26,10 @@
       letter-spacing: 0.01em;
       text-transform: uppercase;
       color: #262e2f;
+
+      @include mobile {
+        font-size: 40px;
+      }
       > span {
         font-family: "Notera";
         font-weight: 400;
@@ -30,6 +37,10 @@
         line-height: 110%;
         text-transform: lowercase;
         color: #a65a42;
+
+        @include mobile {
+          font-size: 23px;
+        }
       }
     }
     .mg-second-fold-subheading {
@@ -41,6 +52,10 @@
       color: #9c9c9c;
       margin: 40px auto 0;
       max-width: 678px;
+
+      @include mobile {
+        max-width: 293px;
+      }
     }
     .mg-second-fold-footer {
       font-family: "Notera";
@@ -50,22 +65,12 @@
       color: #a65a42;
       margin-top: 80px;
       text-align: center;
-    }
-  }
 
-  .second-fold-img {
-    position: absolute;
-    z-index: 1;
-    min-width: 20vw;
-    width: 90vw;
-    left: 0;
-    right: 0;
-    height: 90vh;
-    margin: 100px auto 160px auto;
-    border-radius: 2px;
-    background-size: 120%;
-    background-position: 50% 0px;
-    background-image: url('../../assets/images/second-fold-img.jpg');
+      @include mobile {
+        margin-top: 50px;
+        font-size: 33px;
+      }
+    }
   }
   
   .mg-welcome-to {

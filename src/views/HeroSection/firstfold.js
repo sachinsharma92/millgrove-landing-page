@@ -1,6 +1,7 @@
 // Assets
 import TEMP_VIDEO from "assets/videos/temp-video.mp4";
 import { MILLGROVE_LOGO } from "utils/assets";
+import arrowDown from "../../assets/images/arrow-down.svg"
 
 // Styles
 import "./firstfold.scss";
@@ -31,6 +32,12 @@ function HeroSection() {
             </div>
           </div>
         </div>
+
+        <a href="#madeWithCare" className="more-button">
+          <img src={arrowDown} alt="" />
+          Discover more
+        </a>
+
         <div className="mg-bg-video">
           <video src={TEMP_VIDEO} autoPlay muted playsInline loop />
         </div>

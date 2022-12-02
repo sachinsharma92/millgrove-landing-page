@@ -99,3 +99,29 @@ body {
     top: 30px;
   }
 }
+
+
+.second-fold-img {
+  position: relative;
+  z-index: 1;
+  width: 90vw;
+  left: 0;
+  right: 0;
+  height: 768px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background-size: 100%;
+  background-position: 50% 0px;
+  background-image: url('assets/images/second-fold-img.jpg');
+  background-repeat: no-repeat;
+  margin-top: -300px;
+  z-index: 9;
+  position: relative;
+
+  @include mobile {
+    width: 100%;
+    position: relative;
+    height: 297px;
+    margin:50px 0 0;
+  }
+}

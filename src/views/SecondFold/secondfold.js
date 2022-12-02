@@ -4,7 +4,7 @@ import "./secondfold.scss";
 
 function Secondfold(props) {
   return (
-    <div className="mg-second-fold" data-scroll-section>
+    <div className="mg-second-fold" id="madeWithCare">
       <div className="mg-second-fold-text">
         <div className="mg-second-fold-heading">
           Made <span>with</span> Care
@@ -18,7 +18,6 @@ function Secondfold(props) {
         </div>
         <div className="mg-second-fold-footer">Millgrove</div>
       </div>
-      <div className="second-fold-img"></div>
     </div>
   );
 }

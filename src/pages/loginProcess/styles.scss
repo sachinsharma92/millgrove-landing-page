@@ -1,10 +1,8 @@
-
 @import "../../sass/utils/_variables.scss";
 @import "../../sass/utils/_mixins.scss";
 
 // login-process
 .login-process {
-
   @include mobile {
     height: 100vh;
     overflow-y: scroll;
@@ -60,12 +58,13 @@
 }
 
 .login-page-style {
+  @include mobile {
+    footer {
+      display: none;
+    }
 
-  footer {
-    display: none;
-  }
-
-  .login-mobile {
-    height: 100vh;
+    .login-mobile {
+      height: 100vh;
+    }
   }
 }
