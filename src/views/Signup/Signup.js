@@ -7,6 +7,7 @@ import { MILLGROVE_TREE } from "utils/assets";
 import styles from "./Signup.module.scss";
 import axios from "axios";
 import { apiKey, baseUrl } from "utils/constants";
+import Header from "components/Header";
 // import en from "react-phone-number-input/locale/en";
 // import { getCountries, getCountryCallingCode } from "react-phone-number-input";
 
@@ -126,103 +127,106 @@ const Signup = ({
   };
 
   return (
-    <Layout>
-      {isRegistering && (
-        <div className={styles.mainWrapper}>
-          <div className={styles.formWrapper}>
-            <div className={styles.headingWrapper}>
-              <h3 className={styles.heading}>
-                Register <span className={styles.smallText}>your</span> Details
-              </h3>
-              <div className={styles.bgTree}>
-                <MILLGROVE_TREE style={{ height: `6vw` }} fillColor="#8a7f7f14" />
+    <Layout layoutStyle="login-page-style">
+      <div className={`${styles.signupMainContainer} login-mobile`}>
+        <Header />
+        {isRegistering && (
+          <div className={styles.mainWrapper}>
+            <div className={styles.formWrapper}>
+              <div className={styles.headingWrapper}>
+                <h3 className={styles.heading}>
+                  Register <span className={styles.smallText}>your</span> Details
+                </h3>
+                <div className={styles.bgTree}>
+                  <MILLGROVE_TREE style={{ height: `6vw` }} fillColor="#8a7f7f14" />
+                </div>
               </div>
+              <p className={styles.fieldRequiredText}>
+                (All Fields are required)
+              </p>
+              <form onSubmit={(e) => handleSubmit(e)}>
+                <div className={styles.formInputSection}>
+                  <div className={styles.formInputWrapper}>
+                    <input
+                      name="name"
+                      onChange={(e) => updateUserInfo("name", e)}
+                      type={"text"}
+                      className={styles.formInput}
+                      placeholder={"Name"}
+                    />
+                    <p
+                      style={{
+                        opacity: error.errorOccured && !userInfo.name ? 1 : 0,
+                      }}
+                      className={styles.errorText}
+                    >
+                      {ERROR_MSG}
+                    </p>
+                  </div>
+
+                  <div className={styles.phoneNosWrapper}>
+                    <PhoneInput
+                      name="phone"
+                      international
+                      countryCallingCodeEditable={false}
+                      defaultCountry="IN"
+                      value={userInfo.phone}
+                      placeholder="Phone number"
+                      onChange={(e) => updateUserInfo("phone", e)}
+                    />
+                    <p
+                      style={{
+                        opacity:
+                          (error.errorOccured && !userInfo.phone) ||
+                            isInvalidPhoneNumber(userInfo.phone)
+                            ? 1
+                            : 0,
+                      }}
+                      className={styles.errorText}
+                    >
+                      {error.phoneError}
+                    </p>
+                  </div>
+
+                  <div className={styles.formInputWrapper}>
+                    <input
+                      name="email"
+                      onChange={(e) => updateUserInfo("email", e)}
+                      type={"email"}
+                      className={styles.formInput}
+                      placeholder={"Email"}
+                    />
+
+                    <p
+                      style={{
+                        opacity: error.errorOccured && !userInfo.email ? 1 : 0,
+                      }}
+                      className={styles.errorText}
+                    >
+                      {ERROR_MSG}
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.agreementCheck}>
+                  <Checkbox
+                    isChecked={isBoxChecked}
+                    setIsChecked={setIsBoxChecked}
+                  />
+                  <p>I accept the terms for processing my personal data</p>
+                </div>
+
+                <div className={styles.submitBtnWrapper}>
+                  <Button
+                    text={"Continue"}
+                    type="submit"
+                    classname="button-style48"
+                  />
+                </div>
+              </form>
             </div>
-            <p className={styles.fieldRequiredText}>
-              (All Fields are required)
-            </p>
-            <form onSubmit={(e) => handleSubmit(e)}>
-              <div className={styles.formInputSection}>
-                <div className={styles.formInputWrapper}>
-                  <input
-                    name="name"
-                    onChange={(e) => updateUserInfo("name", e)}
-                    type={"text"}
-                    className={styles.formInput}
-                    placeholder={"Name"}
-                  />
-                  <p
-                    style={{
-                      opacity: error.errorOccured && !userInfo.name ? 1 : 0,
-                    }}
-                    className={styles.errorText}
-                  >
-                    {ERROR_MSG}
-                  </p>
-                </div>
-
-                <div className={styles.phoneNosWrapper}>
-                  <PhoneInput
-                    name="phone"
-                    international
-                    countryCallingCodeEditable={false}
-                    defaultCountry="IN"
-                    value={userInfo.phone}
-                    placeholder="Phone number"
-                    onChange={(e) => updateUserInfo("phone", e)}
-                  />
-                  <p
-                    style={{
-                      opacity:
-                        (error.errorOccured && !userInfo.phone) ||
-                          isInvalidPhoneNumber(userInfo.phone)
-                          ? 1
-                          : 0,
-                    }}
-                    className={styles.errorText}
-                  >
-                    {error.phoneError}
-                  </p>
-                </div>
-
-                <div className={styles.formInputWrapper}>
-                  <input
-                    name="email"
-                    onChange={(e) => updateUserInfo("email", e)}
-                    type={"email"}
-                    className={styles.formInput}
-                    placeholder={"Email"}
-                  />
-
-                  <p
-                    style={{
-                      opacity: error.errorOccured && !userInfo.email ? 1 : 0,
-                    }}
-                    className={styles.errorText}
-                  >
-                    {ERROR_MSG}
-                  </p>
-                </div>
-              </div>
-              <div className={styles.agreementCheck}>
-                <Checkbox
-                  isChecked={isBoxChecked}
-                  setIsChecked={setIsBoxChecked}
-                />
-                <p>I accept the terms for processing my personal data</p>
-              </div>
-
-              <div className={styles.submitBtnWrapper}>
-                <Button
-                  text={"Continue"}
-                  type="submit"
-                  classname="button-style48"
-                />
-              </div>
-            </form>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </Layout>
   );
 };

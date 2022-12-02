@@ -1,23 +1,24 @@
-import Header from "components/Header";
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Layout.module.scss";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, layoutStyle }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${layoutStyle}`}>
       <div className={styles.mainContentWrapper}>
-        <Header />
+        {/* <Header /> */}
         <div className={styles.childrenWrapper}>{children}</div>
       </div>
+
       <footer>
-        <div className={styles.leftFooter}>
-          <span>Privacy Policy</span>
-          <span>Terms & Conditions</span>
-          <span>Cookies policy</span>
+        <div className="left-footer-links">
+          <Link to="/">Privacy Policy</Link>
+          <Link to="/">Terms & Conditions</Link>
+          <Link to="/">Cookies policy</Link>
         </div>
         <div className={styles.rightFooter}>
           <a
-            className={styles.siteUrl}
+            className="siteUrl"
             href={"https://haryanarera.gov.in/"}
             target="#blank"
           >

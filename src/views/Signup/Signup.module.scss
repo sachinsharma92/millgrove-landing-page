@@ -1,12 +1,25 @@
 @import "../../sass/utils/variables";
 @import "../../sass/utils/mixins";
 
+.signupMainContainer {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .mainWrapper {
   padding: calc(10px + 0.5625vw);
   background-color: $cream-40;
   position: relative;
   width: 536px;
   max-width: 536px;
+
+  @include mobile {
+    width: 100%;
+    position:absolute;
+    bottom: 0;
+  }
 }
 
 .bgTree {
@@ -21,6 +34,10 @@
 .formWrapper {
   border: 1px solid $brown-80-30;
   padding: calc(8px + 1.5625vw) calc(12px + 0.5625vw) calc(10px + 0.5625vw);
+
+  @include mobile {
+    padding-bottom: 70px;
+  }
   form {
     margin: 0 auto;
   }
@@ -39,6 +56,7 @@
     );
     text-transform: uppercase;
     margin-bottom: 0;
+    text-align: center
   }
 }
 
@@ -53,8 +71,9 @@
   font-size: 12px;
   line-height: 130%;
   color: #262E2F;
-opacity: 0.7;
-margin: 14px 0 0;
+  opacity: 0.7;
+  margin: 14px 0 0;
+  text-align: center;
 }
 
 .formInputWrapper {
@@ -85,6 +104,10 @@ margin: 14px 0 0;
     margin-top: 66px;
   }
 
+  @include mobile {
+    margin-top: 36px;
+  }
+
   p {
     text-align: left;
     font-size: 12px;
@@ -93,18 +116,39 @@ margin: 14px 0 0;
     margin: 0
   }
 }
+
+
 .submitBtnWrapper {
   @include flex(center, center);
   margin-top: 16px;
+
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
   button {
     background-color: $green-100;
     color: $cream-50;
     width: 159.17px;
+
+    @include mobile {
+      border: none;
+      border-radius: 0;
+      width: 100%;
+    }
   }
 }
 
 .successMsgWrapper {
-  width: calc(56% + 1.5625vw);
+  width: 100%;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   .title2 {
     @include fontStyles($cream-40, "Editorial New", 200, 50px);
@@ -167,41 +211,6 @@ margin: 14px 0 0;
   left: 0;
 }
 
-// @include for-phone-only {
-//   .mainWrapper {
-//     margin-top: 1.25rem;
-//   }
-
-//   .headingWrapper {
-//     width: 100%;
-//     position: relative;
-//   }
-//   .heading {
-//     font-size: calc(24px + 0.390625vw);
-//   }
-//   .smallText {
-//     font-size: calc(12px + 1.5625vw);
-//   }
-//   .errorText {
-//     margin-bottom: calc(1.5rem + 0.5625vw);
-//   }
-//   .formInput {
-//     font-size: calc(0.875rem + 00.390625vw);
-//   }
-//   .agreementCheck p {
-//     font-size: calc(10px + 0.5625vw);
-//   }
-//   .submitBtnWrapper {
-//     margin-top: calc(1rem + 00.5625vw);
-//   }
-
-//   .successMsgWrapper {
-//     width: 90%;
-//     .successDescription {
-//       width: 100%;
-//     }
-//   }
-// }
 
 @include for-tablet-only {
   .errorText {
@@ -211,6 +220,8 @@ margin: 14px 0 0;
     margin-top: calc(1.5rem + 00.5625vw);
   }
   .agreementCheck p {
-    font-size: calc(10px + 0.39625vw);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
   }
 }

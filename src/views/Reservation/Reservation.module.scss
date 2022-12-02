@@ -33,7 +33,7 @@
   padding: 4.5rem;
   overflow: hidden;
   margin: 20px 0;
- 
+
   &::before {
     position: absolute;
     top: 0;
@@ -43,8 +43,8 @@
     width: 97%;
     height: 96%;
     margin: auto;
-    content: '';
-    border: 0.664418px solid #434F50;
+    content: "";
+    border: 0.664418px solid #434f50;
   }
 }
 .halfBorder {
@@ -71,15 +71,15 @@
     width: 71%;
     height: 68%;
     margin: auto;
-    content: '';
-   background: white;
+    content: "";
+    background: white;
   }
 
-.treePrint {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+  .treePrint {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
 }
 
 .verticalDash {
@@ -101,9 +101,9 @@
     width: 71%;
     height: 78%;
     margin: auto;
-    content: '';
-  border-right: 1px solid #5C5043;
-  opacity: 0.1;
+    content: "";
+    border-right: 1px solid #5c5043;
+    opacity: 0.1;
   }
 }
 
@@ -121,15 +121,14 @@
 .formHeadingWrapper {
   width: 25rem;
   margin-bottom: 1rem;
-
 }
 .formHeading {
-  font-family: 'Editorial New';
+  font-family: "Editorial New";
   font-weight: 200;
   font-size: 80px;
   line-height: 140.8%;
   letter-spacing: 0.01em;
-  color: #262E2F;
+  color: #262e2f;
   text-align: left;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -171,7 +170,13 @@
     font-size: 20px;
     line-height: 130%;
     letter-spacing: 0.01em;
-color: #262E2F;
+    color: #262e2f;
+
+    @include mobile {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 130%;
+    }
   }
 }
 

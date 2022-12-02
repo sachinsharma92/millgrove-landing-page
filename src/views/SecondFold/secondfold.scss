@@ -44,21 +44,12 @@
     }
     .mg-second-fold-footer {
       font-family: "Notera";
-      font-style: normal;
       font-weight: 400;
       font-size: 63px;
       letter-spacing: -0.01em;
       color: #a65a42;
       margin-top: 80px;
-      @media (max-width: 980px) {
-        font-family: "Notera";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 33px;
-        letter-spacing: -0.01em;
-        color: #9c7e61;
-        margin-top: 1.6em;
-      }
+      text-align: center;
     }
   }
 

@@ -1,27 +1,53 @@
 @import "../../sass/utils/variables";
 @import "../../sass/utils/mixins";
 
+.loginMainContainer {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headSection {
+
+  @include mobile {
+    margin-bottom: 40px;
+  }
+}
+
 .mainWrapper {
   padding: calc(10px + 0.5625vw);
-  // border-radius: 6px;
   background-color: $cream-40;
   position: relative;
   width: calc(27rem + 1.5625vw);
   max-width: 100%;
+
+  @include mobile {
+    width:100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 16px 16px 0 0;
+  }
 }
 
 .bgTree {
   position: absolute;
-  top: 22%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 28%;
-  width: 40%;
+  top: 80px;
+  left: 10%;
+  right: 0;
+  height: 129px;
+  width: 171px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include mobile {
+    top: 50px;
+  }
 }
+
 .otpMainWrapper {
   @extend .mainWrapper;
   width: calc(30rem + 1.5625vw);
@@ -33,8 +59,13 @@
 }
 .formWrapper {
   border: 1px solid $brown-80-30;
-  // border-radius: 6px;
   padding: calc(55px + 1.5625vw) calc(10px + 1.5625vw) calc(16px + 1.5625vw);
+
+  @include mobile {
+    padding-top: 62px;
+    padding-bottom: 100px;
+  }
+  
   form {
     width: 95%;
     margin: 0 auto;
@@ -68,7 +99,9 @@
 }
 
 .notRegisteredText {
-  @include fontStyles($black-100-70, "Manrope", 400, calc(6px + 00.390625vw));
+  font-weight: 400;
+  font-size: 12px;
+color: $black-100-70;
   margin-bottom: calc(8px + 1.5625vw);
   margin-top: 0;
   span {
@@ -122,10 +155,13 @@
 }
 
 .errorText {
-  @include fontStyles($red-100, "Manrope", 400, 0.875rem);
+  font-weight: 400;
+  font-size: 12px;
   text-align: left;
   position: absolute;
-  bottom: -45px;
+  bottom:0px;
+  color: $red-100;
+
   span {
     color: $black-90;
     text-decoration: underline;
@@ -160,9 +196,22 @@
   @include flex(center, center);
   margin-top: 100px;
 
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
   button {
     background-color: $green-100;
     color: $cream-50;
+
+    @include mobile {
+      border: none;
+      border-radius: 0;
+      width: 100%;
+    }
   }
 }
 
@@ -188,35 +237,35 @@ line-height: 130%;
   }
 }
 
-@include for-phone-only {
-  .mainWrapper {
-    margin-top: 1.25rem;
-  }
-  .bgTree {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 40%;
-    width: 40%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .heading {
-    font-size: calc(24px + 0.390625vw);
-  }
-  .formInputWrapper {
-    margin-bottom: calc(1.5rem + 0.5625vw);
-  }
-  .errorText {
-    margin-bottom: calc(3.5rem + 0.5625vw);
-  }
-  .formInput {
-    font-size: calc(0.875rem + 00.390625vw);
-  }
-  .submitBtnWrapper {
-    margin-top: calc(1rem + 00.5625vw);
-  }
-}
+// @include for-phone-only {
+//   .mainWrapper {
+//     margin-top: 1.25rem;
+//   }
+//   .bgTree {
+//     position: absolute;
+//     top: 25%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     height: 40%;
+//     width: 40%;
+//     margin: 0 auto;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+//   .heading {
+//     font-size: calc(24px + 0.390625vw);
+//   }
+//   .formInputWrapper {
+//     margin-bottom: calc(1.5rem + 0.5625vw);
+//   }
+//   .errorText {
+//     margin-bottom: calc(3.5rem + 0.5625vw);
+//   }
+//   .formInput {
+//     font-size: calc(0.875rem + 00.390625vw);
+//   }
+//   .submitBtnWrapper {
+//     margin-top: calc(1rem + 00.5625vw);
+//   }
+// }

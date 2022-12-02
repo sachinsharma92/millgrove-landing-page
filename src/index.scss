@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
+@import "./sass/utils/_variables.scss";
+@import "./sass/utils/_mixins.scss";
+
 // custom css
 * {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 *,
@@ -21,16 +24,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.app-container {
+  overflow-x: hidden;
+}
 
 // Button style
 .button-style48 {
   height: 48px;
-  border-radius:100px;
+  border-radius: 100px;
 }
 
 // PhoneInputCountry
 .PhoneInputCountry {
-
   .PhoneInputCountryIcon {
     border-radius: 50%;
     overflow: hidden;
@@ -49,17 +54,48 @@ body {
   }
 }
 
+.left-footer-links {
+  a {
+    color: #f7f0ec;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+}
+
+.siteUrl {
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  color: #f7f0ec;
+  text-decoration: none;
+}
+
 // Title
 .title1 {
-  font-family: 'Editorial New';
-font-weight: 200;
-font-size: 90px;
-line-height: 170%;
+  font-family: "Editorial New";
+  font-weight: 200;
+  font-size: 90px;
+  line-height: 170%;
 }
 
 .description {
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 170%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 170%;
+}
+
+.input-relative-sec {
+  position: relative;
+
+  .error-sec {
+    position: relative;
+    top: 30px;
+  }
 }

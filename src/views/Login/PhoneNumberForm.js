@@ -58,19 +58,20 @@ const PhoneNumberForm = ({
   };
 
   return (
-    <Layout>
-      <div className={styles.mainWrapper}>
-        <div className={styles.bgTree}>
-          {/* <MILLGROVE_TREE style={{ height: "6vw" }} fillColor="red" /> */}
-          <MILLGROVE_TREE style={{ height: "6vw" }} fillColor="#8a7f7f14" />
-        </div>
-        <form onSubmit={continueHandler} className={styles.formWrapper}>
+    <div className={styles.mainWrapper}>
+      <form onSubmit={continueHandler} className={styles.formWrapper}>
+        <div className={styles.headSection}>
+          <div className={styles.bgTree}>
+            <MILLGROVE_TREE fillColor="#8a7f7f14" />
+          </div>
           <div className={styles.headingWrapper}>
             <h3 className={styles.heading}>Enter Phone Number</h3>
           </div>
           <p className={styles.notRegisteredText}>
             Not registered yet? <span>Register here</span>
           </p>
+        </div>
+        <div className="input-relative-sec">
           <div className={styles.phoneNosWrapper}>
             <PhoneInput
               international
@@ -79,24 +80,24 @@ const PhoneNumberForm = ({
               value={phoneNos}
               onChange={handleChange}
             />
-
+          </div>
+          <div className="error-sec">
             <p className={styles.errorText}>
               {error.errorOccured ? error.msg : ""}
               {error.errorOccured && <span> register here</span>}
             </p>
           </div>
-          <div className={styles.submitBtnWrapper}>
-            <Button
-              type="submit"
-              // isDisabled={phoneNos?.length === 10 ? false : true}
-              clickhandler={() => continueHandler()}
-              text={"Continue"}
-              classname="button-style48"
-            />
-          </div>
-        </form>
-      </div>
-    </Layout>
+        </div>
+        <div className={styles.submitBtnWrapper}>
+          <Button
+            type="submit"
+            clickhandler={() => continueHandler()}
+            text={"Continue"}
+            classname="button-style48"
+          />
+        </div>
+      </form>
+    </div>
   );
 };
 

@@ -1,0 +1,71 @@
+
+@import "../../sass/utils/_variables.scss";
+@import "../../sass/utils/_mixins.scss";
+
+// login-process
+.login-process {
+
+  @include mobile {
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .main-components {
+    position: relative;
+    z-index: 1;
+  }
+
+  .mg-bg-video {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    overflow: hidden;
+
+    @include mobile {
+      top: 0;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: linear-gradient(0deg, rgba(black, 0.4), rgba(black, 0.4));
+      backdrop-filter: blur(12px);
+      content: "";
+
+      @include mobile {
+        background: rgba(black, 0.4);
+        backdrop-filter: blur(0);
+      }
+    }
+
+    video {
+      object-fit: cover;
+      overflow: hidden;
+      min-height: 100%;
+      width: 100%;
+      margin: 0 auto;
+
+      @include mobile {
+        height: calc(100vh - 135px);
+      }
+    }
+  }
+}
+
+.login-page-style {
+
+  footer {
+    display: none;
+  }
+
+  .login-mobile {
+    height: 100vh;
+  }
+}
