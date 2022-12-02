@@ -25,7 +25,7 @@ import HomeCarouselMobile from "views/HomeCarouselMobile/HomeCarouselMobile";
 
 function App(props) {
   const [menu, setMenu] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   const [cookiesPopup, setCookiesPopup] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isRegistering, setIsRegistering] = useState(false);
