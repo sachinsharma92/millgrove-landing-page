@@ -3,28 +3,41 @@
 
 .home-carousel-mobile {
   height: fit-content;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
-  background-color: #f9f6ed;
-  padding-top: 90px;
+  background-color: #9D7F63;
+  padding: 51px 10px 30px;
   display: none;
 
   @include mobile {
     display: block;
   }
 
+  .mg-first-fold-header {
+    margin: 0px 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+  }
+
+  .slider-wrapper {
+    margin-bottom: 50px;
+  }
+
   .carousel-text-mobile {
     position: relative;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 33px;
+    padding:33px;
     height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #F9F6ED;
+
     .carousel-heading-mobile {
       font-family: "Editorial New";
-      font-style: normal;
       font-weight: 200;
       font-size: 40px;
       letter-spacing: 0.01em;
@@ -34,10 +47,9 @@
       position: relative;
       &::before {
         position: absolute;
-        left: -60px;
+        left: -44px;
         content: "The";
         font-family: "Notera";
-        font-style: normal;
         text-transform: capitalize;
         font-weight: 400;
         font-size: 28px;
@@ -45,16 +57,15 @@
       }
     }
     .carousel-subtext-mobile {
-      margin-top: 20px;
-      opacity: 0.5;
-      font-family: "Manrope";
-      font-style: normal;
-      line-height: 1.6em;
-      font-weight: 400;
       font-size: 14px;
-      text-align: center;
-      height: 200px;
-      width: 36ch;
+      line-height: 170%;
+      letter-spacing: -0.01em;
+      color: #262E2F;
+      margin-top: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .carousel-btns-mobile {
       width: 100%;
@@ -74,10 +85,36 @@
   }
   .carousel-img-mobile {
     position: relative;
-    height: 55vh;
     width: 100%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    height: 239px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+    }
   }
+
+  .carousel .control-dots .dot {
+    opacity: 1;
+    box-shadow: none;
+    background: none;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+
+    &.selected {
+      background: white;
+    }
+}
+
+
+// slider-item
+.slider-item {
+  width: 100%;
+}
 }
