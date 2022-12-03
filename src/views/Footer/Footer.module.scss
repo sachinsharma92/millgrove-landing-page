@@ -83,32 +83,13 @@
   display: flex;
   justify-content: space-between;
   @include fontStyles($grey-10, "Manrope", 400, 1.125rem);
+  width: 100%;
 
   @include mobile {
     flex-direction: column-reverse
   }
 }
-.spacedLinks {
-  @include flex(center, center);
-  gap: 0.625rem;
-  @media (max-width: 980px) {
-    opacity: 0.7;
-  }
-}
-.haryanaLinks {
-  @media (max-width: 980px) {
-    flex-direction: column;
-    font-family: "Manrope";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #f7f0ec;
-    margin-bottom: 30px;
-    opacity: 1 !important;
-  }
-}
+
 a {
   text-decoration: none;
   color: $grey-10;
@@ -116,9 +97,15 @@ a {
 
 .themeText {
   position: relative;
-  width: 90%;
-  height: auto;
-  top: 60px;
+  width: 100%;
+  height: 185px;
+  top: 112px;
+
+  @include mobile {
+    width: 90%;
+    height: auto;
+    top: 60px;
+  }
 
   img {
     position: absolute;
@@ -149,6 +136,7 @@ a {
   font-weight: 400;
   font-size: 18px;
   letter-spacing: 0.01em;
+  justify-content: space-between;
 
   @include mobile {
     font-weight: 400;

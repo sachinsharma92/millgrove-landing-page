@@ -1,4 +1,5 @@
 import styles from "./Footer.module.scss";
+import millGroveFooterBold from "../../assets/images/millglove-footer-bold.svg"
 import millGroveFooter from "../../assets/images/millglove-footer.svg"
 
 import { Link } from "react-router-dom";
@@ -7,6 +8,7 @@ const Footer = () => {
   return (
     <div className={styles.footerWrapper}>
       <div className={styles.themeText}>
+        <img src={millGroveFooterBold} className={styles.themeTextBold} alt="" />
         <img src={millGroveFooter} alt="" />
       </div>
       <div className={styles.footerLinksWrapper}>

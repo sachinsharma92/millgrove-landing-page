@@ -37,7 +37,6 @@ function HomeCarouselMobile(props) {
       <div className="mg-first-fold-header" >
         <MILLGROVE_LOGO style={{ color: '#F4F1EC' }} />
       </div>
-
       <Carousel infiniteLoop={true} showThumbs={false} showArrows={false} showStatus={false}>
         {sliderData.map((item, index) => (
           <div className="slider-item" key={index}>
