@@ -12,7 +12,7 @@ import ThreeDView from 'views/ThreeDView'
 
 export const HomePage = () => {
   return (
-    <Layout footer={false}>
+    <Layout footerHide={true}>
       <div className='home-section'>
         <HeroSection />
         <Secondfold />

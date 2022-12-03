@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Layout.module.scss";
 
-const Layout = ({ children, layoutStyle, footer }) => {
+const Layout = ({ children, layoutStyle, footerHide }) => {
   return (
     <div className={`${styles.wrapper} ${layoutStyle}`}>
       <div className={styles.mainContentWrapper}>
@@ -10,7 +10,7 @@ const Layout = ({ children, layoutStyle, footer }) => {
         <div className={styles.childrenWrapper}>{children}</div>
       </div>
 
-      {footer && <footer>
+      {!footerHide && <footer>
         <div className="left-footer-links">
           <Link to="/">Privacy Policy</Link>
           <Link to="/">Terms & Conditions</Link>
