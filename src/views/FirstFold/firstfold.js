@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import Button from "components/Button";
 import { AuthContext } from "context/AuthContext";
-import { MILLGROVE_LOGO } from "utils/assets";
-import { Link } from "react-router-dom";
+import BackgroundVideo from "assets/videos/temp-video.mp4";
 
 // Styles
 import "./firstfold.scss";
@@ -50,6 +49,10 @@ function Firstfold({ setIsRegistering, setIsLoggingIn }) {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mg-bg-video">
+        <video src={BackgroundVideo} autoPlay muted playsInline loop />
       </div>
     </Layout>
   );

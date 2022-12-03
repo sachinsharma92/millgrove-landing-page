@@ -4,7 +4,7 @@
 // login-process
 .login-process {
   @include mobile {
-    height: 100vh;
+    // height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
   }
@@ -33,13 +33,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      background: linear-gradient(0deg, rgba(black, 0.4), rgba(black, 0.4));
-      backdrop-filter: blur(12px);
+      background: linear-gradient(0deg, rgba(black, 0.6), rgba(black, 0.6));
+      backdrop-filter: blur(14px);
       content: "";
 
       @include mobile {
         background: rgba(black, 0.4);
-        backdrop-filter: blur(0);
+        backdrop-filter: blur(10);
       }
     }
 

@@ -8,7 +8,6 @@
   flex-direction: column;
   text-align: left;
   z-index: 100;
-  box-sizing: border-box;
   padding: 14px 22px 32px 22px;
   .mg-cookies-cross {
     position: absolute;
@@ -25,7 +24,6 @@
     color: #f1efe5;
   }
   .mg-cookies-subtext {
-    font-family: "Manrope";
     font-style: normal;
     font-weight: 300;
     font-size: 18px;
@@ -42,8 +40,7 @@
     }
   }
   .mg-cookies-btns {
-    width: 100%;
-    box-sizing: border-box;
+    width: 100%;  
     display: flex;
     align-items: center;
     margin-top: 31px;
@@ -54,7 +51,7 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      font-family: "Manrope";
+
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -71,7 +68,7 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      font-family: "Manrope";
+
       font-style: normal;
       font-weight: 400;
       font-size: 16px;

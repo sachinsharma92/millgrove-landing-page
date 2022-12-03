@@ -10,6 +10,7 @@ import { apiKey, baseUrl } from "utils/constants";
 import Header from "components/Header";
 // import en from "react-phone-number-input/locale/en";
 // import { getCountries, getCountryCallingCode } from "react-phone-number-input";
+import BackgroundVideo from "assets/videos/temp-video.mp4";
 
 const ERROR_MSG = "This is a required field, can’t be left empty";
 
@@ -226,6 +227,10 @@ const Signup = ({
             </div>
           </div>
         )}
+      </div>
+
+      <div className="mg-bg-video">
+        <video src={BackgroundVideo} autoPlay muted playsInline loop />
       </div>
     </Layout>
   );

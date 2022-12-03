@@ -4,6 +4,7 @@ import PhoneNumberForm from "./PhoneNumberForm";
 import OtpForm from "./OtpForm";
 import styles from "./Login.module.scss";
 import Header from "components/Header";
+import BackgroundVideo from "assets/videos/temp-video.mp4";
 
 const Login = ({ setIsLoggingIn }) => {
   const [isEnteringPhoneNos, setIsEnteringPhoneNos] = useState(true);
@@ -28,6 +29,10 @@ const Login = ({ setIsLoggingIn }) => {
             setOtpToken={setOtpToken}
           />
         )}
+      </div>
+
+      <div className="mg-bg-video">
+        <video src={BackgroundVideo} autoPlay muted playsInline loop />
       </div>
     </Layout>
   );
