@@ -10,7 +10,11 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  // height: 30vh;
+
+  @include mobile {
+    min-height: 290px;
+  }
+
   h4 {
     @include fontStyles($grey-20, "Editorial New", 200, 80px);
     position: relative;
@@ -77,8 +81,11 @@
 .footerLinksWrapper {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   @include fontStyles($grey-10, "Manrope", 400, 1.125rem);
+
+  @include mobile {
+    flex-direction: column-reverse
+  }
 }
 .spacedLinks {
   @include flex(center, center);
@@ -112,14 +119,63 @@ a {
   height: 185px;
   top: 112px;
 
-  // .themeTextBold {
-  //   width: 100%;
-  // }
+  @include mobile {
+   display: none;
+  }
 
   img {
     position: absolute;
     left: 0;
     width: 100%;
-    // margin-top: -100px;
+  }
+}
+
+.themeTextMobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+    position: relative;
+    top: 60px;
+    transform: scale(0.9);
+  }
+}
+
+// rightFooter
+.rightFooter {
+  display: flex;
+  gap: 0 20px;
+
+  @include mobile {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(#F9F6ED, 0.1);
+    padding-top: 27px;
+    margin-bottom: 27px;
+  }
+}
+
+.footerLinks {
+  display: flex;
+  gap: 0 10px;
+  color: #F7F0EC;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+
+  @include mobile {
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    justify-content: space-between;
+  }
+}
+
+
+// themeTextBold
+.themeTextBold {
+  @include mobile {
+    display: none;
   }
 }

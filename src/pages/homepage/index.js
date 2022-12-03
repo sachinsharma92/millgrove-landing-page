@@ -1,5 +1,6 @@
 import Layout from 'components/Layout'
 import React from 'react'
+import Footer from 'views/Footer'
 
 // Views Sections here
 import HeroSection from 'views/HeroSection/firstfold'
@@ -11,7 +12,7 @@ import ThreeDView from 'views/ThreeDView'
 
 export const HomePage = () => {
   return (
-    <Layout>
+    <Layout footer={false}>
       <div className='home-section'>
         <HeroSection />
         <Secondfold />
@@ -19,6 +20,7 @@ export const HomePage = () => {
         <HomeCarousel />
         <HomeCarouselMobile />
         <Reservation />
+        <Footer />
       </div>
     </Layout>
   )

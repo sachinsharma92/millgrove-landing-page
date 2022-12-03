@@ -1,6 +1,9 @@
 import styles from "./Footer.module.scss";
 import millGroveFooter from "../../assets/images/millglove-footer.svg"
 import millGroveFooterBold from "../../assets/images/millglove-footer-bold.svg"
+import millGroveFooterMobile from "../../assets/images/mobile-footer-logo.svg"
+
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,17 +12,26 @@ const Footer = () => {
         <img src={millGroveFooterBold} className={styles.themeTextBold} alt="" />
         <img src={millGroveFooter} alt="" />
       </div>
+      <div className={styles.themeTextMobile}>
+        <img src={millGroveFooterMobile} alt="" />
+      </div>
       <div className={styles.footerLinksWrapper}>
-        <p className={styles.spacedLinks}>
-          <span>Privacy Policy</span>
-          <span>Terms & Conditions</span>
-          <span>Cookies Policy</span>
-        </p>
+        <div className={styles.footerLinks}>
+          <Link to="/">Privacy Policy</Link>
+          <Link to="/">Terms & Conditions</Link>
+          <Link to="/">Cookies policy</Link>
+        </div>
         {/* <p>©MILLGROVE, 2022. 28.6063° N, 77.3856° E</p> */}
-        <p className={`${styles.spacedLinks} ${styles.haryanaLinks}`}>
-          <a href="https://google.com">www.haryanarera.gov.in</a>
-          <a href="https://google.com">HRERA2020A0009</a>
-        </p>
+        <div className={styles.rightFooter}>
+          <a
+            className="siteUrl"
+            href={"https://haryanarera.gov.in/"}
+            target="#blank"
+          >
+            www.haryanarera.gov.in
+          </a>
+          <span>HRERA2020A0009</span>
+        </div>
       </div>
     </div>
   );

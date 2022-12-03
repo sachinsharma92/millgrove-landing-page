@@ -7,11 +7,6 @@
   box-sizing: border-box;
   background-color: #9D7F63;
   padding: 51px 10px 30px;
-  display: none;
-
-  @include mobile {
-    display: block;
-  }
 
   .mg-first-fold-header {
     margin: 0px 0 30px;
