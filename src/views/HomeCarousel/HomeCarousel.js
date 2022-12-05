@@ -16,13 +16,6 @@ function HomeCarousel() {
         <a href="www.haryanarera.gov.in">www.haryanarera.gov.in</a>
         <div>HRERA2020A0009</div>
       </div>
-
-      {/* <div className="carousel-dots">
-        <div className="carousel-dots-first"></div>
-        <div className="carousel-dots-second"></div>
-        <div className="carousel-dots-third"></div>
-        <div className="carousel-dots-fourth"></div>
-      </div> */}
       <div className="slide1 slide-sec">
         <div className="slider-body">
           <div className="img-box">
@@ -42,7 +35,7 @@ function HomeCarousel() {
         </div>
       </div>
 
-      <div className="slide2 slide-sec">
+      {/* <div className="slide2 slide-sec">
         <div className="slider-body">
           <div className="img-box">
             <img src={carouselImg2} alt="" className="carousel-img" />
@@ -97,9 +90,7 @@ function HomeCarousel() {
             </div>
           </div>
         </div>
-      </div>
-
-
+      </div> */}
     </div>
   );
 }
