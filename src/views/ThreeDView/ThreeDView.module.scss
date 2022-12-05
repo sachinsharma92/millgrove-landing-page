@@ -54,6 +54,10 @@
   margin: auto;
   width: 85%;
 
+  @include desktop-lg {
+    max-width: 1440px;
+  }
+
   @include mobile {
     display: none;
   }

@@ -120,7 +120,7 @@
 
   &::before {
     position: absolute;
-    bottom: 0;
+    bottom: 24px;
     right: -25px;
     width: 71%;
     height: 78%;
@@ -140,6 +140,7 @@
   z-index: 2;
   margin-top: -50px;
   position: relative;
+  z-index: 2;
 
   @include mobile {
     width: 100%;

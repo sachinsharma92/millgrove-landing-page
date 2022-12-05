@@ -100,7 +100,6 @@ body {
   }
 }
 
-
 .second-fold-img {
   position: relative;
   z-index: 1;
@@ -112,17 +111,21 @@ body {
   border-radius: 2px;
   background-size: 100%;
   background-position: 50% 0px;
-  background-image: url('assets/images/second-fold-img.jpg');
+  background-image: url("assets/images/second-fold-img.jpg");
   background-repeat: no-repeat;
   margin-top: -300px;
   z-index: 9;
   position: relative;
 
+  @include desktop-lg {
+    max-width: 1440px;
+  }
+
   @include mobile {
     width: 100%;
     position: relative;
     height: 297px;
-    margin:0px 0 80px;
+    margin: 0px 0 80px;
     background-size: cover;
   }
 }
