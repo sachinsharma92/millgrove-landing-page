@@ -16,16 +16,6 @@
 
   .slide-sec {
     padding: 0 80px;
-  }
-
-  .slider-body {
-    display: flex;
-    gap: 0 59px;
-    position: relative;
-    padding-bottom: 179px;
-  }
-
-  .slide1 {
     position: relative;
 
     &::before {
@@ -39,6 +29,13 @@
       content: "";
       background: #9c7e61;
     }
+  }
+
+  .slider-body {
+    display: flex;
+    gap: 0 59px;
+    position: relative;
+    padding-bottom: 179px;
   }
 
   .img-box {
@@ -112,5 +109,22 @@
     letter-spacing: 0.01em;
     color: #9c7e61;
     margin-right: 20px;
+  }
+
+  #pinContainer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+  #slideContainer {
+    width: 400%; /* to contain 4 panels, each with 100% of window width */
+    height: 100%;
+  }
+  .panel {
+    height: 100vh;
+    width: 25%; /* relative to parent -> 25% of 400% = 100% of window width */
+    float: left;
   }
 }
